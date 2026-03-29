@@ -1,13 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.28)  28 MAR 2026 18:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.28)  29 MAR 2026 17:10
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/marti/Desktop/Computacion_Cientifica/Computacion-cientificA/informe_
-trabajo.tex
-
-(c:/Users/marti/Desktop/Computacion_Cientifica/Computacion-cientificA/informe_t
-rabajo.tex
+**./informe_trabajo.tex
+(informe_trabajo.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
 (C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -191,29 +187,31 @@ Overfull \hbox (14.58911pt too wide) in paragraph at lines 131--132
 IA (Tablas 2 y 3), \OT1/cmtt/m/n/12 final[]score
  []
 
-<Data/histograma_sexo_tabla2.png, id=12, 433.62pt x 325.215pt>
-File: Data/histograma_sexo_tabla2.png Graphic file (type png)
-<use Data/histograma_sexo_tabla2.png>
-Package pdftex.def Info: Data/histograma_sexo_tabla2.png  used on input line 14
-3.
-(pdftex.def)             Requested size: 118.39565pt x 88.79672pt.
-<Data/histograma_edad_tabla2.png, id=14, 578.16pt x 325.215pt>
-File: Data/histograma_edad_tabla2.png Graphic file (type png)
-<use Data/histograma_edad_tabla2.png>
-Package pdftex.def Info: Data/histograma_edad_tabla2.png  used on input line 14
-9.
-(pdftex.def)             Requested size: 157.86086pt x 88.79672pt.
-<Data/grafico_barras_tabla3_rubros.png, id=15, 722.7pt x 433.62pt>
-File: Data/grafico_barras_tabla3_rubros.png Graphic file (type png)
-<use Data/grafico_barras_tabla3_rubros.png>
-Package pdftex.def Info: Data/grafico_barras_tabla3_rubros.png  used on input l
-ine 157.
-(pdftex.def)             Requested size: 147.98904pt x 88.79343pt.
-<Data/output.png, id=16, 779.7933pt x 426.393pt>
-File: Data/output.png Graphic file (type png)
-<use Data/output.png>
-Package pdftex.def Info: Data/output.png  used on input line 163.
-(pdftex.def)             Requested size: 162.38118pt x 88.79044pt.
+<Data/grafico_barras_tabla2_total.png, id=12, 859.7721pt x 497.6994pt>
+File: Data/grafico_barras_tabla2_total.png Graphic file (type png)
+<use Data/grafico_barras_tabla2_total.png>
+Package pdftex.def Info: Data/grafico_barras_tabla2_total.png  used on input li
+ne 143.
+(pdftex.def)             Requested size: 153.38791pt x 88.79222pt.
+<Data/graficos_tabla2_edad_sexo.png, id=14, 860.013pt x 317.0244pt>
+File: Data/graficos_tabla2_edad_sexo.png Graphic file (type png)
+<use Data/graficos_tabla2_edad_sexo.png>
+Package pdftex.def Info: Data/graficos_tabla2_edad_sexo.png  used on input line
+ 149.
+(pdftex.def)             Requested size: 167.6953pt x 61.81708pt.
+<Data/grafico_barras_tabla3_total.png, id=15, 787.5021pt x 425.1885pt>
+File: Data/grafico_barras_tabla3_total.png Graphic file (type png)
+<use Data/grafico_barras_tabla3_total.png>
+Package pdftex.def Info: Data/grafico_barras_tabla3_total.png  used on input li
+ne 157.
+(pdftex.def)             Requested size: 164.45506pt x 88.79265pt.
+<Data/grafico_tabla3_aumento_nivel_educativo.png, id=16, 780.0342pt x 425.1885p
+t>
+File: Data/grafico_tabla3_aumento_nivel_educativo.png Graphic file (type png)
+<use Data/grafico_tabla3_aumento_nivel_educativo.png>
+Package pdftex.def Info: Data/grafico_tabla3_aumento_nivel_educativo.png  used 
+on input line 163.
+(pdftex.def)             Requested size: 162.89552pt x 88.79265pt.
 [3]
 Overfull \hbox (2.47649pt too wide) in paragraph at lines 174--175
 []\OT1/cmr/m/n/12 En particular, los gr^^Saficos muestran que en Tabla 2 la mue
@@ -221,9 +219,9 @@ stra se distribuye
  []
 
 
-Overfull \hbox (1.38013pt too wide) in paragraph at lines 174--175
-\OT1/cmr/m/n/12 presencia del grupo 60+ a~nos. En Tabla 3, el rubro \OT1/cmr/m/
-it/12 Aumento significativo/leve
+Overfull \hbox (12.10364pt too wide) in paragraph at lines 174--175
+\OT1/cmr/m/n/12 presencia del grupo 60+ a~nos. En Tabla 3, la categor^^S^^Pa \O
+T1/cmr/m/it/12 No usaba IA previamente
  []
 
 
@@ -238,8 +236,9 @@ Overfull \hbox (10.47084pt too wide) in paragraph at lines 180--181
 grando variables
  []
 
-[4 <./Data/histograma_sexo_tabla2.png> <./Data/histograma_edad_tabla2.png> <./D
-ata/grafico_barras_tabla3_rubros.png> <./Data/output.png>]
+[4 <./Data/grafico_barras_tabla2_total.png> <./Data/graficos_tabla2_edad_sexo.p
+ng> <./Data/grafico_barras_tabla3_total.png> <./Data/grafico_tabla3_aumento_niv
+el_educativo.png>]
 Overfull \hbox (5.30849pt too wide) in paragraph at lines 182--183
 \OT1/cmr/m/n/12 intensidad de uso de IA entre grupos, que sirve como base para 
 contrastes
@@ -270,13 +269,13 @@ L3 programming layer <2025-12-24>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2458 strings out of 467871
- 43558 string characters out of 5418376
+ 2456 strings out of 467871
+ 43624 string characters out of 5418376
  463599 words of memory out of 5000000
  31352 multiletter control sequences out of 15000+600000
  633434 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,15n,65p,660b,309s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,15n,65p,593b,309s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -285,7 +284,7 @@ pe1/public/amsfonts/cm/cmr17.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/marti/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/marti/AppData/Local/
 Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on informe_trabajo.pdf (5 pages, 277245 bytes).
+Output written on informe_trabajo.pdf (5 pages, 680499 bytes).
 PDF statistics:
  62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
