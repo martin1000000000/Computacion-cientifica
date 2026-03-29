@@ -1,0 +1,292 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.28)  29 MAR 2026 17:10
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./informe_trabajo.tex
+(informe_trabajo.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+)
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2025/12/11 v25.17 The multilingual framework for LuaLaTeX, pdfLa
+TeX and XeLaTeX
+\babel@savecnt=\count283
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input li
+ne 2068.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input li
+ne 2070.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input lin
+e 2072.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input lin
+e 2073.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) 
+on input line 2074.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) 
+on input line 2076.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
+on input line 2101.
+\U@D=\dimen149
+\l@unhyphenated=\language79
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count284
+Package babel Info: Configuration files are deprecated, as
+(babel)             they can break document portability.
+(babel)             Reported on input line 4196.
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+Package babel Info: You haven't specified a language as a class or package
+(babel)             option. I'll load 'nil'. Reported on input line 4255.
+Package babel Info: Importing font and identification data for nil
+(babel)             from babel-und-x-nil.ini. Reported on input line 4320.
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/generic/babel\nil.ldf
+Language: nil 2025/12/11 v25.17 Nil language
+\l@nil=\language80
+))
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+)
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen150
+\Gin@req@width=\dimen151
+)
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count285
+) (informe_trabajo.aux)
+\openout1 = `informe_trabajo.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count286
+\scratchdimen=\dimen152
+\scratchbox=\box53
+\nofMPsegments=\count287
+\nofMParguments=\count288
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count289
+\MPscratchDim=\dimen153
+\MPnumerator=\count290
+\makeMPintoPDFobject=\count291
+\everyMPtoPDFconversion=\toks21
+)
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 24.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 24.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 24.
+
+Overfull \hbox (16.77217pt too wide) in paragraph at lines 59--60
+\OT1/cmr/m/n/12 Este primer entregable presenta una propuesta de an^^Salisis so
+bre las consecuencias
+ []
+
+
+Overfull \hbox (6.62366pt too wide) in paragraph at lines 59--60
+\OT1/cmr/m/n/12 dimensiones: salud mental, educaci^^Son, privacidad y seguridad
+, y productividad
+ []
+
+
+Overfull \hbox (12.03146pt too wide) in paragraph at lines 61--62
+[]\OT1/cmr/bx/n/12 Palabras clave: \OT1/cmr/m/n/12 inteligencia artificial, con
+secuencias sociales, salud mental,
+ []
+
+[1
+
+{C:/Users/marti/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+Overfull \hbox (1.16678pt too wide) in paragraph at lines 85--86
+[]\OT1/cmr/m/n/12 Integraci^^Son y limpieza de datos de encuesta (Brookings) y 
+datos abiertos
+ []
+
+
+Overfull \hbox (44.78381pt too wide) in paragraph at lines 92--92
+[]\OT1/cmr/bx/n/17.28 Diagrama del problema en estudio y dimensiones 
+ []
+
+[2]
+Overfull \hbox (14.58911pt too wide) in paragraph at lines 131--132
+[]\OT1/cmr/bx/n/12 Educaci^^Son: \OT1/cmr/m/n/12 frecuencia y cambio de uso de 
+IA (Tablas 2 y 3), \OT1/cmtt/m/n/12 final[]score
+ []
+
+<Data/grafico_barras_tabla2_total.png, id=12, 859.7721pt x 497.6994pt>
+File: Data/grafico_barras_tabla2_total.png Graphic file (type png)
+<use Data/grafico_barras_tabla2_total.png>
+Package pdftex.def Info: Data/grafico_barras_tabla2_total.png  used on input li
+ne 143.
+(pdftex.def)             Requested size: 153.38791pt x 88.79222pt.
+<Data/graficos_tabla2_edad_sexo.png, id=14, 860.013pt x 317.0244pt>
+File: Data/graficos_tabla2_edad_sexo.png Graphic file (type png)
+<use Data/graficos_tabla2_edad_sexo.png>
+Package pdftex.def Info: Data/graficos_tabla2_edad_sexo.png  used on input line
+ 149.
+(pdftex.def)             Requested size: 167.6953pt x 61.81708pt.
+<Data/grafico_barras_tabla3_total.png, id=15, 787.5021pt x 425.1885pt>
+File: Data/grafico_barras_tabla3_total.png Graphic file (type png)
+<use Data/grafico_barras_tabla3_total.png>
+Package pdftex.def Info: Data/grafico_barras_tabla3_total.png  used on input li
+ne 157.
+(pdftex.def)             Requested size: 164.45506pt x 88.79265pt.
+<Data/grafico_tabla3_aumento_nivel_educativo.png, id=16, 780.0342pt x 425.1885p
+t>
+File: Data/grafico_tabla3_aumento_nivel_educativo.png Graphic file (type png)
+<use Data/grafico_tabla3_aumento_nivel_educativo.png>
+Package pdftex.def Info: Data/grafico_tabla3_aumento_nivel_educativo.png  used 
+on input line 163.
+(pdftex.def)             Requested size: 162.89552pt x 88.79265pt.
+[3]
+Overfull \hbox (2.47649pt too wide) in paragraph at lines 174--175
+[]\OT1/cmr/m/n/12 En particular, los gr^^Saficos muestran que en Tabla 2 la mue
+stra se distribuye
+ []
+
+
+Overfull \hbox (12.10364pt too wide) in paragraph at lines 174--175
+\OT1/cmr/m/n/12 presencia del grupo 60+ a~nos. En Tabla 3, la categor^^S^^Pa \O
+T1/cmr/m/it/12 No usaba IA previamente
+ []
+
+
+Overfull \hbox (22.90822pt too wide) in paragraph at lines 177--178
+\OT1/cmr/m/n/12 Los resultados preliminares se conectan directamente con las pr
+eguntas planteadas
+ []
+
+
+Overfull \hbox (10.47084pt too wide) in paragraph at lines 180--181
+\OT1/cmr/m/n/12 para el siguiente an^^Salisis usando el dataset de Kaggle, inte
+grando variables
+ []
+
+[4 <./Data/grafico_barras_tabla2_total.png> <./Data/graficos_tabla2_edad_sexo.p
+ng> <./Data/grafico_barras_tabla3_total.png> <./Data/grafico_tabla3_aumento_niv
+el_educativo.png>]
+Overfull \hbox (5.30849pt too wide) in paragraph at lines 182--183
+\OT1/cmr/m/n/12 intensidad de uso de IA entre grupos, que sirve como base para 
+contrastes
+ []
+
+
+Overfull \hbox (38.87054pt too wide) in paragraph at lines 188--189
+\OT1/cmr/m/n/12 en: https://www.brookings.edu/articles/how-are-americans-using-
+ai-evidence-
+ []
+
+
+Overfull \hbox (48.71027pt too wide) in paragraph at lines 189--190
+\OT1/cmr/m/n/12 Kaggle. Disponible en: https://www.kaggle.com/datasets/ardayavu
+zkeskin/the-
+ []
+
+
+Overfull \hbox (64.83371pt too wide) in paragraph at lines 190--191
+\OT1/cmr/m/n/12 Notebook. Disponible en: https://www.kaggle.com/code/abdullahma
+zari/learning-
+ []
+
+[5] (informe_trabajo.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 2456 strings out of 467871
+ 43624 string characters out of 5418376
+ 463599 words of memory out of 5000000
+ 31352 multiletter control sequences out of 15000+600000
+ 633434 words of font info for 59 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,15n,65p,593b,309s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
+1200.pk><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmr12.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmr17.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/marti/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/marti/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on informe_trabajo.pdf (5 pages, 680499 bytes).
+PDF statistics:
+ 62 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+
