@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.28)  29 MAR 2026 17:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.28)  30 MAR 2026 11:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -171,98 +171,123 @@ secuencias sociales, salud mental,
 [1
 
 {C:/Users/marti/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Overfull \hbox (1.16678pt too wide) in paragraph at lines 85--86
+Overfull \hbox (17.13327pt too wide) in paragraph at lines 68--69
+\OT1/cmr/m/n/12 como discriminaci^^Son algor^^S^^Ptmica, problemas de privacida
+d y menor transparencia
+ []
+
+
+Overfull \hbox (1.16678pt too wide) in paragraph at lines 89--90
 []\OT1/cmr/m/n/12 Integraci^^Son y limpieza de datos de encuesta (Brookings) y 
 datos abiertos
  []
 
-
-Overfull \hbox (44.78381pt too wide) in paragraph at lines 92--92
+[2]
+Overfull \hbox (44.78381pt too wide) in paragraph at lines 96--96
 []\OT1/cmr/bx/n/17.28 Diagrama del problema en estudio y dimensiones 
  []
 
-[2]
-Overfull \hbox (14.58911pt too wide) in paragraph at lines 131--132
+
+Overfull \hbox (14.58911pt too wide) in paragraph at lines 135--136
 []\OT1/cmr/bx/n/12 Educaci^^Son: \OT1/cmr/m/n/12 frecuencia y cambio de uso de 
 IA (Tablas 2 y 3), \OT1/cmtt/m/n/12 final[]score
  []
 
-<Data/grafico_barras_tabla2_total.png, id=12, 859.7721pt x 497.6994pt>
+[3]
+<Data/grafico_barras_tabla2_total.png, id=17, 859.7721pt x 497.6994pt>
 File: Data/grafico_barras_tabla2_total.png Graphic file (type png)
 <use Data/grafico_barras_tabla2_total.png>
 Package pdftex.def Info: Data/grafico_barras_tabla2_total.png  used on input li
-ne 143.
+ne 147.
 (pdftex.def)             Requested size: 153.38791pt x 88.79222pt.
-<Data/graficos_tabla2_edad_sexo.png, id=14, 860.013pt x 317.0244pt>
+<Data/graficos_tabla2_edad_sexo.png, id=19, 860.013pt x 317.0244pt>
 File: Data/graficos_tabla2_edad_sexo.png Graphic file (type png)
 <use Data/graficos_tabla2_edad_sexo.png>
 Package pdftex.def Info: Data/graficos_tabla2_edad_sexo.png  used on input line
- 149.
+ 153.
 (pdftex.def)             Requested size: 167.6953pt x 61.81708pt.
-<Data/grafico_barras_tabla3_total.png, id=15, 787.5021pt x 425.1885pt>
+<Data/grafico_barras_tabla3_total.png, id=20, 787.5021pt x 425.1885pt>
 File: Data/grafico_barras_tabla3_total.png Graphic file (type png)
 <use Data/grafico_barras_tabla3_total.png>
 Package pdftex.def Info: Data/grafico_barras_tabla3_total.png  used on input li
-ne 157.
+ne 161.
 (pdftex.def)             Requested size: 164.45506pt x 88.79265pt.
-<Data/grafico_tabla3_aumento_nivel_educativo.png, id=16, 780.0342pt x 425.1885p
+<Data/grafico_tabla3_aumento_nivel_educativo.png, id=21, 780.0342pt x 425.1885p
 t>
 File: Data/grafico_tabla3_aumento_nivel_educativo.png Graphic file (type png)
 <use Data/grafico_tabla3_aumento_nivel_educativo.png>
 Package pdftex.def Info: Data/grafico_tabla3_aumento_nivel_educativo.png  used 
-on input line 163.
+on input line 167.
 (pdftex.def)             Requested size: 162.89552pt x 88.79265pt.
-[3]
-Overfull \hbox (2.47649pt too wide) in paragraph at lines 174--175
+
+Overfull \hbox (2.47649pt too wide) in paragraph at lines 178--179
 []\OT1/cmr/m/n/12 En particular, los gr^^Saficos muestran que en Tabla 2 la mue
 stra se distribuye
  []
 
 
-Overfull \hbox (12.10364pt too wide) in paragraph at lines 174--175
+Overfull \hbox (12.10364pt too wide) in paragraph at lines 178--179
 \OT1/cmr/m/n/12 presencia del grupo 60+ a~nos. En Tabla 3, la categor^^S^^Pa \O
 T1/cmr/m/it/12 No usaba IA previamente
- []
-
-
-Overfull \hbox (22.90822pt too wide) in paragraph at lines 177--178
-\OT1/cmr/m/n/12 Los resultados preliminares se conectan directamente con las pr
-eguntas planteadas
- []
-
-
-Overfull \hbox (10.47084pt too wide) in paragraph at lines 180--181
-\OT1/cmr/m/n/12 para el siguiente an^^Salisis usando el dataset de Kaggle, inte
-grando variables
  []
 
 [4 <./Data/grafico_barras_tabla2_total.png> <./Data/graficos_tabla2_edad_sexo.p
 ng> <./Data/grafico_barras_tabla3_total.png> <./Data/grafico_tabla3_aumento_niv
 el_educativo.png>]
-Overfull \hbox (5.30849pt too wide) in paragraph at lines 182--183
+Overfull \hbox (22.90822pt too wide) in paragraph at lines 181--182
+\OT1/cmr/m/n/12 Los resultados preliminares se conectan directamente con las pr
+eguntas planteadas
+ []
+
+
+Overfull \hbox (10.47084pt too wide) in paragraph at lines 184--185
+\OT1/cmr/m/n/12 para el siguiente an^^Salisis usando el dataset de Kaggle, inte
+grando variables
+ []
+
+
+Overfull \hbox (5.30849pt too wide) in paragraph at lines 186--187
 \OT1/cmr/m/n/12 intensidad de uso de IA entre grupos, que sirve como base para 
 contrastes
  []
 
 
-Overfull \hbox (38.87054pt too wide) in paragraph at lines 188--189
+Overfull \hbox (38.87054pt too wide) in paragraph at lines 192--193
 \OT1/cmr/m/n/12 en: https://www.brookings.edu/articles/how-are-americans-using-
 ai-evidence-
  []
 
 
-Overfull \hbox (48.71027pt too wide) in paragraph at lines 189--190
+Overfull \hbox (48.71027pt too wide) in paragraph at lines 193--194
 \OT1/cmr/m/n/12 Kaggle. Disponible en: https://www.kaggle.com/datasets/ardayavu
 zkeskin/the-
  []
 
 
-Overfull \hbox (64.83371pt too wide) in paragraph at lines 190--191
+Overfull \hbox (64.83371pt too wide) in paragraph at lines 194--195
 \OT1/cmr/m/n/12 Notebook. Disponible en: https://www.kaggle.com/code/abdullahma
 zari/learning-
  []
 
-[5] (informe_trabajo.aux)
+
+Overfull \hbox (4.7959pt too wide) in paragraph at lines 195--196
+\OT1/cmr/m/n/12 en: https://doi.org/10.1186/s41239-024-00467-0 (consulta: 30-03
+-2026). 
+ []
+
+[5]
+Overfull \hbox (23.68182pt too wide) in paragraph at lines 196--197
+\OT1/cmr/m/it/12 Sociedad por su Mal Uso\OT1/cmr/m/n/12 . \OT1/cmr/m/it/12 Cien
+cia Latina Revista Cient^^S^^Pfica Multidisciplinar\OT1/cmr/m/n/12 ,
+ []
+
+
+Overfull \hbox (55.62074pt too wide) in paragraph at lines 196--197
+\OT1/cmr/m/n/12 8(1), 1966--1978 (2024). Disponible en: https://doi.org/10.3781
+1/cl[]rcm.v8i1.9596
+ []
+
+[6] (informe_trabajo.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -271,7 +296,7 @@ L3 programming layer <2025-12-24>
 Here is how much of TeX's memory you used:
  2456 strings out of 467871
  43624 string characters out of 5418376
- 463599 words of memory out of 5000000
+ 461599 words of memory out of 5000000
  31352 multiletter control sequences out of 15000+600000
  633434 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -284,9 +309,9 @@ pe1/public/amsfonts/cm/cmr17.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/marti/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/marti/AppData/Local/
 Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on informe_trabajo.pdf (5 pages, 680499 bytes).
+Output written on informe_trabajo.pdf (6 pages, 685204 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
+ 65 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
