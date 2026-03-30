@@ -1,9 +1,13 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.28)  30 MAR 2026 11:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.28)  30 MAR 2026 19:46
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**./informe_trabajo.tex
-(informe_trabajo.tex
+**c:/Users/marti/Desktop/Computacion_Cientifica/Computacion-cientificA/informe_
+trabajo.tex
+
+(c:/Users/marti/Desktop/Computacion_Cientifica/Computacion-cientificA/informe_t
+rabajo.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
 (C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -97,41 +101,182 @@ File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 \Gin@req@height=\dimen150
 \Gin@req@width=\dimen151
 )
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+ty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+))
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count285
+)
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count286
+)
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.s
+ty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\@linkdim=\dimen152
+\Hy@linkcounter=\count287
+\Hy@pagecounter=\count288
+ (C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count289
+ (C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4195.
+Package hyperref Info: Link nesting OFF on input line 4200.
+Package hyperref Info: Hyper index ON on input line 4203.
+Package hyperref Info: Plain pages OFF on input line 4210.
+Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4462.
+\c@Hy@tempcnt=\count290
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4801.
+\XeTeXLinkMargin=\dimen153
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count291
+\Field@Width=\dimen154
+\Fld@charsize=\dimen155
+Package hyperref Info: Hyper figures OFF on input line 6078.
+Package hyperref Info: Link nesting OFF on input line 6083.
+Package hyperref Info: Hyper index ON on input line 6086.
+Package hyperref Info: backreferencing OFF on input line 6093.
+Package hyperref Info: Link coloring OFF on input line 6098.
+Package hyperref Info: Link coloring with OCG OFF on input line 6103.
+Package hyperref Info: PDF/A mode OFF on input line 6108.
+\Hy@abspage=\count292
+\c@Item=\count293
+\c@Hfootnote=\count294
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
+\Fld@listcount=\count295
+\c@bookmark@seq@number=\count296
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+ounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+84.
+)
+\Hy@SectionHShift=\skip51
+)
+(C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/xurl\xurl.sty
+Package: xurl 2022/01/09 v 0.10 modify URL breaks
+)
 (C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count285
+\l__color_backend_stack_int=\count297
 ) (informe_trabajo.aux)
 \openout1 = `informe_trabajo.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
 
 (C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count286
-\scratchdimen=\dimen152
+\scratchcounter=\count298
+\scratchdimen=\dimen156
 \scratchbox=\box53
-\nofMPsegments=\count287
-\nofMParguments=\count288
+\nofMPsegments=\count299
+\nofMParguments=\count300
 \everyMPshowfont=\toks20
-\MPscratchCnt=\count289
-\MPscratchDim=\dimen153
-\MPnumerator=\count290
-\makeMPintoPDFobject=\count291
+\MPscratchCnt=\count301
+\MPscratchDim=\dimen157
+\MPnumerator=\count302
+\makeMPintoPDFobject=\count303
 \everyMPtoPDFconversion=\toks21
 )
 (C:\Users\marti\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -144,26 +289,31 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 24.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 24.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 24.
+Package hyperref Info: Link coloring OFF on input line 14.
+ (informe_trabajo.out) (informe_trabajo.out)
+\@outlinefile=\write3
+\openout3 = `informe_trabajo.out'.
 
-Overfull \hbox (16.77217pt too wide) in paragraph at lines 59--60
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 26.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 26.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 26.
+
+Overfull \hbox (16.77217pt too wide) in paragraph at lines 61--62
 \OT1/cmr/m/n/12 Este primer entregable presenta una propuesta de an^^Salisis so
 bre las consecuencias
  []
 
 
-Overfull \hbox (6.62366pt too wide) in paragraph at lines 59--60
+Overfull \hbox (6.62366pt too wide) in paragraph at lines 61--62
 \OT1/cmr/m/n/12 dimensiones: salud mental, educaci^^Son, privacidad y seguridad
 , y productividad
  []
 
 
-Overfull \hbox (12.03146pt too wide) in paragraph at lines 61--62
+Overfull \hbox (12.03146pt too wide) in paragraph at lines 63--64
 []\OT1/cmr/bx/n/12 Palabras clave: \OT1/cmr/m/n/12 inteligencia artificial, con
 secuencias sociales, salud mental,
  []
@@ -171,136 +321,120 @@ secuencias sociales, salud mental,
 [1
 
 {C:/Users/marti/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Overfull \hbox (17.13327pt too wide) in paragraph at lines 68--69
-\OT1/cmr/m/n/12 como discriminaci^^Son algor^^S^^Ptmica, problemas de privacida
-d y menor transparencia
+Overfull \hbox (0.55289pt too wide) in paragraph at lines 70--71
+\OT1/cmr/m/n/12 superar pruebas estandarizadas universitarias, lo que plantea d
+esaf^^S^^Pos directos
  []
 
-
-Overfull \hbox (1.16678pt too wide) in paragraph at lines 89--90
+[2]
+Overfull \hbox (1.16678pt too wide) in paragraph at lines 92--93
 []\OT1/cmr/m/n/12 Integraci^^Son y limpieza de datos de encuesta (Brookings) y 
 datos abiertos
  []
 
-[2]
-Overfull \hbox (44.78381pt too wide) in paragraph at lines 96--96
+
+Overfull \hbox (44.78381pt too wide) in paragraph at lines 99--99
 []\OT1/cmr/bx/n/17.28 Diagrama del problema en estudio y dimensiones 
  []
 
 
-Overfull \hbox (14.58911pt too wide) in paragraph at lines 135--136
+Overfull \hbox (14.58911pt too wide) in paragraph at lines 138--139
 []\OT1/cmr/bx/n/12 Educaci^^Son: \OT1/cmr/m/n/12 frecuencia y cambio de uso de 
 IA (Tablas 2 y 3), \OT1/cmtt/m/n/12 final[]score
  []
 
 [3]
-<Data/grafico_barras_tabla2_total.png, id=17, 859.7721pt x 497.6994pt>
+<Data/grafico_barras_tabla2_total.png, id=52, 859.7721pt x 497.6994pt>
 File: Data/grafico_barras_tabla2_total.png Graphic file (type png)
 <use Data/grafico_barras_tabla2_total.png>
 Package pdftex.def Info: Data/grafico_barras_tabla2_total.png  used on input li
-ne 147.
+ne 150.
 (pdftex.def)             Requested size: 153.38791pt x 88.79222pt.
-<Data/graficos_tabla2_edad_sexo.png, id=19, 860.013pt x 317.0244pt>
+<Data/graficos_tabla2_edad_sexo.png, id=54, 860.013pt x 317.0244pt>
 File: Data/graficos_tabla2_edad_sexo.png Graphic file (type png)
 <use Data/graficos_tabla2_edad_sexo.png>
 Package pdftex.def Info: Data/graficos_tabla2_edad_sexo.png  used on input line
- 153.
+ 156.
 (pdftex.def)             Requested size: 167.6953pt x 61.81708pt.
-<Data/grafico_barras_tabla3_total.png, id=20, 787.5021pt x 425.1885pt>
+<Data/grafico_barras_tabla3_total.png, id=55, 787.5021pt x 425.1885pt>
 File: Data/grafico_barras_tabla3_total.png Graphic file (type png)
 <use Data/grafico_barras_tabla3_total.png>
 Package pdftex.def Info: Data/grafico_barras_tabla3_total.png  used on input li
-ne 161.
+ne 164.
 (pdftex.def)             Requested size: 164.45506pt x 88.79265pt.
-<Data/grafico_tabla3_aumento_nivel_educativo.png, id=21, 780.0342pt x 425.1885p
+<Data/grafico_tabla3_aumento_nivel_educativo.png, id=56, 780.0342pt x 425.1885p
 t>
 File: Data/grafico_tabla3_aumento_nivel_educativo.png Graphic file (type png)
 <use Data/grafico_tabla3_aumento_nivel_educativo.png>
 Package pdftex.def Info: Data/grafico_tabla3_aumento_nivel_educativo.png  used 
-on input line 167.
+on input line 170.
 (pdftex.def)             Requested size: 162.89552pt x 88.79265pt.
-
-Overfull \hbox (2.47649pt too wide) in paragraph at lines 178--179
+ [4 <./Data/grafico_barras_tabla2_total.png> <./Data/graficos_tabla2_edad_sexo.
+png> <./Data/grafico_barras_tabla3_total.png> <./Data/grafico_tabla3_aumento_ni
+vel_educativo.png>]
+Overfull \hbox (2.47649pt too wide) in paragraph at lines 181--182
 []\OT1/cmr/m/n/12 En particular, los gr^^Saficos muestran que en Tabla 2 la mue
 stra se distribuye
  []
 
 
-Overfull \hbox (12.10364pt too wide) in paragraph at lines 178--179
+Overfull \hbox (12.10364pt too wide) in paragraph at lines 181--182
 \OT1/cmr/m/n/12 presencia del grupo 60+ a~nos. En Tabla 3, la categor^^S^^Pa \O
 T1/cmr/m/it/12 No usaba IA previamente
  []
 
-[4 <./Data/grafico_barras_tabla2_total.png> <./Data/graficos_tabla2_edad_sexo.p
-ng> <./Data/grafico_barras_tabla3_total.png> <./Data/grafico_tabla3_aumento_niv
-el_educativo.png>]
-Overfull \hbox (22.90822pt too wide) in paragraph at lines 181--182
+
+Overfull \hbox (22.90822pt too wide) in paragraph at lines 184--185
 \OT1/cmr/m/n/12 Los resultados preliminares se conectan directamente con las pr
 eguntas planteadas
  []
 
 
-Overfull \hbox (10.47084pt too wide) in paragraph at lines 184--185
+Overfull \hbox (10.47084pt too wide) in paragraph at lines 187--188
 \OT1/cmr/m/n/12 para el siguiente an^^Salisis usando el dataset de Kaggle, inte
 grando variables
  []
 
 
-Overfull \hbox (5.30849pt too wide) in paragraph at lines 186--187
+Overfull \hbox (5.30849pt too wide) in paragraph at lines 189--190
 \OT1/cmr/m/n/12 intensidad de uso de IA entre grupos, que sirve como base para 
 contrastes
  []
 
 
-Overfull \hbox (38.87054pt too wide) in paragraph at lines 192--193
+Overfull \hbox (38.87054pt too wide) in paragraph at lines 195--196
 \OT1/cmr/m/n/12 en: https://www.brookings.edu/articles/how-are-americans-using-
 ai-evidence-
  []
 
 
-Overfull \hbox (48.71027pt too wide) in paragraph at lines 193--194
+Overfull \hbox (48.71027pt too wide) in paragraph at lines 196--197
 \OT1/cmr/m/n/12 Kaggle. Disponible en: https://www.kaggle.com/datasets/ardayavu
 zkeskin/the-
  []
 
 
-Overfull \hbox (64.83371pt too wide) in paragraph at lines 194--195
-\OT1/cmr/m/n/12 Notebook. Disponible en: https://www.kaggle.com/code/abdullahma
-zari/learning-
+Overfull \hbox (53.43747pt too wide) in paragraph at lines 197--198
+\OT1/cmr/m/it/12 Models\OT1/cmr/m/n/12 . \OT1/cmr/m/it/12 arXiv \OT1/cmr/m/n/12
+ (2023). Disponible en: https://doi.org/10.48550/arXiv.2303.10130
  []
 
-
-Overfull \hbox (4.7959pt too wide) in paragraph at lines 195--196
-\OT1/cmr/m/n/12 en: https://doi.org/10.1186/s41239-024-00467-0 (consulta: 30-03
--2026). 
- []
-
-[5]
-Overfull \hbox (23.68182pt too wide) in paragraph at lines 196--197
-\OT1/cmr/m/it/12 Sociedad por su Mal Uso\OT1/cmr/m/n/12 . \OT1/cmr/m/it/12 Cien
-cia Latina Revista Cient^^S^^Pfica Multidisciplinar\OT1/cmr/m/n/12 ,
- []
-
-
-Overfull \hbox (55.62074pt too wide) in paragraph at lines 196--197
-\OT1/cmr/m/n/12 8(1), 1966--1978 (2024). Disponible en: https://doi.org/10.3781
-1/cl[]rcm.v8i1.9596
- []
-
-[6] (informe_trabajo.aux)
+[5] [6] (informe_trabajo.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
+Package rerunfilecheck Info: File `informe_trabajo.out' has not changed.
+(rerunfilecheck)             Checksum: 3C7C102B1909593AF32118780498E0DF;869.
  ) 
 Here is how much of TeX's memory you used:
- 2456 strings out of 467871
- 43624 string characters out of 5418376
- 461599 words of memory out of 5000000
- 31352 multiletter control sequences out of 15000+600000
+ 9590 strings out of 467871
+ 154223 string characters out of 5418376
+ 579119 words of memory out of 5000000
+ 38353 multiletter control sequences out of 15000+600000
  633434 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,15n,65p,593b,309s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,79p,660b,549s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -309,9 +443,9 @@ pe1/public/amsfonts/cm/cmr17.pfb><C:/Users/marti/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/marti/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/marti/AppData/Local/
 Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on informe_trabajo.pdf (6 pages, 685204 bytes).
+Output written on informe_trabajo.pdf (6 pages, 694188 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 123 PDF objects out of 1000 (max. 8388607)
+ 30 named destinations out of 1000 (max. 500000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

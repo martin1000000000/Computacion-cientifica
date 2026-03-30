@@ -3,6 +3,8 @@
 \usepackage{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
 
 \setlength{\parskip}{0.15em}
 \setlength{\textfloatsep}{5pt plus 1pt minus 1pt}
@@ -63,14 +65,15 @@ Este primer entregable presenta una propuesta de análisis sobre las consecuenci
 \section{Introducción}
 La expansión de herramientas de IA está modificando la forma en que las personas estudian, trabajan, se informan y toman decisiones. Sin embargo, existe incertidumbre sobre sus efectos concretos en la vida cotidiana y sobre qué grupos enfrentan mayores riesgos o beneficios.
 
-En línea con esta preocupación, evidencia reciente en educación superior sugiere que una mayor dependencia de IA puede asociarse con más estrés académico y con efectos negativos en el pensamiento crítico y la creatividad cuando su uso se vuelve problemático [4].
+Aunque la IA se ha difundido rápidamente, su adopción no ocurre de manera homogénea entre personas y contextos. Factores como edad, nivel educativo, hábitos de estudio y entorno laboral pueden condicionar tanto la intensidad de uso como la percepción de beneficios y riesgos. Por ello, analizar el fenómeno únicamente desde promedios generales puede ocultar diferencias relevantes para una interpretación social más precisa.
 
-De manera complementaria, estudios sobre gobernanza de IA advierten que la falta de marcos éticos y regulatorios puede agravar riesgos sociales como discriminación algorítmica, problemas de privacidad y menor transparencia en la toma de decisiones automatizadas [5].
+En línea con esta preocupación, evidencia reciente en educación superior en Estados Unidos muestra que herramientas como ChatGPT ya pueden superar pruebas estandarizadas universitarias, lo que plantea desafíos directos para la integridad académica y el rediseño de evaluaciones [4].
 
+De manera complementaria, estudios sobre gobernanza de IA en Estados Unidos muestran que la confianza institucional y las preocupaciones sobre privacidad y seguridad influyen de forma significativa en el apoyo a distintas aplicaciones de IA [5].
 
-En este contexto, este informe se limita a una etapa exploratoria: no busca cerrar conclusiones definitivas, sino establecer una estructura definida de trabajo para las siguientes entregas del curso.
+Además, reportes de adopción a gran escala muestran que el uso de IA presenta variaciones entre grupos demográficos y rubros de actividad, lo que refuerza la necesidad de comparar resultados por perfiles de usuarios [1]. A su vez, datasets abiertos sobre impacto social de la IA entregan variables de comportamiento y percepción que permiten complementar la evidencia de encuestas con un enfoque más amplio [2].
 
-En este trabajo se procedera a realizar un analisis complementario de los datos obtenidos a través de la encuesta realizada por Brookings [1], el dataset de Kaggle [2] y una revisión exploratoria del notebook de referencia [3], con el objetivo de responder a las siguientes preguntas iniciales:
+En este trabajo se procederá a realizar un análisis complementario de los datos obtenidos a través de la encuesta realizada por Brookings [1], el dataset de Kaggle [2] y evidencia reciente sobre impacto potencial de modelos de lenguaje en el mercado laboral de Estados Unidos [3], con el objetivo de responder a las siguientes preguntas iniciales:
 \begin{enumerate}
     \item ¿Existen diferencias significativas en exposición y uso de IA por edad, sexo y nivel educativo?
     \item ¿Cómo se relaciona la dependencia de IA con desempeño académico y autonomía de aprendizaje?
@@ -78,7 +81,7 @@ En este trabajo se procedera a realizar un analisis complementario de los datos 
     \item ¿Qué sectores o perfiles de personas podrían beneficiarse más de la IA en productividad y empleo, y cuáles podrían verse más afectados por automatización?
 \end{enumerate}
 
-Para poder abordar estas preguntas, utlizaremos distintos graficos con el fin de visualizar de forma mas clara los datos obtenidos, y asi poder obtener una mejor comprension de los mismos, y asi poder responder a las preguntas planteadas anteriormente.
+Para abordar estas preguntas, utilizaremos distintos gráficos con el fin de visualizar de forma más clara los datos obtenidos y facilitar una mejor comprensión de sus patrones, tendencias y posibles contrastes entre grupos.
 
 \section{Solución propuesta}
 La solución propuesta consiste en un pipeline de análisis preliminar en Python con tres etapas:
@@ -191,9 +194,9 @@ Los resultados preliminares se conectan directamente con las preguntas planteada
 \begin{enumerate}
     \item West, D., Allen, J., Wang, C., et al. \emph{How are Americans using AI? Evidence from a nationwide survey}. Brookings Institution. Disponible en: https://www.brookings.edu/articles/how-are-americans-using-ai-evidence-from-a-nationwide-survey/ (consulta: 28-03-2026).
     \item Arda Yavuz Keskin. \emph{The Impact of Artificial Intelligence on Society}. Kaggle. Disponible en: https://www.kaggle.com/datasets/ardayavuzkeskin/the-impact-of-artificial-intelligence-on-society (consulta: 28-03-2026).
-    \item Abdullah Mazari. \emph{Learning in the Age of AI: Myths and Facts}. Kaggle Notebook. Disponible en: https://www.kaggle.com/code/abdullahmazari/learning-in-the-age-of-ai-myths-and-facts/input (consulta: 28-03-2026).
-    \item Zhang, S., Zhao, X., Zhou, T. y Kim, J. H. \emph{Do you have AI dependency? The roles of academic self-efficacy, academic stress, and performance expectations on problematic AI usage behavior}. \emph{International Journal of Educational Technology in Higher Education}, 21, 34 (2024). Disponible en: https://doi.org/10.1186/s41239-024-00467-0 (consulta: 30-03-2026).
-    \item Loján Alvarado, H. P. y Cárdenas Villavicencio, O. E. \emph{Regulación del Manejo de la Inteligencia Artificial, Consecuencias y Daños a la Sociedad por su Mal Uso}. \emph{Ciencia Latina Revista Científica Multidisciplinar}, 8(1), 1966--1978 (2024). Disponible en: https://doi.org/10.37811/cl\_rcm.v8i1.9596 (consulta: 30-03-2026).
+    \item Eloundou, T., Manning, S., Mishkin, P. y Rock, D. \emph{GPTs are GPTs: An Early Look at the Labor Market Impact Potential of Large Language Models}. \emph{arXiv} (2023). Disponible en: https://doi.org/10.48550/arXiv.2303.10130 (consulta: 30-03-2026).
+    \item Geerling, W., Mateer, G. D., Wooten, J. y Damodaran, N. \emph{ChatGPT has Aced the Test of Understanding in College Economics: Now What?}. \emph{The American Economist}, 68(2) (2023). Disponible en: \url{https://journals.sagepub.com/doi/10.1177/05694345231169654}
+    \item Horowitz, M. C. y Kahn, L. \emph{What influences attitudes about artificial intelligence adoption: Evidence from U.S. local officials}. \emph{PLOS ONE}, 16(10), e0257732 (2021). Disponible en: \url{https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0257732}
 \end{enumerate}
 
 \end{document}
