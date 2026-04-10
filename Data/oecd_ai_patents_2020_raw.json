@@ -1,0 +1,3471 @@
+{
+  "meta": {
+    "schema": "https://raw.githubusercontent.com/sdmx-twg/sdmx-json/master/data-message/tools/schemas/2.0.0/sdmx-json-data-schema.json",
+    "id": "IREF027097",
+    "prepared": "2026-04-07T16:08:49Z",
+    "test": false,
+    "contentLanguages": [
+      "en",
+      "en-US"
+    ],
+    "sender": {
+      "id": "Disseminate_Final_DMZ",
+      "name": "unknown",
+      "names": {
+        "en-US": "unknown"
+      }
+    }
+  },
+  "data": {
+    "dataSets": [
+      {
+        "structure": 0,
+        "action": "Information",
+        "links": [
+          {
+            "urn": "urn:sdmx:org.sdmx.infomodel.datastructure.DataStructure=OECD.STI.PIE:DSD_PATENTS(1.0)",
+            "rel": "DataStructure"
+          }
+        ],
+        "annotations": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "dimensionGroupAttributes": {
+          "~:~:~:~:~:~:~:~:~:0:0:~": [
+            8
+          ],
+          "~:~:~:~:~:~:~:~:~:~:~:~": [
+            8
+          ],
+          "0:~:0:0:~:~:~:~:~:~:~:~": [
+            8
+          ],
+          "~:~:~:~:~:0:~:~:~:~:~:~": [
+            8
+          ],
+          "~:~:~:~:~:1:~:~:~:~:~:~": [
+            8
+          ]
+        },
+        "observations": {
+          "0:0:0:0:0:2:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:3:0:0:0:0:0:0": [
+            2,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:4:0:0:0:0:0:0": [
+            245.8798065185547,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:5:0:0:0:0:0:0": [
+            20.95829963684082,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:6:0:0:0:0:0:0": [
+            17.83329963684082,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:7:0:0:0:0:0:0": [
+            39.33330154418945,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:8:0:0:0:0:0:0": [
+            2,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:9:0:0:0:0:0:0": [
+            1.5,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:10:0:0:0:0:0:0": [
+            723.0833129882812,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:11:0:0:0:0:0:0": [
+            209.9241943359375,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:12:0:0:0:0:0:0": [
+            62,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:13:0:0:0:0:0:0": [
+            3,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:14:0:0:0:0:0:0": [
+            26.5,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:15:0:0:0:0:0:0": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:16:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:17:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:18:0:0:0:0:0:0": [
+            3,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:19:0:0:0:0:0:0": [
+            3623.22265625,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:20:0:0:0:0:0:0": [
+            191.8332977294922,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:21:0:0:0:0:0:0": [
+            9,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:22:0:0:0:0:0:0": [
+            126.4048004150391,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:23:0:0:0:0:0:0": [
+            103,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:24:0:0:0:0:0:0": [
+            19.31669998168945,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:25:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:26:0:0:0:0:0:0": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:27:0:0:0:0:0:0": [
+            9,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:28:0:0:0:0:0:0": [
+            3,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:29:0:0:0:0:0:0": [
+            6,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:30:0:0:0:0:0:0": [
+            6.5,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:31:0:0:0:0:0:0": [
+            120.25,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:32:0:0:0:0:0:0": [
+            0.5,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:33:0:0:0:0:0:0": [
+            4,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:34:0:0:0:0:0:0": [
+            2,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:35:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:36:0:0:0:0:0:0": [
+            1573.166748046875,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:37:0:0:0:0:0:0": [
+            1945.824951171875,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:38:0:0:0:0:0:0": [
+            44,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:0:0:0:0:0:0:0": [
+            120.3550033569336,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:39:0:0:0:0:0:0": [
+            80.44999694824219,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:40:0:0:0:0:0:0": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:41:0:0:0:0:0:0": [
+            94.25759887695312,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:42:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:43:0:0:0:0:0:0": [
+            12.5,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:44:0:0:0:0:0:0": [
+            25.90909957885742,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:45:0:0:0:0:0:0": [
+            0.25,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:46:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:47:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:48:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:49:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:50:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:51:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:52:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:53:0:0:0:0:0:0": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:54:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:55:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:56:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:57:0:0:0:0:0:0": [
+            5,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:58:0:0:0:0:0:0": [
+            1.600000023841858,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:59:0:0:0:0:0:0": [
+            2,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:60:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:61:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:62:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:63:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:64:0:0:0:0:0:0": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:65:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:66:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:67:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:68:0:0:0:0:0:0": [
+            117.4518966674805,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:69:0:0:0:0:0:0": [
+            31.5,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:70:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:71:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:72:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:73:0:0:0:0:0:0": [
+            0.25,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:74:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:75:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:76:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:77:0:0:0:0:0:0": [
+            2,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:78:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:79:0:0:0:0:0:0": [
+            2,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:80:0:0:0:0:0:0": [
+            2644.94482421875,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:81:0:0:0:0:0:0": [
+            40.83330154418945,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:82:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:83:0:0:0:0:0:0": [
+            10,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:84:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:85:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:86:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:87:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:88:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:89:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:90:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:91:0:0:0:0:0:0": [
+            9345.8369140625,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:92:0:0:0:0:0:0": [
+            1463.06591796875,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:93:0:0:0:0:0:0": [
+            12729,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:94:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:95:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:96:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:97:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:98:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:99:0:0:0:0:0:0": [
+            3,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:100:0:0:0:0:0:0": [
+            0.333299994468689,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:101:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:102:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:103:0:0:0:0:0:0": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "0:0:0:0:0:104:0:0:0:0:0:0": [
+            353.3333129882813,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    ],
+    "structures": [
+      {
+        "name": "Patents in OECD selected technologies",
+        "names": {
+          "en": "Patents in OECD selected technologies"
+        },
+        "description": "Patent counts by technology (including total patents, estimated total patents for latest years): EPO, USPTO, PCT and Patent Families indicators are presented for selected technology domains such as ICT, Artificial Intelligence, nanotechnology, biotechnology as well as environment-related and health-related technologies.",
+        "descriptions": {
+          "en": "Patent counts by technology (including total patents, estimated total patents for latest years): EPO, USPTO, PCT and Patent Families indicators are presented for selected technology domains such as ICT, Artificial Intelligence, nanotechnology, biotechnology as well as environment-related and health-related technologies."
+        },
+        "dimensions": {
+          "dataSet": [],
+          "series": [],
+          "observation": [
+            {
+              "id": "PATENT_AUTHORITIES",
+              "name": "Patent authorities",
+              "names": {
+                "en": "Patent authorities"
+              },
+              "keyPosition": 0,
+              "roles": [
+                "PATENT_AUTHORITIES"
+              ],
+              "values": [
+                {
+                  "id": "9P50_3",
+                  "order": 4,
+                  "name": "IP5 patent family",
+                  "names": {
+                    "en": "IP5 patent family"
+                  },
+                  "annotations": [
+                    9
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "FREQ",
+              "name": "Frequency of observation",
+              "names": {
+                "en": "Frequency of observation"
+              },
+              "keyPosition": 1,
+              "roles": [
+                "FREQ"
+              ],
+              "values": [
+                {
+                  "id": "A",
+                  "order": 0,
+                  "name": "Annual",
+                  "names": {
+                    "en": "Annual"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "MEASURE",
+              "name": "Measure",
+              "names": {
+                "en": "Measure"
+              },
+              "keyPosition": 2,
+              "roles": [
+                "MEASURE"
+              ],
+              "values": [
+                {
+                  "id": "PF",
+                  "order": 2,
+                  "name": "Patent families",
+                  "names": {
+                    "en": "Patent families"
+                  },
+                  "annotations": [
+                    10
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "UNIT_MEASURE",
+              "name": "Unit of measure",
+              "names": {
+                "en": "Unit of measure"
+              },
+              "keyPosition": 3,
+              "roles": [
+                "UNIT_MEASURE"
+              ],
+              "values": [
+                {
+                  "id": "PATN_FM",
+                  "order": 76,
+                  "name": "Sets of patents",
+                  "names": {
+                    "en": "Sets of patents"
+                  },
+                  "annotations": [
+                    11
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "DATE_TYPE",
+              "name": "Reference date type",
+              "names": {
+                "en": "Reference date type"
+              },
+              "keyPosition": 4,
+              "roles": [
+                "DATE_TYPE"
+              ],
+              "values": [
+                {
+                  "id": "PRIORITY",
+                  "order": 0,
+                  "name": "Priority date",
+                  "names": {
+                    "en": "Priority date"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "REF_AREA",
+              "name": "Reference area",
+              "names": {
+                "en": "Reference area"
+              },
+              "keyPosition": 5,
+              "roles": [
+                "REF_AREA"
+              ],
+              "values": [
+                {
+                  "id": "ISR",
+                  "order": 17,
+                  "name": "Israel",
+                  "names": {
+                    "en": "Israel"
+                  },
+                  "annotations": [
+                    12
+                  ]
+                },
+                {
+                  "id": "EU27",
+                  "order": 64,
+                  "name": "European Union (27 countries)",
+                  "names": {
+                    "en": "European Union (27 countries)"
+                  },
+                  "annotations": [
+                    13,
+                    14
+                  ]
+                },
+                {
+                  "id": "LKA",
+                  "order": 290,
+                  "name": "Sri Lanka",
+                  "names": {
+                    "en": "Sri Lanka"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    15
+                  ]
+                },
+                {
+                  "id": "ZAF",
+                  "order": 287,
+                  "name": "South Africa",
+                  "names": {
+                    "en": "South Africa"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    16
+                  ]
+                },
+                {
+                  "id": "CAN",
+                  "order": 3,
+                  "name": "Canada",
+                  "names": {
+                    "en": "Canada"
+                  },
+                  "annotations": [
+                    17
+                  ]
+                },
+                {
+                  "id": "BEL",
+                  "order": 2,
+                  "name": "Belgium",
+                  "names": {
+                    "en": "Belgium"
+                  },
+                  "annotations": [
+                    18
+                  ]
+                },
+                {
+                  "id": "AUT",
+                  "order": 1,
+                  "name": "Austria",
+                  "names": {
+                    "en": "Austria"
+                  },
+                  "annotations": [
+                    19
+                  ]
+                },
+                {
+                  "id": "AUS",
+                  "order": 0,
+                  "name": "Australia",
+                  "names": {
+                    "en": "Australia"
+                  },
+                  "annotations": [
+                    20
+                  ]
+                },
+                {
+                  "id": "HUN",
+                  "order": 14,
+                  "name": "Hungary",
+                  "names": {
+                    "en": "Hungary"
+                  },
+                  "annotations": [
+                    21
+                  ]
+                },
+                {
+                  "id": "GRC",
+                  "order": 13,
+                  "name": "Greece",
+                  "names": {
+                    "en": "Greece"
+                  },
+                  "annotations": [
+                    22
+                  ]
+                },
+                {
+                  "id": "DEU",
+                  "order": 12,
+                  "name": "Germany",
+                  "names": {
+                    "en": "Germany"
+                  },
+                  "annotations": [
+                    23
+                  ]
+                },
+                {
+                  "id": "FRA",
+                  "order": 11,
+                  "name": "France",
+                  "names": {
+                    "en": "France"
+                  },
+                  "annotations": [
+                    24
+                  ]
+                },
+                {
+                  "id": "FIN",
+                  "order": 10,
+                  "name": "Finland",
+                  "names": {
+                    "en": "Finland"
+                  },
+                  "annotations": [
+                    25
+                  ]
+                },
+                {
+                  "id": "EST",
+                  "order": 9,
+                  "name": "Estonia",
+                  "names": {
+                    "en": "Estonia"
+                  },
+                  "annotations": [
+                    26
+                  ]
+                },
+                {
+                  "id": "DNK",
+                  "order": 8,
+                  "name": "Denmark",
+                  "names": {
+                    "en": "Denmark"
+                  },
+                  "annotations": [
+                    27
+                  ]
+                },
+                {
+                  "id": "CZE",
+                  "order": 7,
+                  "name": "Czechia",
+                  "names": {
+                    "en": "Czechia"
+                  },
+                  "annotations": [
+                    28
+                  ]
+                },
+                {
+                  "id": "CRI",
+                  "order": 6,
+                  "name": "Costa Rica",
+                  "names": {
+                    "en": "Costa Rica"
+                  },
+                  "annotations": [
+                    29
+                  ]
+                },
+                {
+                  "id": "COL",
+                  "order": 5,
+                  "name": "Colombia",
+                  "names": {
+                    "en": "Colombia"
+                  },
+                  "annotations": [
+                    30
+                  ]
+                },
+                {
+                  "id": "CHL",
+                  "order": 4,
+                  "name": "Chile",
+                  "names": {
+                    "en": "Chile"
+                  },
+                  "annotations": [
+                    31
+                  ]
+                },
+                {
+                  "id": "USA",
+                  "order": 37,
+                  "name": "United States",
+                  "names": {
+                    "en": "United States"
+                  },
+                  "annotations": [
+                    32
+                  ]
+                },
+                {
+                  "id": "GBR",
+                  "order": 36,
+                  "name": "United Kingdom",
+                  "names": {
+                    "en": "United Kingdom"
+                  },
+                  "annotations": [
+                    33
+                  ]
+                },
+                {
+                  "id": "TUR",
+                  "order": 35,
+                  "name": "Türkiye",
+                  "names": {
+                    "en": "Türkiye"
+                  },
+                  "annotations": [
+                    34
+                  ]
+                },
+                {
+                  "id": "CHE",
+                  "order": 34,
+                  "name": "Switzerland",
+                  "names": {
+                    "en": "Switzerland"
+                  },
+                  "annotations": [
+                    35
+                  ]
+                },
+                {
+                  "id": "SWE",
+                  "order": 33,
+                  "name": "Sweden",
+                  "names": {
+                    "en": "Sweden"
+                  },
+                  "annotations": [
+                    36
+                  ]
+                },
+                {
+                  "id": "ESP",
+                  "order": 32,
+                  "name": "Spain",
+                  "names": {
+                    "en": "Spain"
+                  },
+                  "annotations": [
+                    37
+                  ]
+                },
+                {
+                  "id": "SVN",
+                  "order": 31,
+                  "name": "Slovenia",
+                  "names": {
+                    "en": "Slovenia"
+                  },
+                  "annotations": [
+                    38
+                  ]
+                },
+                {
+                  "id": "SVK",
+                  "order": 30,
+                  "name": "Slovak Republic",
+                  "names": {
+                    "en": "Slovak Republic"
+                  },
+                  "annotations": [
+                    39
+                  ]
+                },
+                {
+                  "id": "PRT",
+                  "order": 29,
+                  "name": "Portugal",
+                  "names": {
+                    "en": "Portugal"
+                  },
+                  "annotations": [
+                    40
+                  ]
+                },
+                {
+                  "id": "POL",
+                  "order": 28,
+                  "name": "Poland",
+                  "names": {
+                    "en": "Poland"
+                  },
+                  "annotations": [
+                    41
+                  ]
+                },
+                {
+                  "id": "NOR",
+                  "order": 27,
+                  "name": "Norway",
+                  "names": {
+                    "en": "Norway"
+                  },
+                  "annotations": [
+                    42
+                  ]
+                },
+                {
+                  "id": "NZL",
+                  "order": 26,
+                  "name": "New Zealand",
+                  "names": {
+                    "en": "New Zealand"
+                  },
+                  "annotations": [
+                    43
+                  ]
+                },
+                {
+                  "id": "NLD",
+                  "order": 25,
+                  "name": "Netherlands",
+                  "names": {
+                    "en": "Netherlands"
+                  },
+                  "annotations": [
+                    44
+                  ]
+                },
+                {
+                  "id": "MEX",
+                  "order": 24,
+                  "name": "Mexico",
+                  "names": {
+                    "en": "Mexico"
+                  },
+                  "annotations": [
+                    45
+                  ]
+                },
+                {
+                  "id": "LUX",
+                  "order": 23,
+                  "name": "Luxembourg",
+                  "names": {
+                    "en": "Luxembourg"
+                  },
+                  "annotations": [
+                    46
+                  ]
+                },
+                {
+                  "id": "LTU",
+                  "order": 22,
+                  "name": "Lithuania",
+                  "names": {
+                    "en": "Lithuania"
+                  },
+                  "annotations": [
+                    47
+                  ]
+                },
+                {
+                  "id": "LVA",
+                  "order": 21,
+                  "name": "Latvia",
+                  "names": {
+                    "en": "Latvia"
+                  },
+                  "annotations": [
+                    48
+                  ]
+                },
+                {
+                  "id": "KOR",
+                  "order": 20,
+                  "name": "Korea",
+                  "names": {
+                    "en": "Korea"
+                  },
+                  "annotations": [
+                    49
+                  ]
+                },
+                {
+                  "id": "JPN",
+                  "order": 19,
+                  "name": "Japan",
+                  "names": {
+                    "en": "Japan"
+                  },
+                  "annotations": [
+                    50
+                  ]
+                },
+                {
+                  "id": "ITA",
+                  "order": 18,
+                  "name": "Italy",
+                  "names": {
+                    "en": "Italy"
+                  },
+                  "annotations": [
+                    51
+                  ]
+                },
+                {
+                  "id": "IRL",
+                  "order": 16,
+                  "name": "Ireland",
+                  "names": {
+                    "en": "Ireland"
+                  },
+                  "annotations": [
+                    52
+                  ]
+                },
+                {
+                  "id": "ISL",
+                  "order": 15,
+                  "name": "Iceland",
+                  "names": {
+                    "en": "Iceland"
+                  },
+                  "annotations": [
+                    53
+                  ]
+                },
+                {
+                  "id": "SGP",
+                  "order": 283,
+                  "name": "Singapore",
+                  "names": {
+                    "en": "Singapore"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    54
+                  ]
+                },
+                {
+                  "id": "SYC",
+                  "order": 281,
+                  "name": "Seychelles",
+                  "names": {
+                    "en": "Seychelles"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    55
+                  ]
+                },
+                {
+                  "id": "SAU",
+                  "order": 278,
+                  "name": "Saudi Arabia",
+                  "names": {
+                    "en": "Saudi Arabia"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    56
+                  ]
+                },
+                {
+                  "id": "RUS",
+                  "order": 266,
+                  "name": "Russia",
+                  "names": {
+                    "en": "Russia"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    57
+                  ]
+                },
+                {
+                  "id": "ROU",
+                  "order": 265,
+                  "name": "Romania",
+                  "names": {
+                    "en": "Romania"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    58
+                  ]
+                },
+                {
+                  "id": "PRI",
+                  "order": 262,
+                  "name": "Puerto Rico",
+                  "names": {
+                    "en": "Puerto Rico"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    59
+                  ]
+                },
+                {
+                  "id": "PHL",
+                  "order": 260,
+                  "name": "Philippines",
+                  "names": {
+                    "en": "Philippines"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    60
+                  ]
+                },
+                {
+                  "id": "PER",
+                  "order": 259,
+                  "name": "Peru",
+                  "names": {
+                    "en": "Peru"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    61
+                  ]
+                },
+                {
+                  "id": "PAN",
+                  "order": 256,
+                  "name": "Panama",
+                  "names": {
+                    "en": "Panama"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    62
+                  ]
+                },
+                {
+                  "id": "PAK",
+                  "order": 253,
+                  "name": "Pakistan",
+                  "names": {
+                    "en": "Pakistan"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    63
+                  ]
+                },
+                {
+                  "id": "MKD",
+                  "order": 250,
+                  "name": "North Macedonia",
+                  "names": {
+                    "en": "North Macedonia"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    64
+                  ]
+                },
+                {
+                  "id": "NGA",
+                  "order": 247,
+                  "name": "Nigeria",
+                  "names": {
+                    "en": "Nigeria"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    65
+                  ]
+                },
+                {
+                  "id": "MAR",
+                  "order": 238,
+                  "name": "Morocco",
+                  "names": {
+                    "en": "Morocco"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    66
+                  ]
+                },
+                {
+                  "id": "MNG",
+                  "order": 235,
+                  "name": "Mongolia",
+                  "names": {
+                    "en": "Mongolia"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    67
+                  ]
+                },
+                {
+                  "id": "MCO",
+                  "order": 234,
+                  "name": "Monaco",
+                  "names": {
+                    "en": "Monaco"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    68
+                  ]
+                },
+                {
+                  "id": "MDA",
+                  "order": 233,
+                  "name": "Moldova",
+                  "names": {
+                    "en": "Moldova"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    69
+                  ]
+                },
+                {
+                  "id": "MLT",
+                  "order": 226,
+                  "name": "Malta",
+                  "names": {
+                    "en": "Malta"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    70
+                  ]
+                },
+                {
+                  "id": "MYS",
+                  "order": 223,
+                  "name": "Malaysia",
+                  "names": {
+                    "en": "Malaysia"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    71
+                  ]
+                },
+                {
+                  "id": "LIE",
+                  "order": 219,
+                  "name": "Liechtenstein",
+                  "names": {
+                    "en": "Liechtenstein"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    72
+                  ]
+                },
+                {
+                  "id": "LBN",
+                  "order": 215,
+                  "name": "Lebanon",
+                  "names": {
+                    "en": "Lebanon"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    73
+                  ]
+                },
+                {
+                  "id": "KWT",
+                  "order": 212,
+                  "name": "Kuwait",
+                  "names": {
+                    "en": "Kuwait"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    74
+                  ]
+                },
+                {
+                  "id": "KEN",
+                  "order": 209,
+                  "name": "Kenya",
+                  "names": {
+                    "en": "Kenya"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    75
+                  ]
+                },
+                {
+                  "id": "KAZ",
+                  "order": 208,
+                  "name": "Kazakhstan",
+                  "names": {
+                    "en": "Kazakhstan"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    76
+                  ]
+                },
+                {
+                  "id": "JOR",
+                  "order": 207,
+                  "name": "Jordan",
+                  "names": {
+                    "en": "Jordan"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    77
+                  ]
+                },
+                {
+                  "id": "JAM",
+                  "order": 205,
+                  "name": "Jamaica",
+                  "names": {
+                    "en": "Jamaica"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    78
+                  ]
+                },
+                {
+                  "id": "IRN",
+                  "order": 202,
+                  "name": "Iran",
+                  "names": {
+                    "en": "Iran"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    79
+                  ]
+                },
+                {
+                  "id": "IDN",
+                  "order": 201,
+                  "name": "Indonesia",
+                  "names": {
+                    "en": "Indonesia"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    80
+                  ]
+                },
+                {
+                  "id": "IND",
+                  "order": 200,
+                  "name": "India",
+                  "names": {
+                    "en": "India"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    81
+                  ]
+                },
+                {
+                  "id": "HKG",
+                  "order": 199,
+                  "name": "Hong Kong (China)",
+                  "names": {
+                    "en": "Hong Kong (China)"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    82
+                  ]
+                },
+                {
+                  "id": "GTM",
+                  "order": 191,
+                  "name": "Guatemala",
+                  "names": {
+                    "en": "Guatemala"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    83
+                  ]
+                },
+                {
+                  "id": "GEO",
+                  "order": 184,
+                  "name": "Georgia",
+                  "names": {
+                    "en": "Georgia"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    84
+                  ]
+                },
+                {
+                  "id": "SLV",
+                  "order": 171,
+                  "name": "El Salvador",
+                  "names": {
+                    "en": "El Salvador"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    85
+                  ]
+                },
+                {
+                  "id": "EGY",
+                  "order": 170,
+                  "name": "Egypt",
+                  "names": {
+                    "en": "Egypt"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    86
+                  ]
+                },
+                {
+                  "id": "ECU",
+                  "order": 169,
+                  "name": "Ecuador",
+                  "names": {
+                    "en": "Ecuador"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    87
+                  ]
+                },
+                {
+                  "id": "DJI",
+                  "order": 166,
+                  "name": "Djibouti",
+                  "names": {
+                    "en": "Djibouti"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    88
+                  ]
+                },
+                {
+                  "id": "PRK",
+                  "order": 164,
+                  "name": "Democratic People’s Republic of Korea",
+                  "names": {
+                    "en": "Democratic People’s Republic of Korea"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    89
+                  ]
+                },
+                {
+                  "id": "CYP",
+                  "order": 163,
+                  "name": "Cyprus",
+                  "names": {
+                    "en": "Cyprus"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    90
+                  ]
+                },
+                {
+                  "id": "CUB",
+                  "order": 161,
+                  "name": "Cuba",
+                  "names": {
+                    "en": "Cuba"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    91
+                  ]
+                },
+                {
+                  "id": "HRV",
+                  "order": 160,
+                  "name": "Croatia",
+                  "names": {
+                    "en": "Croatia"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    92
+                  ]
+                },
+                {
+                  "id": "CHN",
+                  "order": 153,
+                  "name": "China (People’s Republic of)",
+                  "names": {
+                    "en": "China (People’s Republic of)"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    93
+                  ]
+                },
+                {
+                  "id": "CYM",
+                  "order": 150,
+                  "name": "Cayman Islands",
+                  "names": {
+                    "en": "Cayman Islands"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    94
+                  ]
+                },
+                {
+                  "id": "BGR",
+                  "order": 144,
+                  "name": "Bulgaria",
+                  "names": {
+                    "en": "Bulgaria"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    95
+                  ]
+                },
+                {
+                  "id": "BRA",
+                  "order": 140,
+                  "name": "Brazil",
+                  "names": {
+                    "en": "Brazil"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    96
+                  ]
+                },
+                {
+                  "id": "BIH",
+                  "order": 137,
+                  "name": "Bosnia and Herzegovina",
+                  "names": {
+                    "en": "Bosnia and Herzegovina"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    97
+                  ]
+                },
+                {
+                  "id": "BMU",
+                  "order": 133,
+                  "name": "Bermuda",
+                  "names": {
+                    "en": "Bermuda"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    98
+                  ]
+                },
+                {
+                  "id": "BLR",
+                  "order": 130,
+                  "name": "Belarus",
+                  "names": {
+                    "en": "Belarus"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    99
+                  ]
+                },
+                {
+                  "id": "ARM",
+                  "order": 122,
+                  "name": "Armenia",
+                  "names": {
+                    "en": "Armenia"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    100
+                  ]
+                },
+                {
+                  "id": "ARG",
+                  "order": 121,
+                  "name": "Argentina",
+                  "names": {
+                    "en": "Argentina"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    101
+                  ]
+                },
+                {
+                  "id": "AND",
+                  "order": 117,
+                  "name": "Andorra",
+                  "names": {
+                    "en": "Andorra"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    102
+                  ]
+                },
+                {
+                  "id": "DZA",
+                  "order": 114,
+                  "name": "Algeria",
+                  "names": {
+                    "en": "Algeria"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    103
+                  ]
+                },
+                {
+                  "id": "OECD",
+                  "order": 79,
+                  "name": "OECD",
+                  "names": {
+                    "en": "OECD"
+                  },
+                  "annotations": [
+                    104
+                  ]
+                },
+                {
+                  "id": "EU27_2020",
+                  "order": 66,
+                  "name": "European Union (27 countries from 01/02/2020)",
+                  "names": {
+                    "en": "European Union (27 countries from 01/02/2020)"
+                  },
+                  "annotations": [
+                    105,
+                    106
+                  ]
+                },
+                {
+                  "id": "W",
+                  "order": 461,
+                  "name": "World",
+                  "names": {
+                    "en": "World"
+                  },
+                  "annotations": [
+                    107,
+                    108
+                  ]
+                },
+                {
+                  "id": "YUG_F",
+                  "order": 344,
+                  "name": "Former Yugoslavia",
+                  "names": {
+                    "en": "Former Yugoslavia"
+                  },
+                  "annotations": [
+                    109
+                  ]
+                },
+                {
+                  "id": "ZWE",
+                  "order": 322,
+                  "name": "Zimbabwe",
+                  "names": {
+                    "en": "Zimbabwe"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    110
+                  ]
+                },
+                {
+                  "id": "VEN",
+                  "order": 316,
+                  "name": "Venezuela",
+                  "names": {
+                    "en": "Venezuela"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    111
+                  ]
+                },
+                {
+                  "id": "UZB",
+                  "order": 314,
+                  "name": "Uzbekistan",
+                  "names": {
+                    "en": "Uzbekistan"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    112
+                  ]
+                },
+                {
+                  "id": "URY",
+                  "order": 313,
+                  "name": "Uruguay",
+                  "names": {
+                    "en": "Uruguay"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    113
+                  ]
+                },
+                {
+                  "id": "ARE",
+                  "order": 310,
+                  "name": "United Arab Emirates",
+                  "names": {
+                    "en": "United Arab Emirates"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    114
+                  ]
+                },
+                {
+                  "id": "UKR",
+                  "order": 309,
+                  "name": "Ukraine",
+                  "names": {
+                    "en": "Ukraine"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    115
+                  ]
+                },
+                {
+                  "id": "TUN",
+                  "order": 304,
+                  "name": "Tunisia",
+                  "names": {
+                    "en": "Tunisia"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    116
+                  ]
+                },
+                {
+                  "id": "TTO",
+                  "order": 303,
+                  "name": "Trinidad and Tobago",
+                  "names": {
+                    "en": "Trinidad and Tobago"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    117
+                  ]
+                },
+                {
+                  "id": "THA",
+                  "order": 298,
+                  "name": "Thailand",
+                  "names": {
+                    "en": "Thailand"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    118
+                  ]
+                },
+                {
+                  "id": "TWN",
+                  "order": 295,
+                  "name": "Chinese Taipei",
+                  "names": {
+                    "en": "Chinese Taipei"
+                  },
+                  "parent": "WXOECD",
+                  "parents": [
+                    "WXOECD"
+                  ],
+                  "annotations": [
+                    119
+                  ]
+                },
+                {
+                  "id": "WXOECD",
+                  "order": 99,
+                  "name": "Non-OECD economies",
+                  "names": {
+                    "en": "Non-OECD economies"
+                  },
+                  "annotations": [
+                    120
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "PARTNER_AREA",
+              "name": "Counterpart area",
+              "names": {
+                "en": "Counterpart area"
+              },
+              "keyPosition": 6,
+              "roles": [
+                "PARTNER_AREA"
+              ],
+              "values": [
+                {
+                  "id": "_Z",
+                  "order": 468,
+                  "name": "Not applicable",
+                  "names": {
+                    "en": "Not applicable"
+                  },
+                  "annotations": [
+                    121
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "AGENT_ROLE",
+              "name": "Agent role",
+              "names": {
+                "en": "Agent role"
+              },
+              "keyPosition": 7,
+              "roles": [
+                "AGENT_ROLE"
+              ],
+              "values": [
+                {
+                  "id": "APPLICANT",
+                  "order": 1,
+                  "name": "Applicant",
+                  "names": {
+                    "en": "Applicant"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "COOPERATION_TYPE",
+              "name": "Cooperation type",
+              "names": {
+                "en": "Cooperation type"
+              },
+              "keyPosition": 8,
+              "roles": [
+                "COOPERATION_TYPE"
+              ],
+              "values": [
+                {
+                  "id": "_Z",
+                  "order": 3,
+                  "name": "Not applicable",
+                  "names": {
+                    "en": "Not applicable"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "WIPO",
+              "name": "World Intellectual Property Organization domains",
+              "names": {
+                "en": "World Intellectual Property Organization domains"
+              },
+              "keyPosition": 9,
+              "roles": [
+                "WIPO"
+              ],
+              "values": [
+                {
+                  "id": "_Z",
+                  "order": 36,
+                  "name": "Not applicable",
+                  "names": {
+                    "en": "Not applicable"
+                  },
+                  "annotations": [
+                    122
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "OECD_TECHNOLOGY_PATENT",
+              "name": "Selected OECD technology domains",
+              "names": {
+                "en": "Selected OECD technology domains"
+              },
+              "keyPosition": 10,
+              "roles": [
+                "OECD_TECHNOLOGY_PATENT"
+              ],
+              "values": [
+                {
+                  "id": "AI",
+                  "order": 5,
+                  "name": "Technologies related to artificial intelligence",
+                  "names": {
+                    "en": "Technologies related to artificial intelligence"
+                  },
+                  "parent": "_T",
+                  "parents": [
+                    "_T"
+                  ],
+                  "annotations": [
+                    123
+                  ]
+                },
+                {
+                  "id": "_T",
+                  "order": 0,
+                  "name": "Total patents",
+                  "names": {
+                    "en": "Total patents"
+                  },
+                  "annotations": [
+                    124
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "TIME_PERIOD",
+              "name": "Time period",
+              "names": {
+                "en": "Time period"
+              },
+              "keyPosition": 11,
+              "roles": [
+                "TIME_PERIOD"
+              ],
+              "values": [
+                {
+                  "start": "2020-01-01T00:00:00",
+                  "end": "2020-12-31T23:59:59",
+                  "id": "2020",
+                  "name": "2020",
+                  "names": {
+                    "en-US": "2020"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "attributes": {
+          "dataSet": [],
+          "dimensionGroup": [],
+          "series": [],
+          "observation": [
+            {
+              "id": "OBS_STATUS",
+              "name": "Observation status",
+              "names": {
+                "en": "Observation status"
+              },
+              "roles": [
+                "OBS_STATUS"
+              ],
+              "relationship": {
+                "observation": {}
+              },
+              "values": [
+                {
+                  "id": "A",
+                  "order": 0,
+                  "name": "Normal value",
+                  "names": {
+                    "en": "Normal value"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "DECIMALS",
+              "name": "Decimals",
+              "names": {
+                "en": "Decimals"
+              },
+              "roles": [
+                "DECIMALS"
+              ],
+              "relationship": {
+                "dimensions": [
+                  "PATENT_AUTHORITIES",
+                  "FREQ",
+                  "MEASURE",
+                  "UNIT_MEASURE",
+                  "DATE_TYPE",
+                  "REF_AREA",
+                  "PARTNER_AREA",
+                  "AGENT_ROLE",
+                  "COOPERATION_TYPE",
+                  "WIPO",
+                  "OECD_TECHNOLOGY_PATENT"
+                ]
+              },
+              "values": [
+                {
+                  "id": "1",
+                  "order": 1,
+                  "name": "One",
+                  "names": {
+                    "en": "One"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "UNIT_MULT",
+              "name": "Unit multiplier",
+              "names": {
+                "en": "Unit multiplier"
+              },
+              "roles": [
+                "UNIT_MULT"
+              ],
+              "relationship": {
+                "dimensions": [
+                  "PATENT_AUTHORITIES",
+                  "FREQ",
+                  "MEASURE",
+                  "UNIT_MEASURE",
+                  "DATE_TYPE",
+                  "REF_AREA",
+                  "PARTNER_AREA",
+                  "AGENT_ROLE",
+                  "COOPERATION_TYPE",
+                  "WIPO",
+                  "OECD_TECHNOLOGY_PATENT"
+                ]
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "order": 0,
+                  "name": "Units",
+                  "names": {
+                    "en": "Units"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "annotations": [
+          {
+            "type": "NonProductionDataflow",
+            "text": "true",
+            "texts": {
+              "en": "true"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "title": "REF_AREA",
+            "type": "LAYOUT_ROW"
+          },
+          {
+            "id": "@SDMX",
+            "title": "TIME_PERIOD,PATENT_AUTHORITIES,MEASURE,UNIT_MEASURE,AGENT_ROLE,DATE_TYPE",
+            "type": "LAYOUT_COLUMN"
+          },
+          {
+            "id": "@SDMX",
+            "title": "OECD_TECHNOLOGY_PATENT",
+            "type": "LAYOUT_ROW_SECTION"
+          },
+          {
+            "id": "@SDMX",
+            "title": "OBS_STATUS=A,FREQ,OBS_VALUE,DECIMALS,UNIT_MULT,WIPO=_Z,OECD_TECHNOLOGY_PATENT=_Z",
+            "type": "NOT_DISPLAYED"
+          },
+          {
+            "id": "@SDMX",
+            "title": "TIME_PERIOD_START=2020,TIME_PERIOD_END=2021,AGENT_ROLE=INVENTOR,DATE_TYPE=PRIORITY,OECD_TECHNOLOGY_PATENT=_T",
+            "type": "DEFAULT"
+          },
+          {
+            "title": "COMBINED_UNIT_MEASURE:UNIT_MEASURE,UNIT_MULT",
+            "type": "COMBINED_CONCEPTS",
+            "text": "COMBINED_UNIT_MEASURE:Combined unit of measure",
+            "texts": {
+              "en": "COMBINED_UNIT_MEASURE:Combined unit of measure"
+            }
+          },
+          {
+            "title": "urn:sdmx:org.sdmx.infomodel.metadatastructure.MetadataStructure=OECD:MSD_REF_METADATA(1.0)",
+            "type": "METADATA"
+          },
+          {
+            "type": "HAS_METADATA"
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "50",
+            "texts": {
+              "en": "50"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "30",
+            "texts": {
+              "en": "30"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "770",
+            "texts": {
+              "en": "770"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "180",
+            "texts": {
+              "en": "180"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "title": "BEL+FRA+DEU+ITA+LUX+NLD+GBR+DNK+IRL+GRC+PRT+ESP+AUT+FIN+SWE+HUN+CYP+CZE+EST+LVA+LTU+MLT+POL+SVK+SVN+BGR+ROU",
+            "type": "COMP_RULE"
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "650",
+            "texts": {
+              "en": "650"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2910",
+            "texts": {
+              "en": "2910"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2880",
+            "texts": {
+              "en": "2880"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "40",
+            "texts": {
+              "en": "40"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "30",
+            "texts": {
+              "en": "30"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "20",
+            "texts": {
+              "en": "20"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "10",
+            "texts": {
+              "en": "10"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "150",
+            "texts": {
+              "en": "150"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "140",
+            "texts": {
+              "en": "140"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "130",
+            "texts": {
+              "en": "130"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "120",
+            "texts": {
+              "en": "120"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "110",
+            "texts": {
+              "en": "110"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "100",
+            "texts": {
+              "en": "100"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "90",
+            "texts": {
+              "en": "90"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "80",
+            "texts": {
+              "en": "80"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "70",
+            "texts": {
+              "en": "70"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "60",
+            "texts": {
+              "en": "60"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "50",
+            "texts": {
+              "en": "50"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "380",
+            "texts": {
+              "en": "380"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "370",
+            "texts": {
+              "en": "370"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "360",
+            "texts": {
+              "en": "360"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "350",
+            "texts": {
+              "en": "350"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "340",
+            "texts": {
+              "en": "340"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "330",
+            "texts": {
+              "en": "330"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "320",
+            "texts": {
+              "en": "320"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "310",
+            "texts": {
+              "en": "310"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "300",
+            "texts": {
+              "en": "300"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "290",
+            "texts": {
+              "en": "290"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "280",
+            "texts": {
+              "en": "280"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "270",
+            "texts": {
+              "en": "270"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "260",
+            "texts": {
+              "en": "260"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "250",
+            "texts": {
+              "en": "250"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "240",
+            "texts": {
+              "en": "240"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "230",
+            "texts": {
+              "en": "230"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "220",
+            "texts": {
+              "en": "220"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "210",
+            "texts": {
+              "en": "210"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "200",
+            "texts": {
+              "en": "200"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "190",
+            "texts": {
+              "en": "190"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "170",
+            "texts": {
+              "en": "170"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "160",
+            "texts": {
+              "en": "160"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2840",
+            "texts": {
+              "en": "2840"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2820",
+            "texts": {
+              "en": "2820"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2790",
+            "texts": {
+              "en": "2790"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2670",
+            "texts": {
+              "en": "2670"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2660",
+            "texts": {
+              "en": "2660"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2630",
+            "texts": {
+              "en": "2630"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2610",
+            "texts": {
+              "en": "2610"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2600",
+            "texts": {
+              "en": "2600"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2570",
+            "texts": {
+              "en": "2570"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2540",
+            "texts": {
+              "en": "2540"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2510",
+            "texts": {
+              "en": "2510"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2480",
+            "texts": {
+              "en": "2480"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2390",
+            "texts": {
+              "en": "2390"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2360",
+            "texts": {
+              "en": "2360"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2350",
+            "texts": {
+              "en": "2350"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2340",
+            "texts": {
+              "en": "2340"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2270",
+            "texts": {
+              "en": "2270"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2240",
+            "texts": {
+              "en": "2240"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2200",
+            "texts": {
+              "en": "2200"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2160",
+            "texts": {
+              "en": "2160"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2130",
+            "texts": {
+              "en": "2130"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2100",
+            "texts": {
+              "en": "2100"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2090",
+            "texts": {
+              "en": "2090"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2080",
+            "texts": {
+              "en": "2080"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2060",
+            "texts": {
+              "en": "2060"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2030",
+            "texts": {
+              "en": "2030"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2020",
+            "texts": {
+              "en": "2020"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2010",
+            "texts": {
+              "en": "2010"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2000",
+            "texts": {
+              "en": "2000"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1920",
+            "texts": {
+              "en": "1920"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1850",
+            "texts": {
+              "en": "1850"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1720",
+            "texts": {
+              "en": "1720"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1710",
+            "texts": {
+              "en": "1710"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1700",
+            "texts": {
+              "en": "1700"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1670",
+            "texts": {
+              "en": "1670"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1650",
+            "texts": {
+              "en": "1650"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1640",
+            "texts": {
+              "en": "1640"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1620",
+            "texts": {
+              "en": "1620"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1610",
+            "texts": {
+              "en": "1610"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1540",
+            "texts": {
+              "en": "1540"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1510",
+            "texts": {
+              "en": "1510"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1450",
+            "texts": {
+              "en": "1450"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1410",
+            "texts": {
+              "en": "1410"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1380",
+            "texts": {
+              "en": "1380"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1340",
+            "texts": {
+              "en": "1340"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1310",
+            "texts": {
+              "en": "1310"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1230",
+            "texts": {
+              "en": "1230"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1220",
+            "texts": {
+              "en": "1220"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1180",
+            "texts": {
+              "en": "1180"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1150",
+            "texts": {
+              "en": "1150"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "800",
+            "texts": {
+              "en": "800"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "title": "BEL+FRA+DEU+ITA+LUX+NLD+DNK+IRL+GRC+PRT+ESP+AUT+FIN+SWE+HUN+CYP+CZE+EST+LVA+LTU+MLT+POL+SVK+SVN+BGR+ROU+HRV",
+            "type": "COMP_RULE"
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "670",
+            "texts": {
+              "en": "670"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "title": "A+F+E+O+S+ATA+W_X+W_O",
+            "type": "COMP_RULE"
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "4620",
+            "texts": {
+              "en": "4620"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "3450",
+            "texts": {
+              "en": "3450"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "3230",
+            "texts": {
+              "en": "3230"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "3170",
+            "texts": {
+              "en": "3170"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "3150",
+            "texts": {
+              "en": "3150"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "3140",
+            "texts": {
+              "en": "3140"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "3110",
+            "texts": {
+              "en": "3110"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "3100",
+            "texts": {
+              "en": "3100"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "3050",
+            "texts": {
+              "en": "3050"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "3040",
+            "texts": {
+              "en": "3040"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2990",
+            "texts": {
+              "en": "2990"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "2960",
+            "texts": {
+              "en": "2960"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "1000",
+            "texts": {
+              "en": "1000"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "4690",
+            "texts": {
+              "en": "4690"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "370",
+            "texts": {
+              "en": "370"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "60",
+            "texts": {
+              "en": "60"
+            }
+          },
+          {
+            "id": "@SDMX",
+            "type": "ORDER",
+            "text": "10",
+            "texts": {
+              "en": "10"
+            }
+          }
+        ],
+        "dataSets": [
+          0
+        ]
+      }
+    ]
+  },
+  "errors": []
+}
