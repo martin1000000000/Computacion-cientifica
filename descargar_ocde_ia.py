@@ -47,6 +47,10 @@ MAX_DESCARGAS_POR_EJECUCION = 15
 MAX_REINTENTOS = 3
 TIMEOUT = 60
 
+# Control de salida para evitar archivos gigantes y errores por espacio.
+MAX_FILAS_JSON_LIMPIO = 1_000_000
+GUARDAR_JSON_LIMPIO_COMPRIMIDO = True
+
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Python-OECD/1.0",
     "Accept": "application/vnd.sdmx.data+json;version=2.0.0",
@@ -330,6 +334,53 @@ def parsear_sdmx_json(payload: dict) -> pd.DataFrame:
     return df
 
 
+def guardar_json_limpio_seguro(df: pd.DataFrame, safe_id: str) -> tuple[str | None, str]:
+    """
+    Guarda JSON limpio de forma segura para evitar caídas por archivos muy grandes
+    o falta de espacio en disco.
+    """
+    n_filas = len(df)
+
+    if n_filas > MAX_FILAS_JSON_LIMPIO:
+        log.warning(
+            "   ⚠️  JSON limpio omitido: "
+            f"{n_filas:,} filas supera el límite ({MAX_FILAS_JSON_LIMPIO:,})."
+        )
+        return None, "omitido_tamano"
+
+    try:
+        if GUARDAR_JSON_LIMPIO_COMPRIMIDO:
+            json_path = DATA_DIR / f"{safe_id}_clean.json.gz"
+            df.to_json(
+                path_or_buf=str(json_path),
+                orient="records",
+                force_ascii=False,
+                compression="gzip",
+            )
+        else:
+            json_path = DATA_DIR / f"{safe_id}_clean.json"
+            df.to_json(
+                path_or_buf=str(json_path),
+                orient="records",
+                force_ascii=False,
+            )
+
+        log.info(f"   📄 JSON → {json_path.name}")
+        return json_path.name, "ok"
+
+    except OSError as e:
+        if e.errno == 28:
+            log.error("   ❌ Sin espacio al guardar JSON limpio. Se mantiene solo CSV.")
+            return None, "sin_espacio"
+
+        log.warning(f"   ⚠️  OSError guardando JSON limpio: {e}")
+        return None, "error_os"
+
+    except Exception as e:
+        log.warning(f"   ⚠️  No se pudo guardar JSON limpio: {e}")
+        return None, "error"
+
+
 # ─────────────────────────────────────────────────────────────
 # FUNCIÓN PRINCIPAL
 # ─────────────────────────────────────────────────────────────
@@ -434,11 +485,19 @@ def main():
         else:
             # Guardar JSON crudo
             raw_path = DATA_DIR / f"{safe_id}_raw.json"
-            raw_path.write_text(
-                json.dumps(payload, ensure_ascii=False, indent=2),
-                encoding="utf-8",
-            )
-            log.info(f"   💾 JSON crudo → {raw_path.name}")
+            raw_name = None
+            try:
+                raw_path.write_text(
+                    json.dumps(payload, ensure_ascii=False, indent=2),
+                    encoding="utf-8",
+                )
+                raw_name = raw_path.name
+                log.info(f"   💾 JSON crudo → {raw_name}")
+            except OSError as e:
+                if e.errno == 28:
+                    log.error("   ❌ Sin espacio al guardar JSON crudo. Se continúa.")
+                else:
+                    log.warning(f"   ⚠️  No se pudo guardar JSON crudo: {e}")
 
             # Parsear a DataFrame
             df = parsear_sdmx_json(payload)
@@ -451,21 +510,37 @@ def main():
                     "dataflow": df_info["dataflow_id"],
                     "fecha": datetime.now().isoformat(),
                     "estado": "vacio",
-                    "archivo_raw": raw_path.name,
                 }
+                if raw_name:
+                    ya_descargados[clave]["archivo_raw"] = raw_name
             else:
                 # CSV limpio
                 csv_path = DATA_DIR / f"{safe_id}_clean.csv"
-                df.to_csv(csv_path, index=False, encoding="utf-8-sig")
-                log.info(f"   📊 CSV  → {csv_path.name} ({len(df):,} filas)")
+                try:
+                    df.to_csv(csv_path, index=False, encoding="utf-8-sig")
+                    log.info(f"   📊 CSV  → {csv_path.name} ({len(df):,} filas)")
+                except OSError as e:
+                    if e.errno == 28:
+                        log.error("   ❌ Sin espacio al guardar CSV. Dataset marcado con error.")
+                    else:
+                        log.warning(f"   ⚠️  No se pudo guardar CSV: {e}")
 
-                # JSON limpio
-                json_path = DATA_DIR / f"{safe_id}_clean.json"
-                json_path.write_text(
-                    df.to_json(orient="records", force_ascii=False, indent=2),
-                    encoding="utf-8",
-                )
-                log.info(f"   📄 JSON → {json_path.name}")
+                    ya_descargados[clave] = {
+                        "nombre": df_info["nombre"],
+                        "agencia": df_info["agencia"],
+                        "dataflow": df_info["dataflow_id"],
+                        "fecha": datetime.now().isoformat(),
+                        "estado": "error_guardado",
+                        "registros": len(df),
+                        "columnas": list(df.columns),
+                    }
+                    if raw_name:
+                        ya_descargados[clave]["archivo_raw"] = raw_name
+                    guardar_estado(estado)
+                    continue
+
+                # JSON limpio (con límites y compresión)
+                archivo_json, json_estado = guardar_json_limpio_seguro(df, safe_id)
 
                 ya_descargados[clave] = {
                     "nombre": df_info["nombre"],
@@ -476,9 +551,12 @@ def main():
                     "registros": len(df),
                     "columnas": list(df.columns),
                     "archivo_csv": csv_path.name,
-                    "archivo_json": json_path.name,
-                    "archivo_raw": raw_path.name,
+                    "json_estado": json_estado,
                 }
+                if archivo_json:
+                    ya_descargados[clave]["archivo_json"] = archivo_json
+                if raw_name:
+                    ya_descargados[clave]["archivo_raw"] = raw_name
 
             guardar_estado(estado)
 
