@@ -12,4 +12,6 @@
 *.toc
 *.xlsx
 *graficos_api_ocde
-*Data/ocde_ia
+*json
+*Data
+git

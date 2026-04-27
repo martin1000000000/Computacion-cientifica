@@ -48,6 +48,7 @@ El trabajo incluye notebooks de analisis, datasets en formato CSV/Excel, grafico
 	- jupyter
 	- ipykernel
 	- openpyxl
+	- requests
 
 ## Instalacion rapida
 
@@ -70,7 +71,7 @@ source .venv/Scripts/activate
 ### 2) Instalar dependencias
 
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn jupyter ipykernel openpyxl
+pip install pandas numpy matplotlib seaborn scikit-learn jupyter ipykernel openpyxl requests
 ```
 
 ### 3) (Opcional) Registrar kernel
@@ -91,6 +92,39 @@ Luego abrir:
 
 - `prueba.ipynb`
 - `prueba_02.ipynb`
+
+### Ejecutar crawler de papers de IA
+
+```bash
+python crawler_arxiv_ia.py
+```
+
+Esto descarga papers recientes relacionados con IA desde la API oficial de arXiv y guarda los resultados en `Data/arxiv_ia/`.
+
+### Ejecutar crawler de indicadores crudos para IA
+
+```bash
+python crawler_worldbank_ia.py
+```
+
+Esto descarga indicadores crudos del Banco Mundial utiles para hacer graficos sobre adopcion digital, I+D, exportaciones tecnologicas y patentes en `Data/worldbank_ia/`.
+
+### Ejecutar crawler de modelos de IA desde Hugging Face
+
+```bash
+python crawler_huggingface_ia.py
+```
+
+Esto descarga metadata cruda de modelos de IA reales desde la API oficial de Hugging Face y guarda CSV/JSON en `Data/huggingface_ia/`.
+
+El crawler extrae columnas mas utiles para analisis y graficos, por ejemplo:
+- `downloads` y `downloadsAllTime`
+- `likes` y `trendingScore`
+- `pipeline_tag`, `model_type`, `architecture`
+- `parameter_count_billions`
+- `used_storage_gb`, `repo_file_count`
+- `space_count`, `inference_status`
+- `license`, `base_models`, `card_languages`, `arxiv_refs`
 
 ### Compilar el informe
 
