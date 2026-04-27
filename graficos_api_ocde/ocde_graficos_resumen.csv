@@ -1,0 +1,76 @@
+﻿chart,rank,pais,valor_agregado
+grafico_01_empresas_ia,1,Korea,3778139.157
+grafico_01_empresas_ia,2,Chile,30088.010000000002
+grafico_01_empresas_ia,3,Denmark,16456.586
+grafico_01_empresas_ia,4,Hungary,7995.011
+grafico_01_empresas_ia,5,Italy,5956.28
+grafico_01_empresas_ia,6,Czechia,3971.052
+grafico_01_empresas_ia,7,Germany,3648.0879999999997
+grafico_01_empresas_ia,8,Canada,1770.06
+grafico_01_empresas_ia,9,Israel,329.01800000000003
+grafico_01_empresas_ia,10,Türkiye,280.001
+grafico_01_empresas_ia,11,United Kingdom,231.008
+grafico_01_empresas_ia,12,Netherlands,211.01999999999998
+grafico_01_empresas_ia,13,Sweden,173.003
+grafico_01_empresas_ia,14,France,118.005
+grafico_01_empresas_ia,15,Finland,26.01
+grafico_02_gasto_id,1,Korea,100115.004
+grafico_02_gasto_id,2,Hungary,99798.133
+grafico_02_gasto_id,3,Türkiye,1690.006
+grafico_02_gasto_id,4,Germany,892.0210000000001
+grafico_02_gasto_id,5,Israel,643.034
+grafico_02_gasto_id,6,Italy,590.026
+grafico_02_gasto_id,7,Canada,389.013
+grafico_02_gasto_id,8,Finland,154.05700000000002
+grafico_02_gasto_id,9,Denmark,123.004
+grafico_02_gasto_id,10,France,63.002
+grafico_02_gasto_id,11,Netherlands,55.005
+grafico_02_gasto_id,12,Slovenia,45.07
+grafico_02_gasto_id,13,United Kingdom,32.002
+grafico_02_gasto_id,14,Lithuania,19.025
+grafico_02_gasto_id,15,Latvia,12.027999999999999
+grafico_03_publicaciones_ia,1,China (People’s Republic of),212566.585300741
+grafico_03_publicaciones_ia,2,India,88106.74489980104
+grafico_03_publicaciones_ia,3,United States,85326.09599748446
+grafico_03_publicaciones_ia,4,Germany,30885.938652024644
+grafico_03_publicaciones_ia,5,United Kingdom,23607.89527605278
+grafico_03_publicaciones_ia,6,Italy,21937.079742258393
+grafico_03_publicaciones_ia,7,Japan,20047.931438162464
+grafico_03_publicaciones_ia,8,Korea,18709.91677843166
+grafico_03_publicaciones_ia,9,France,16534.17616280039
+grafico_03_publicaciones_ia,10,Canada,16386.441823485362
+grafico_03_publicaciones_ia,11,Spain,15318.178010930926
+grafico_03_publicaciones_ia,12,Australia,14710.686642109991
+grafico_03_publicaciones_ia,13,Russia,14455.406007991716
+grafico_03_publicaciones_ia,14,Indonesia,12139.258203500262
+grafico_03_publicaciones_ia,15,Singapore,11149.969242444424
+grafico_04_patentes_ia,1,United States,183341.7233
+grafico_04_patentes_ia,2,China (People’s Republic of),52726.41608
+grafico_04_patentes_ia,3,Japan,44693.4209
+grafico_04_patentes_ia,4,Korea,37894.11421
+grafico_04_patentes_ia,5,Chinese Taipei,14848.984416000001
+grafico_04_patentes_ia,6,Germany,13998.51283
+grafico_04_patentes_ia,7,India,8097.12464
+grafico_04_patentes_ia,8,United Kingdom,7690.47039
+grafico_04_patentes_ia,9,France,6852.50206
+grafico_04_patentes_ia,10,Canada,6819.849128
+grafico_04_patentes_ia,11,Sweden,5812.443948
+grafico_04_patentes_ia,12,Israel,5608.328859
+grafico_04_patentes_ia,13,Switzerland,3372.590899
+grafico_04_patentes_ia,14,Netherlands,3058.49528
+grafico_04_patentes_ia,15,Finland,2826.445759
+grafico_05_inversion_ia,1,Korea,72442739.017
+grafico_05_inversion_ia,2,Chile,2275893.807
+grafico_05_inversion_ia,3,Hungary,1830034.435
+grafico_05_inversion_ia,4,Türkiye,659952.486
+grafico_05_inversion_ia,5,Sweden,82485.328
+grafico_05_inversion_ia,6,Germany,49568.184
+grafico_05_inversion_ia,7,Canada,47347.615
+grafico_05_inversion_ia,8,Denmark,33165.184
+grafico_05_inversion_ia,9,Czechia,24654.324
+grafico_05_inversion_ia,10,France,24100.852
+grafico_05_inversion_ia,11,Italy,14908.697
+grafico_05_inversion_ia,12,Israel,3903.207
+grafico_05_inversion_ia,13,Ireland,3006.589
+grafico_05_inversion_ia,14,United Kingdom,2864.107
+grafico_05_inversion_ia,15,Finland,1951.7160000000001
