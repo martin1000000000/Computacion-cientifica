@@ -2,14 +2,21 @@
 
 \usepackage{babel}
 \usepackage[utf8]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
 \usepackage{xurl}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
 
-\setlength{\parskip}{0.15em}
+\setlength{\parskip}{0.2em}
+\setlength{\parindent}{0pt}
 \setlength{\textfloatsep}{5pt plus 1pt minus 1pt}
 \setlength{\floatsep}{5pt plus 1pt minus 1pt}
 \setlength{\intextsep}{5pt plus 1pt minus 1pt}
+\setlist{topsep=0.3em, itemsep=0.2em}
 
 \begin{document}
 
@@ -58,27 +65,23 @@ benjamin.neira@alumnos.uach.cl
 \end{center}
 
 \section*{Resumen}
-Este primer entregable presenta una propuesta de análisis sobre las consecuencias de la Inteligencia Artificial (IA) en las personas. Se integran fuentes abiertas y reproducibles para construir una base inicial de estudio orientada a cuatro dimensiones: salud mental, educación, privacidad y seguridad, y productividad y empleo. La contribución de esta etapa es definir el problema, proponer una solución metodológica, establecer preguntas de investigación y justificar el uso de gráficos preliminares para el análisis posterior.
+Este entregable presenta un análisis descriptivo sobre las consecuencias de la Inteligencia Artificial (IA) en las personas. Se integran cuatro conjuntos de datos abiertos de Kaggle (Data\_set\_02 a Data\_set\_05) para construir una base de estudio orientada a cuatro dimensiones: salud mental, educación, privacidad y seguridad, y productividad y empleo. En esta etapa se reportan resultados descriptivos con gráficos de Data\_set\_02 y Data\_set\_03, dejando Data\_set\_04 y Data\_set\_05 para análisis posteriores.
 
 \textbf{Palabras clave:} inteligencia artificial, consecuencias sociales, salud mental, privacidad, seguridad, educación, empleo.
 
 \section{Introducción}
-La expansión de herramientas de IA está modificando la forma en que las personas estudian, trabajan, se informan y toman decisiones. Sin embargo, existe incertidumbre sobre sus efectos concretos en la vida cotidiana y sobre qué grupos enfrentan mayores riesgos o beneficios.
+La expansión de herramientas de IA está modificando la forma en que las personas estudian, trabajan, se informan y toman decisiones [5-6,8-9]. Sin embargo, existe incertidumbre sobre sus efectos concretos en la vida cotidiana y sobre qué grupos enfrentan mayores riesgos o beneficios.
 
 Aunque la IA se ha difundido rápidamente, su adopción no ocurre de manera homogénea entre personas y contextos. Factores como edad, nivel educativo, hábitos de estudio y entorno laboral pueden condicionar tanto la intensidad de uso como la percepción de beneficios y riesgos. Por ello, analizar el fenómeno únicamente desde promedios generales puede ocultar diferencias relevantes para una interpretación social más precisa.
 
-En línea con esta preocupación, evidencia reciente en educación superior en Estados Unidos muestra que herramientas como ChatGPT ya pueden superar pruebas estandarizadas universitarias, lo que plantea desafíos directos para la integridad académica y el rediseño de evaluaciones [4].
+Para evitar sesgos derivados de datos agregados, este trabajo prioriza registros crudos y comparables. En educación, la evidencia muestra que modelos como ChatGPT ya alcanzan alto rendimiento en pruebas universitarias, generando desafíos para la integridad académica [5]. En privacidad y seguridad, se han identificado riesgos de desinformación, filtraciones y usos maliciosos de los modelos de lenguaje [6]. En empleo y productividad, estudios recientes estiman una exposición significativa de tareas a la automatización y mejoras de productividad con asistencia generativa [7-8], en línea con proyecciones institucionales sobre cambios en ocupaciones y habilidades [9].
 
-De manera complementaria, estudios sobre gobernanza de IA en Estados Unidos muestran que la confianza institucional y las preocupaciones sobre privacidad y seguridad influyen de forma significativa en el apoyo a distintas aplicaciones de IA [5].
-
-Además, reportes de adopción a gran escala muestran que el uso de IA presenta variaciones entre grupos demográficos y rubros de actividad, lo que refuerza la necesidad de comparar resultados por perfiles de usuarios [1]. A su vez, datasets abiertos sobre impacto social de la IA entregan variables de comportamiento y percepción que permiten complementar la evidencia de encuestas con un enfoque más amplio [2].
-
-En este trabajo se procederá a realizar un análisis complementario de los datos obtenidos a través de la encuesta realizada por Brookings [1], el dataset de Kaggle [2] y evidencia reciente sobre impacto potencial de modelos de lenguaje en el mercado laboral de Estados Unidos [3], con el objetivo de responder a las siguientes preguntas iniciales:
+En este trabajo se procederá a realizar un análisis descriptivo y comparativo con el objetivo de responder a las siguientes preguntas iniciales:
 \begin{enumerate}
-    \item ¿Existen diferencias significativas en exposición y uso de IA por edad, sexo y nivel educativo?
-    \item ¿Cómo se relaciona la dependencia de IA con desempeño académico y autonomía de aprendizaje?
-    \item ¿Qué riesgos de privacidad y seguridad percibe más la población frente al uso de IA?
-    \item ¿Qué sectores o perfiles de personas podrían beneficiarse más de la IA en productividad y empleo, y cuáles podrían verse más afectados por automatización?
+    \item ¿Cómo varía el uso de IA y el desempeño académico según edad, género y nivel educativo?
+    \item ¿Qué relación existe entre dependencia de IA, horas de estudio y resultados académicos?
+    \item ¿Cómo se asocian burnout, satisfacción laboral y reemplazo de tareas con la intensidad de uso de IA en el trabajo?
+    \item ¿Qué percepciones de confianza, riesgo y beneficio sobre la IA se observan y cómo se vinculan con indicadores de empleo y automatización?
 \end{enumerate}
 
 Para abordar estas preguntas, utilizaremos distintos gráficos con el fin de visualizar de forma más clara los datos obtenidos y facilitar una mejor comprensión de sus patrones, tendencias y posibles contrastes entre grupos.
@@ -86,117 +89,148 @@ Para abordar estas preguntas, utilizaremos distintos gráficos con el fin de vis
 \section{Solución propuesta}
 La solución propuesta consiste en un pipeline de análisis preliminar en Python con tres etapas:
 
-
-
 \begin{enumerate}
-    \item Integración y limpieza de datos de encuesta (Brookings) y datos abiertos (Kaggle).
-    \item Definición de dimensiones del problema. 
+    \item Integración y limpieza de los cuatro datasets crudos (Data\_set\_02 a Data\_set\_05).
+    \item Armonización de variables por dimensión del problema (educación, salud mental, privacidad/seguridad, productividad/empleo).
     \item Generación de gráficos preliminares para observar tendencias y formular hipótesis de investigación.
 \end{enumerate}
 
 Esta solución permite responder de forma inicial las preguntas planteadas en la introducción y deja preparado el terreno para análisis posteriores con técnicas inferenciales.
 
+\section{Metodología y procesamiento en Python}
+El procesamiento se realizó en Python con \texttt{pandas} y \texttt{numpy} para limpieza y agregación, y \texttt{matplotlib}/\texttt{seaborn} para visualización. El flujo aplicado fue:
+\begin{itemize}
+    \item Carga de los CSV y revisión de estructura, tipos de datos y valores nulos.
+    \item Tratamiento de nulos en variables de uso de IA, filtrando solo estudiantes que usan IA para esos gráficos.
+    \item Construcción de variables derivadas (por ejemplo, \texttt{Uso de IA}) y normalización simple por grupos cuando corresponde.
+    \item Generación de gráficos directamente en Jupyter para el análisis descriptivo.
+\end{itemize}
+
 \section{Diagrama del problema en estudio y dimensiones}
 \begin{figure}[htbp]
 \centering
-\scalebox{0.74}{%
-\setlength{\unitlength}{1mm}
-\begin{picture}(170,95)
-\thicklines
+\begin{tikzpicture}[
+    box/.style={draw, align=center, font=\small, minimum width=26mm, minimum height=8mm},
+    smallbox/.style={draw, align=center, font=\small, minimum width=26mm, minimum height=7mm},
+    arrow/.style={-Latex, thick}
+]
+% Nodos principales (posiciones fijas y simetricas)
+\node[box] (center) at (0,0) {Riesgos\\de la IA};
+\node[box] (salud) at (-4.2,2.2) {Salud\\Mental};
+\node[box] (educ)  at (-4.2,-2.2) {Educacion};
+\node[box] (priv)  at (4.2,2.2) {Privacidad\\y\\Seguridad};
+\node[box] (prod)  at (4.2,-2.2) {Productividad\\y Empleo};
 
-% Nodo central
-\put(62,40){\framebox(30,16){\shortstack{\textbf{Riesgos}\\\textbf{de la IA}}}}
+% Subnodos izquierda
+\node[smallbox] (pens) at (-7.6,3.1) {Pensamiento\\critico};
+\node[smallbox] (ans)  at (-7.6,1.3) {Ansiedad};
+\node[smallbox] (rend) at (-7.6,-1.3) {Rendimiento};
+\node[smallbox] (desh) at (-7.6,-3.1) {Deshonestidad};
 
-% Salud mental (arriba izquierda)
-\put(4,76){\framebox(30,12){\shortstack{Pensamiento\\critico}}}
-\put(4,58){\framebox(30,12){Ansiedad}}
-\put(40,64){\framebox(26,16){\shortstack{Salud\\Mental}}}
+% Subnodos derecha
+\node[smallbox] (trans) at (7.6,3.1) {Transparencia\\de Datos};
+\node[smallbox] (fake)  at (7.6,1.3) {Fakenews};
+\node[smallbox] (uso)   at (7.6,-3.1) {Uso de IA\\profesionalmente};
+\node[smallbox] (auto)  at (7.6,-4.9) {Automatizacion};
 
-% Educacion (abajo izquierda)
-\put(4,28){\framebox(28,10){Rendimiento}}
-\put(4,8){\framebox(28,10){Deshonestidad}}
-\put(40,16){\framebox(26,16){Educacion}}
+% Lineas principales (sin flechas)
+\draw (center) -- (salud);
+\draw (center) -- (educ);
+\draw (center) -- (priv);
+\draw (center) -- (prod);
 
-% Privacidad y seguridad (arriba derecha)
-\put(84,66){\framebox(28,18){\shortstack{Privacidad\\y\\Seguridad}}}
-\put(118,80){\framebox(30,12){\shortstack{Transparencia de\\Datos}}}
-\put(118,60){\framebox(30,12){Fakenews}}
-\put(118,40){\framebox(28,12){Deepfake}}
-
-% Productividad y empleo (abajo derecha)
-\put(82,14){\framebox(30,18){\shortstack{Productividad\\y Empleo}}}
-\put(118,22){\framebox(30,12){\shortstack{Uso de IA\\profesionalmente}}}
-\put(118,2){\framebox(30,12){Automatizacion}}
-\end{picture}
-}
+% Lineas a subnodos (sin flechas)
+\draw (salud.west) -- (pens.east);
+\draw (salud.west) -- (ans.east);
+\draw (educ.west) -- (rend.east);
+\draw (educ.west) -- (desh.east);
+\draw (priv.east) -- (trans.west);
+\draw (priv.east) -- (fake.west);
+\draw (prod.east) -- (uso.west);
+\draw (prod.east) -- (auto.west);
+\end{tikzpicture}
 \caption{Diagrama del problema en estudio y dimensiones principales.}
 \end{figure}
 
 \subsection*{Datos por dimensión y origen}
 \begin{itemize}
-    \item \textbf{Salud mental:} variables de hábitos y bienestar como \texttt{sleep\_hours}, \texttt{social\_media\_hours} e intensidad de uso de IA. Fuente: Kaggle [2], archivo \texttt{Data/Data\_set\_02.csv}.
-    \item \textbf{Educación:} frecuencia y cambio de uso de IA (Tablas 2 y 3), \texttt{final\_score} y \texttt{study\_hours\_per\_day}. Fuentes: Brookings [1] y Kaggle [2].
-    \item \textbf{Privacidad y seguridad:} categorías de incertidumbre y revisión de riesgos de desinformación/deepfake. Fuente: Brookings [1].
-    \item \textbf{Productividad y empleo:} tiempo de uso, dependencia y volumen de prompts como proxy de automatización y uso profesional. Fuente: Kaggle [2].
+    \item \textbf{Salud mental:} \texttt{burnout\_score}, \texttt{job\_satisfaction\_1\_5} y \texttt{hours\_with\_ai\_assistance\_daily}. Fuente: Data\_set\_03 [2].
+    \item \textbf{Educación:} \texttt{study\_hours\_per\_day}, \texttt{ai\_dependency\_score}, \texttt{final\_score} y \texttt{concept\_understanding\_score}. Fuente: Data\_set\_02 [1].
+    \item \textbf{Privacidad y seguridad:} percepción de confianza, amenazas a libertades individuales y regulación ética (preguntas de percepción). Fuente: Data\_set\_05 [4].
+    \item \textbf{Productividad y empleo:} \texttt{productivity\_score}, \texttt{ai\_replaces\_my\_tasks\_pct} (Data\_set\_03) y \texttt{Automation Risk (\%)}, \texttt{Projected Openings (2030)} (Data\_set\_04) [2-3].
 \end{itemize}
 
-\section{Análisis preliminares}
-A continuación se resumen los gráficos preliminares presentados en clases y su utilidad analítica.
+\section{Resultados y análisis descriptivo}
+Los siguientes gráficos fueron generados a partir de los notebooks \texttt{graficos\_dataset\_02.ipynb} y \texttt{graficos\_dataset\_03.ipynb}.
+
+\subsection*{Educación y uso de IA}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{graficos_informe/ds02_perfil_estudiante.png}
+\caption{Perfil general de estudiantes por género, nivel académico y categoría de rendimiento. Fuente: Data\_set\_02 [1].}
+\end{figure}
+
+Este gráfico permite caracterizar la muestra y contextualizar los análisis posteriores por subgrupos. Se observa una distribución heterogénea en nivel académico y rendimiento, lo que habilita comparaciones de uso de IA por perfil.
 
 \begin{figure}[!htbp]
 \centering
-\begin{minipage}{0.43\textwidth}
-\centering
-\includegraphics[width=\textwidth,height=0.15\textheight,keepaspectratio]{Data/grafico_barras_tabla2_total.png}\\
-\scriptsize (a) Uso de IA por categoría (Tabla 2, columna Total).
-\end{minipage}
-\hfill
-\begin{minipage}{0.43\textwidth}
-\centering
-\includegraphics[width=\textwidth,height=0.15\textheight,keepaspectratio]{Data/graficos_tabla2_edad_sexo.png}\\
-\scriptsize (b) Distribución de encuestados por edad y sexo (Tabla 2).
-\end{minipage}
-
-\vspace{0.12cm}
-
-\begin{minipage}{0.43\textwidth}
-\centering
-\includegraphics[width=\textwidth,height=0.15\textheight,keepaspectratio]{Data/grafico_barras_tabla3_total.png}\\
-\scriptsize (c) En comparación con hace un año, ¿cómo ha cambiado tu uso personal de IA? (Tabla 3, columna Total).
-\end{minipage}
-\hfill
-\begin{minipage}{0.43\textwidth}
-\centering
-\includegraphics[width=\textwidth,height=0.15\textheight,keepaspectratio]{Data/grafico_tabla3_aumento_nivel_educativo.png}\\
-\scriptsize (d) Aumento de uso de IA por nivel educativo.
-\end{minipage}
-
-\vspace{-0.1cm}
-\caption{Gráficos preliminares utilizados en esta etapa del proyecto.}
+\includegraphics[width=0.9\textwidth]{graficos_informe/ds02_impacto_ia_rendimiento.png}
+\caption{Comparación de puntaje final y categoría de rendimiento según uso de IA. Fuente: Data\_set\_02 [1].}
 \end{figure}
 
-\subsection*{Descripción breve de los datos analizados}
-En esta etapa se utilizaron dos fuentes principales. La primera corresponde a resultados de encuesta procesados en Tabla 2 y Tabla 3 (Brookings), donde se observa la distribución de encuestados por sexo y edad, además de la variación reciente en el uso de IA por rubro y por nivel educativo. La segunda fuente es el dataset de Kaggle, empleado para complementar variables de comportamiento y uso de IA en personas. En conjunto, los gráficos permiten una lectura inicial de magnitudes, diferencias entre grupos y tendencias generales de adopción.
+La comparación entre usuarios y no usuarios de IA permite evaluar diferencias en desempeño académico. Estas diferencias se analizan de manera descriptiva y se relacionan con la discusión sobre integridad académica en educación superior [5].
 
-En particular, los gráficos muestran que en Tabla 2 la muestra se distribuye de forma relativamente equilibrada por sexo (Hombre/Mujer) y con mayor presencia del grupo 60+ años. En Tabla 3, la categoría \emph{No usaba IA previamente} concentra el mayor porcentaje en la columna total, y el aumento del uso de IA por nivel educativo es más alto en \emph{Licenciatura o más}.
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{graficos_informe/ds02_dependencia_etica_puntaje.png}
+\caption{Relación entre dependencia/ética de uso de IA y puntaje final. Fuente: Data\_set\_02 [1].}
+\end{figure}
+
+Las dispersiones sugieren variabilidad en el rendimiento asociado a niveles de dependencia y percepción ética. Esta evidencia visual sirve como base para hipótesis sobre autonomía de aprendizaje y uso responsable de IA.
+
+\subsection*{Salud mental y reemplazo de tareas}
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{graficos_informe/ds03_reemplazo_burnout_software_engineer.png}\\
+\scriptsize (a) Software Engineer.
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{graficos_informe/ds03_reemplazo_burnout_ai_researcher.png}\\
+\scriptsize (b) AI Researcher.
+\end{minipage}
+\caption{Percepción de reemplazo por IA vs. nivel de agotamiento en roles frecuentes del dataset. Fuente: Data\_set\_03 [2].}
+\end{figure}
+
+En ambos casos se observa una tendencia positiva entre la percepción de reemplazo y el agotamiento. Este patrón es consistente con la literatura sobre riesgos y efectos sociales de los modelos de lenguaje en el trabajo [6-8].
+
+\subsection*{Descripción breve de los datos analizados}
+En esta etapa se usan principalmente Data\_set\_02 (estudiantes) y Data\_set\_03 (trabajadores), con registros a nivel individual. Data\_set\_04 y Data\_set\_05 se mantienen para la siguiente fase, donde se incorporarán indicadores de empleo por ocupación y percepciones sociales sobre IA.
 
 \subsection*{Vinculación con las preguntas de investigación}
 Los resultados preliminares se conectan directamente con las preguntas planteadas en la introducción:
 \begin{itemize}
-    \item \textbf{Pregunta 1 (diferencias por edad, sexo y nivel educativo):} se aborda con los gráficos de distribución por sexo y edad (Tabla 2) y con el gráfico de aumento por nivel educativo (Tabla 3).
-    \item \textbf{Pregunta 2 (dependencia de IA y desempeño):} queda planteada para el siguiente análisis usando el dataset de Kaggle, integrando variables como uso de IA, dependencia y resultados académicos.
-    \item \textbf{Pregunta 3 (riesgos de privacidad y seguridad):} se relaciona con los rubros de cambio de uso y con la dimensión de privacidad/seguridad del diagrama, que orienta la lectura de posibles riesgos percibidos.
-    \item \textbf{Pregunta 4 (impacto en productividad y empleo):} se vincula con la dimensión de productividad/empleo y con la comparación de intensidad de uso de IA entre grupos, que sirve como base para contrastes posteriores.
+    \item \textbf{Pregunta 1:} distribución de uso de IA y puntaje final en subgrupos estudiantiles (Data\_set\_02).
+    \item \textbf{Pregunta 2:} relación entre dependencia de IA y rendimiento académico (Data\_set\_02).
+    \item \textbf{Pregunta 3:} relación entre reemplazo de tareas y agotamiento laboral (Data\_set\_03).
+    \item \textbf{Pregunta 4:} quedará abordada en la siguiente fase con Data\_set\_04 y Data\_set\_05.
 \end{itemize}
 
 
 \section{Referencias bibliográficas}
 \begin{enumerate}
-    \item West, D., Allen, J., Wang, C., et al. \emph{How are Americans using AI? Evidence from a nationwide survey}. Brookings Institution. Disponible en: https://www.brookings.edu/articles/how-are-americans-using-ai-evidence-from-a-nationwide-survey/ (consulta: 28-03-2026).
-    \item Arda Yavuz Keskin. \emph{The Impact of Artificial Intelligence on Society}. Kaggle. Disponible en: https://www.kaggle.com/datasets/ardayavuzkeskin/the-impact-of-artificial-intelligence-on-society (consulta: 28-03-2026).
-    \item Eloundou, T., Manning, S., Mishkin, P. y Rock, D. \emph{GPTs are GPTs: An Early Look at the Labor Market Impact Potential of Large Language Models}. \emph{arXiv} (2023). Disponible en: https://doi.org/10.48550/arXiv.2303.10130 (consulta: 30-03-2026).
+    \item Mazari, A. \emph{Learning in the Age of AI: Myths and Facts} [Conjunto de datos]. Kaggle. Disponible en: \url{https://www.kaggle.com/code/abdullahmazari/learning-in-the-age-of-ai-myths-and-facts/input} (consulta: 01-05-2026).
+    \item Justin, T. \emph{AI Worker Burnout 2026 - EDA} [Conjunto de datos]. Kaggle. Disponible en: \url{https://www.kaggle.com/code/tolstoyjustin/ai-worker-burnout-2026-eda/input} (consulta: 01-05-2026).
+    \item uom190346a. \emph{AI-powered Job Market Insights} [Conjunto de datos]. Kaggle. Disponible en: \url{https://www.kaggle.com/datasets/uom190346a/ai-powered-job-market-insights} (consulta: 01-05-2026).
+    \item Keskin, A. Y. \emph{The Impact of Artificial Intelligence on Society} [Conjunto de datos]. Kaggle. Disponible en: \url{https://www.kaggle.com/datasets/ardayavuzkeskin/the-impact-of-artificial-intelligence-on-society} (consulta: 01-05-2026).
     \item Geerling, W., Mateer, G. D., Wooten, J. y Damodaran, N. \emph{ChatGPT has Aced the Test of Understanding in College Economics: Now What?}. \emph{The American Economist}, 68(2) (2023). Disponible en: \url{https://journals.sagepub.com/doi/10.1177/05694345231169654}
-    \item Horowitz, M. C. y Kahn, L. \emph{What influences attitudes about artificial intelligence adoption: Evidence from U.S. local officials}. \emph{PLOS ONE}, 16(10), e0257732 (2021). Disponible en: \url{https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0257732}
+    \item Weidinger, L., Mellor, J., Rauh, M., Griffin, C., Uesato, J., Huang, P.-S., et al. \emph{Ethical and social risks of harm from Language Models}. \emph{arXiv} (2021). Disponible en: \url{https://doi.org/10.48550/arXiv.2112.04359} (consulta: 01-05-2026).
+    \item Eloundou, T., Manning, S., Mishkin, P. y Rock, D. \emph{GPTs are GPTs: An Early Look at the Labor Market Impact Potential of Large Language Models}. \emph{arXiv} (2023). Disponible en: \url{https://doi.org/10.48550/arXiv.2303.10130} (consulta: 01-05-2026).
+    \item Brynjolfsson, E., Li, D. y Raymond, L. R. \emph{Generative AI at Work}. \emph{NBER Working Paper} 31161 (2023). Disponible en: \url{https://www.nber.org/papers/w31161} (consulta: 01-05-2026).
+    \item World Economic Forum. \emph{The Future of Jobs Report 2023}. Disponible en: \url{https://www.weforum.org/reports/the-future-of-jobs-report-2023/} (consulta: 01-05-2026).
 \end{enumerate}
 
 \end{document}
