@@ -1,559 +1,319 @@
-"""Genera graficos OCDE desde los CSV del crawler.
+#!/usr/bin/env python
+# coding: utf-8
 
-Este script toma los CSV limpios producidos por
-`crawler/descargar_ocde_ia.py` en `Data/ocde_ia/` y recrea 6 graficos:
+# # Graficos OCDE desde el crawler
+# 
+# Este notebook usa los CSV generados por `crawler/descargar_ocde_ia.py`
+# en `Data/ocde_ia/` y guarda los resultados en `graficos_api_ocde/`.
+# 
 
-1. Empresas con instrumentos tech-focused (proxy IA)
-2. Gasto en I+D apoyado por politica industrial
-3. Publicaciones IA (proxy bibliometrico)
-4. Patentes IA
-5. Inversion en instrumentos IA/tecnologia (proxy)
-6. Relacion I+D vs tech-focused
+# In[17]:
 
-Uso:
-    python graficos_crawler.py
-"""
 
-from __future__ import annotations
+import importlib
+import graficos_crawler
+
+importlib.reload(graficos_crawler)
+
+resumen = graficos_crawler.generar_graficos_ocde()
+resumen.head(15)
+
+
+# In[18]:
+
 
 from pathlib import Path
 
-import numpy as np
+sorted(path.name for path in Path('graficos_api_ocde').glob('ocde_grafico_*.png'))
+
+
+# ---
+# ## Mapa revisado: patentes de IA por pais (OCDE, 2022-2025)
+# 
+# Objetivo: rehacer el mapa con una escala entendible y con mas cobertura de paises.
+# 
+# Cambios respecto al mapa anterior:
+# - se consulta directamente la API SDMX de la OCDE para 2022-2025;
+# - ya no se suman oficinas de patentes, roles y tipos de fecha distintos;
+# - se usa un corte consistente: `WIPO + Patent applications + Priority date + Inventor`;
+# - la escala ya no es logaritmica: el color se suaviza para legibilidad, pero la barra muestra valores reales;
+# - si 2025 no aparece, el notebook lo reporta explicitamente.
+# 
+# 
+
+# In[19]:
+
+
+import io
+from pathlib import Path
+
 import pandas as pd
-import matplotlib.pyplot as plt
-from matplotlib.ticker import FuncFormatter
+import requests
 
-try:
-    import seaborn as sns
-except ModuleNotFoundError:
-    sns = None
+DATA_DIR = Path("Data/ocde_ia")
+DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-BASE_DIR = Path(__file__).resolve().parent
-DATA_OECD = BASE_DIR / "Data" / "ocde_ia"
-OUT_OECD = BASE_DIR / "graficos_api_ocde"
-OUT_OECD.mkdir(parents=True, exist_ok=True)
-OUT_OECD_DATA = OUT_OECD / "data"
-OUT_OECD_DATA.mkdir(parents=True, exist_ok=True)
+API_URL = (
+    "https://sdmx.oecd.org/public/rest/data/"
+    "OECD.STI.PIE,DSD_PATENTS@DF_PATENTS_OECDSPECIFIC,1.0/all"
+)
+params = {
+    "startPeriod": "2022",
+    "endPeriod": "2025",
+    "dimensionAtObservation": "AllDimensions",
+    "format": "csvfilewithlabels",
+}
+headers = {"User-Agent": "Mozilla/5.0 OECD-AI-patents-notebook/1.0"}
 
-if sns is not None:
-    sns.set_theme(style="whitegrid")
-else:
-    plt.style.use("seaborn-v0_8-whitegrid")
+response = requests.get(API_URL, params=params, headers=headers, timeout=90)
+response.raise_for_status()
 
-plt.rcParams["figure.dpi"] = 120
-plt.rcParams["axes.titlesize"] = 13
-plt.rcParams["axes.titleweight"] = "bold"
-plt.rcParams["axes.labelsize"] = 10
-plt.rcParams["axes.labelcolor"] = "#2f2f2f"
-plt.rcParams["xtick.labelsize"] = 9
-plt.rcParams["ytick.labelsize"] = 9
+raw_pat = pd.read_csv(io.StringIO(response.text), low_memory=False)
+raw_pat["OBS_VALUE"] = pd.to_numeric(raw_pat["OBS_VALUE"], errors="coerce")
+raw_pat["TIME_PERIOD"] = pd.to_numeric(raw_pat["TIME_PERIOD"], errors="coerce").astype("Int64")
 
-SOURCE_NOTE = "Fuente: OCDE (SDMX), procesamiento propio"
+blocked_pattern = r"world|oecd|european union|euro area|non-oecd|not applicable"
+mask = (
+    raw_pat["Selected OECD technology domains"].astype(str).str.strip().str.lower().eq(
+        "technologies related to artificial intelligence"
+    )
+    & raw_pat["Measure"].astype(str).eq("Patent applications")
+    & raw_pat["Patent authorities"].astype(str).eq("World Intellectual Property Organization")
+    & raw_pat["Reference date type"].astype(str).eq("Priority date")
+    & raw_pat["Agent role"].astype(str).eq("Inventor")
+    & raw_pat["OBS_VALUE"].notna()
+    & (raw_pat["OBS_VALUE"] > 0)
+    & ~raw_pat["Reference area"].fillna("").str.lower().str.contains(blocked_pattern, regex=True)
+)
 
-
-def read_oecd_csv(filename: str, usecols: list[str] | None = None) -> pd.DataFrame:
-    path = DATA_OECD / filename
-    if not path.exists():
-        raise FileNotFoundError(
-            f"No existe el archivo: {path}. Ejecuta crawler/descargar_ocde_ia.py primero."
-        )
-    return pd.read_csv(path, low_memory=False, usecols=usecols)
-
-
-def to_numeric(series: pd.Series) -> pd.Series:
-    return pd.to_numeric(series, errors="coerce")
-
-
-def filter_positive(df: pd.DataFrame, value_col: str = "OBS_VALUE") -> pd.DataFrame:
-    out = df.copy()
-    out[value_col] = to_numeric(out[value_col])
-    return out[out[value_col].notna() & (out[value_col] > 0)].copy()
-
-
-def latest_year(df: pd.DataFrame, year_col: str = "TIME_PERIOD") -> pd.DataFrame:
-    if year_col not in df.columns:
-        return df.copy()
-
-    years = to_numeric(df[year_col]).dropna()
-    if years.empty:
-        return df.copy()
-
-    return df[to_numeric(df[year_col]) == years.max()].copy()
-
-
-def latest_year_value(df: pd.DataFrame, year_col: str = "TIME_PERIOD") -> int | None:
-    if year_col not in df.columns:
-        return None
-
-    years = to_numeric(df[year_col]).dropna()
-    if years.empty:
-        return None
-
-    return int(years.max())
-
-
-def remove_aggregate_areas(df: pd.DataFrame, area_col: str = "REF_AREA_label") -> pd.DataFrame:
-    if area_col not in df.columns:
-        return df.copy()
-
-    area_lower = df[area_col].fillna("").astype(str).str.lower()
-    blocked_pattern = "oecd|world|european union|euro area|non-oecd economies|not applicable"
-    return df.loc[~area_lower.str.contains(blocked_pattern, regex=True)].copy()
-
-
-def minmax_robust(
-    series: pd.Series,
-    q_low: float = 0.05,
-    q_high: float = 0.95,
-) -> pd.Series:
-    values = to_numeric(series).fillna(0)
-    low = values.quantile(q_low)
-    high = values.quantile(q_high)
-    clipped = values.clip(lower=low, upper=high)
-
-    if high <= low:
-        return pd.Series(np.zeros(len(clipped)), index=clipped.index)
-
-    return (clipped - low) / (high - low)
-
-
-def build_summary(chart_code: str, agg: pd.DataFrame) -> pd.DataFrame:
-    summary = agg.reset_index(drop=True).copy()
-    summary.insert(0, "rank", summary.index + 1)
-    summary.insert(0, "chart", chart_code)
-    summary = summary.rename(
+ai_patents = (
+    raw_pat.loc[
+        mask,
+        [
+            "REF_AREA",
+            "Reference area",
+            "TIME_PERIOD",
+            "OBS_VALUE",
+            "Patent authorities",
+            "Reference date type",
+            "Agent role",
+        ],
+    ]
+    .rename(
         columns={
-            "REF_AREA_label": "pais",
-            "OBS_VALUE": "valor_agregado",
+            "Reference area": "country",
+            "TIME_PERIOD": "year",
+            "OBS_VALUE": "ai_patent_applications",
         }
     )
-    return summary
+    .sort_values(["year", "ai_patent_applications"], ascending=[True, False])
+    .reset_index(drop=True)
+)
 
+csv_path = DATA_DIR / "oecd_ai_patents_2022_2025_wipo_priority_inventor.csv"
+ai_patents.to_csv(csv_path, index=False, encoding="utf-8-sig")
 
-def count_unique_by_country(
-    df: pd.DataFrame,
-    country_col: str = "REF_AREA_label",
-    id_col: str = "UNIQUE_ID",
-) -> pd.DataFrame:
-    if df.empty:
-        return pd.DataFrame(columns=[country_col, "OBS_VALUE"])
-
-    agg = (
-        df.groupby(country_col, as_index=False)[id_col]
-        .nunique()
-        .rename(columns={id_col: "OBS_VALUE"})
+availability = (
+    ai_patents.groupby("year", as_index=False)
+    .agg(
+        countries=("REF_AREA", "nunique"),
+        ai_patent_applications=("ai_patent_applications", "sum"),
     )
-    return agg
+)
+
+if 2025 not in availability["year"].tolist():
+    print(
+        "La API de la OCDE no devolvio observaciones para 2025 en esta serie "
+        "(consulta realizada el 2026-05-01, hora de Santiago)."
+    )
+
+print(f"CSV filtrado guardado en: {csv_path}")
+availability
 
 
-def format_compact(value: float) -> str:
-    if value is None or np.isnan(value):
-        return ""
-    abs_val = abs(value)
-    if abs_val >= 1_000_000_000:
-        return f"{value / 1_000_000_000:.1f}B"
-    if abs_val >= 1_000_000:
-        return f"{value / 1_000_000:.1f}M"
-    if abs_val >= 1_000:
-        return f"{value / 1_000:.1f}K"
-    if abs_val >= 100:
-        return f"{value:,.0f}"
-    if abs_val >= 10:
-        return f"{value:.1f}"
-    return f"{value:.2f}"
+
+# In[20]:
 
 
-def save_chart_data(
-    df: pd.DataFrame,
-    filename: str,
-    chart_code: str | None = None,
-    year: int | None = None,
-) -> None:
-    if df.empty:
-        return
+import matplotlib.image as mpimg
+import matplotlib.pyplot as plt
+from matplotlib.cm import ScalarMappable
+from matplotlib.colors import PowerNorm
+from matplotlib.ticker import FuncFormatter
 
-    out = df.copy()
-    insert_at = 0
-    if chart_code and "chart" not in out.columns:
-        out.insert(insert_at, "chart", chart_code)
-        insert_at += 1
-    if year and "year" not in out.columns:
-        out.insert(insert_at, "year", year)
+map_path = DATA_DIR / "mapa_patentes_ia_ocde_2022_2024.png"
 
-    out_path = OUT_OECD_DATA / filename
-    out.to_csv(out_path, index=False, encoding="utf-8-sig")
-    print(f"[OK] Guardado: {out_path}")
+try:
+    import geopandas as gpd
+except ModuleNotFoundError:
+    if not map_path.exists():
+        raise ModuleNotFoundError(
+            "Falta geopandas para regenerar el mapa y tampoco existe el PNG de respaldo. "
+            "Instala geopandas o genera antes el archivo en Data/ocde_ia/."
+        )
 
+    img = mpimg.imread(map_path)
+    fig, ax = plt.subplots(figsize=(16, 10))
+    ax.imshow(img)
+    ax.axis("off")
+    plt.show()
+    print(
+        "Se mostro el PNG ya generado porque este kernel no tiene geopandas: "
+        f"{map_path}"
+    )
+else:
+    world = gpd.read_file(
+        "https://naturalearth.s3.amazonaws.com/110m_cultural/ne_110m_admin_0_countries.zip"
+    )
+    world.columns = [col.lower() for col in world.columns]
+    iso_candidates = ["iso_a3", "adm0_a3", "sov_a3", "adm0_a3_us"]
+    iso_col = next((col for col in iso_candidates if col in world.columns), None)
+    if iso_col is None:
+        raise KeyError("No se encontro columna ISO en el shapefile")
 
-def top_country_bar(
-    df: pd.DataFrame,
-    title: str,
-    output_name: str,
-    country_col: str = "REF_AREA_label",
-    value_col: str = "OBS_VALUE",
-    top_n: int = 15,
-    color: str = "#2f5597",
-    x_label: str = "Valor agregado",
-) -> pd.DataFrame:
-    if df.empty:
-        print(f"[WARN] No hay datos para {output_name}")
-        return pd.DataFrame(columns=[country_col, value_col])
+    world = world[world[iso_col] != "-99"].copy().rename(columns={iso_col: "iso_a3"})
 
-    agg = (
-        df.groupby(country_col, as_index=False)[value_col]
+    year_country = (
+        ai_patents.groupby(["year", "REF_AREA", "country"], as_index=False)["ai_patent_applications"]
         .sum()
-        .sort_values(value_col, ascending=False)
-        .head(top_n)
+    )
+    cum_country = (
+        year_country.groupby(["REF_AREA", "country"], as_index=False)["ai_patent_applications"]
+        .sum()
     )
 
-    plot_df = agg.sort_values(value_col, ascending=True)
-    fig, ax = plt.subplots(figsize=(10, 6))
-    ax.barh(plot_df[country_col], plot_df[value_col], color=color, edgecolor="white")
-    ax.set_title(title)
-    ax.set_xlabel(x_label)
-    ax.set_ylabel("Pais")
-    ax.xaxis.set_major_formatter(FuncFormatter(lambda x, _: f"{x:,.0f}"))
-    ax.grid(axis="x", alpha=0.25)
-    ax.spines["top"].set_visible(False)
-    ax.spines["right"].set_visible(False)
+    years_to_plot = [2022, 2023, 2024]
+    vmax = max(
+        year_country["ai_patent_applications"].max(),
+        cum_country["ai_patent_applications"].max(),
+    )
+    norm = PowerNorm(gamma=0.45, vmin=0, vmax=vmax)
 
-    x_max = plot_df[value_col].max()
-    for idx, value in enumerate(plot_df[value_col]):
-        ax.text(
-            value + (x_max * 0.01),
-            idx,
-            format_compact(value),
-            va="center",
-            ha="left",
-            fontsize=8,
-            color="#2f2f2f",
+    fig, axes = plt.subplots(2, 2, figsize=(16, 10))
+    axes = axes.ravel()
+
+    for ax, year in zip(axes[:3], years_to_plot):
+        merged = world.merge(
+            year_country[year_country["year"] == year],
+            left_on="iso_a3",
+            right_on="REF_AREA",
+            how="left",
         )
-
-    fig.text(0.01, 0.01, SOURCE_NOTE, ha="left", fontsize=8, color="#666666")
-    fig.tight_layout()
-
-    out_path = OUT_OECD / output_name
-    fig.savefig(out_path, dpi=300, bbox_inches="tight")
-    plt.close(fig)
-
-    print(f"[OK] Guardado: {out_path}")
-    return agg
-
-
-def generar_graficos_ocde() -> pd.DataFrame:
-    summaries: list[pd.DataFrame] = []
-
-    # Grafico 01: Empresas tech-focused como proxy de IA.
-    df_emp = read_oecd_csv(
-        "dsd_industrial_policy_df_grantax_clean.csv",
-        usecols=["UNIQUE_ID", "REF_AREA_label", "TIME_PERIOD", "TECH_FOCUSED_label"],
-    )
-    emp_year = latest_year_value(df_emp)
-    df_emp = remove_aggregate_areas(latest_year(df_emp))
-    emp_mask = df_emp["TECH_FOCUSED_label"].astype(str).str.lower().eq("yes")
-    df_emp_plot = df_emp.loc[emp_mask].copy()
-    if df_emp_plot.empty:
-        df_emp_plot = df_emp.copy()
-
-    agg = count_unique_by_country(df_emp_plot)
-    agg = top_country_bar(
-        agg,
-        title=f"Grafico 01: Instrumentos tech-focused (QuIS{', ' + str(emp_year) if emp_year else ''})",
-        output_name="ocde_grafico_01_empresas_ia.png",
-        color="#4e79a7",
-        x_label="Instrumentos",
-    )
-    if not agg.empty:
-        save_chart_data(
-            agg,
-            "ocde_grafico_01_empresas_ia_datos.csv",
-            chart_code="grafico_01_empresas_ia",
-            year=emp_year,
-        )
-        summaries.append(build_summary("grafico_01_empresas_ia", agg))
-
-    # Grafico 02: Gasto en I+D apoyado por politica industrial.
-    df_rd = read_oecd_csv(
-        "dsd_industrial_policy_df_fin_clean.csv",
-        usecols=["UNIQUE_ID", "REF_AREA_label", "TIME_PERIOD", "RD_label"],
-    )
-    rd_year = latest_year_value(df_rd)
-    df_rd = remove_aggregate_areas(latest_year(df_rd))
-    rd_mask = df_rd["RD_label"].astype(str).str.lower().eq("yes")
-    df_rd_plot = df_rd.loc[rd_mask].copy()
-    if df_rd_plot.empty:
-        df_rd_plot = df_rd.copy()
-
-    agg = count_unique_by_country(df_rd_plot)
-    agg = top_country_bar(
-        agg,
-        title=(
-            f"Grafico 02: Instrumentos con apoyo a I+D (QuIS"
-            f"{', ' + str(rd_year) if rd_year else ''})"
-        ),
-        output_name="ocde_grafico_02_gasto_id.png",
-        color="#f28e2b",
-        x_label="Instrumentos",
-    )
-    if not agg.empty:
-        save_chart_data(
-            agg,
-            "ocde_grafico_02_gasto_id_datos.csv",
-            chart_code="grafico_02_gasto_id",
-            year=rd_year,
-        )
-        summaries.append(build_summary("grafico_02_gasto_id", agg))
-
-    # Grafico 03: Publicaciones IA por areas bibliometricas.
-    df_pub = read_oecd_csv(
-        "dsd_biblio_df_biblio_clean.csv",
-        usecols=[
-            "REF_AREA_label",
-            "TIME_PERIOD",
-            "OBS_VALUE",
-            "ASJC_label",
-            "MEASURE_label",
-            "UNIT_MEASURE_label",
-        ],
-    )
-    pub_year = latest_year_value(df_pub)
-    df_pub = remove_aggregate_areas(latest_year(filter_positive(df_pub)))
-    df_pub = df_pub[
-        df_pub["MEASURE_label"].astype(str).str.lower().eq(
-            "fractional counts of scientific publications"
-        )
-    ]
-    df_pub = df_pub[
-        df_pub["UNIT_MEASURE_label"].astype(str).str.lower().eq("scientific publications")
-    ]
-    asjc = df_pub["ASJC_label"].fillna("").astype(str).str.lower()
-    kw_pub = "artificial|machine|deep|neural|language|vision|data|comput"
-    df_pub_plot = df_pub[asjc.str.contains(kw_pub, regex=True)].copy()
-    if df_pub_plot.empty:
-        df_pub_plot = df_pub.copy()
-
-    agg = top_country_bar(
-        df_pub_plot,
-        title=f"Grafico 03: Publicaciones IA (ASJC{', ' + str(pub_year) if pub_year else ''})",
-        output_name="ocde_grafico_03_publicaciones_ia.png",
-        color="#59a14f",
-        x_label="Publicaciones",
-    )
-    if not agg.empty:
-        save_chart_data(
-            agg,
-            "ocde_grafico_03_publicaciones_ia_datos.csv",
-            chart_code="grafico_03_publicaciones_ia",
-            year=pub_year,
-        )
-        summaries.append(build_summary("grafico_03_publicaciones_ia", agg))
-
-    # Grafico 04: Patentes IA por tecnologia patentada.
-    df_pat = read_oecd_csv(
-        "dsd_patents_df_patents_oecdspecific_clean.csv",
-        usecols=[
-            "REF_AREA_label",
-            "TIME_PERIOD",
-            "OBS_VALUE",
-            "OECD_TECHNOLOGY_PATENT_label",
-            "MEASURE_label",
-            "UNIT_MEASURE_label",
-        ],
-    )
-    pat_year = latest_year_value(df_pat)
-    df_pat = remove_aggregate_areas(latest_year(filter_positive(df_pat)))
-    df_pat = df_pat[
-        df_pat["MEASURE_label"].astype(str).str.lower().eq("patent families")
-    ]
-    df_pat = df_pat[
-        df_pat["UNIT_MEASURE_label"].astype(str).str.lower().eq("sets of patents")
-    ]
-    tech = df_pat["OECD_TECHNOLOGY_PATENT_label"].fillna("").astype(str).str.lower()
-    kw_pat = "artificial|machine|comput|digital|data|ict|software"
-    df_pat_plot = df_pat[tech.str.contains(kw_pat, regex=True)].copy()
-    if df_pat_plot.empty:
-        df_pat_plot = df_pat.copy()
-
-    agg = top_country_bar(
-        df_pat_plot,
-        title=f"Grafico 04: Patentes IA (familias{', ' + str(pat_year) if pat_year else ''})",
-        output_name="ocde_grafico_04_patentes_ia.png",
-        color="#e15759",
-        x_label="Familias de patentes",
-    )
-    if not agg.empty:
-        save_chart_data(
-            agg,
-            "ocde_grafico_04_patentes_ia_datos.csv",
-            chart_code="grafico_04_patentes_ia",
-            year=pat_year,
-        )
-        summaries.append(build_summary("grafico_04_patentes_ia", agg))
-
-    # Grafico 05: Instrumentos de inversion como proxy IA/tecnologia.
-    df_inv = read_oecd_csv(
-        "dsd_industrial_policy_df_fin_clean.csv",
-        usecols=["UNIQUE_ID", "REF_AREA_label", "TIME_PERIOD", "INSTRUMENT_TYPE_label"],
-    )
-    inv_year = latest_year_value(df_inv)
-    df_inv = remove_aggregate_areas(latest_year(df_inv))
-    instr = df_inv["INSTRUMENT_TYPE_label"].fillna("").astype(str).str.lower()
-    kw_inv = "venture|equity|loan|capital|investment|fund"
-    df_inv_plot = df_inv[instr.str.contains(kw_inv, regex=True)].copy()
-    if df_inv_plot.empty:
-        df_inv_plot = df_inv.copy()
-
-    agg = count_unique_by_country(df_inv_plot)
-    agg = top_country_bar(
-        agg,
-        title=f"Grafico 05: Instrumentos de inversion (QuIS{', ' + str(inv_year) if inv_year else ''})",
-        output_name="ocde_grafico_05_inversion_ia.png",
-        color="#76b7b2",
-        x_label="Instrumentos",
-    )
-    if not agg.empty:
-        save_chart_data(
-            agg,
-            "ocde_grafico_05_inversion_ia_datos.csv",
-            chart_code="grafico_05_inversion_ia",
-            year=inv_year,
-        )
-        summaries.append(build_summary("grafico_05_inversion_ia", agg))
-
-    # Grafico 06: Relacion I+D vs tech-focused con escala robusta.
-    df_fin_sc = read_oecd_csv(
-        "dsd_industrial_policy_df_fin_clean.csv",
-        usecols=[
-            "UNIQUE_ID",
-            "REF_AREA_label",
-            "TIME_PERIOD",
-            "RD_label",
-            "TECH_FOCUSED_label",
-        ],
-    )
-    df_gr_sc = read_oecd_csv(
-        "dsd_industrial_policy_df_grantax_clean.csv",
-        usecols=[
-            "UNIQUE_ID",
-            "REF_AREA_label",
-            "TIME_PERIOD",
-            "RD_label",
-            "TECH_FOCUSED_label",
-        ],
-    )
-
-    df_fin_sc = latest_year(df_fin_sc)
-    df_gr_sc = latest_year(df_gr_sc)
-    df_fin_sc = df_fin_sc.assign(SOURCE="fin")
-    df_gr_sc = df_gr_sc.assign(SOURCE="grantax")
-    df_sc = pd.concat([df_fin_sc, df_gr_sc], ignore_index=True)
-    df_sc = remove_aggregate_areas(df_sc)
-    df_sc["INSTRUMENT_KEY"] = df_sc["UNIQUE_ID"].astype(str) + "|" + df_sc["SOURCE"]
-    sc_year = latest_year_value(df_sc)
-
-    rd_country = (
-        df_sc[df_sc["RD_label"].astype(str).str.lower().eq("yes")]
-        .groupby("REF_AREA_label", as_index=False)["INSTRUMENT_KEY"]
-        .nunique()
-        .rename(columns={"INSTRUMENT_KEY": "rd_value"})
-    )
-
-    ia_country = (
-        df_sc[df_sc["TECH_FOCUSED_label"].astype(str).str.lower().eq("yes")]
-        .groupby("REF_AREA_label", as_index=False)["INSTRUMENT_KEY"]
-        .nunique()
-        .rename(columns={"INSTRUMENT_KEY": "ia_proxy_value"})
-    )
-
-    df_scatter = rd_country.merge(ia_country, on="REF_AREA_label", how="outer").fillna(0)
-    df_scatter = df_scatter[
-        (df_scatter["rd_value"] > 0) | (df_scatter["ia_proxy_value"] > 0)
-    ].copy()
-    df_scatter["rd_log"] = np.log1p(df_scatter["rd_value"])
-    df_scatter["ia_log"] = np.log1p(df_scatter["ia_proxy_value"])
-    df_scatter["rd_norm"] = minmax_robust(df_scatter["rd_log"])
-    df_scatter["ia_norm"] = minmax_robust(df_scatter["ia_log"])
-    df_scatter["size_norm"] = minmax_robust(
-        np.log1p(df_scatter["rd_value"] + df_scatter["ia_proxy_value"])
-    )
-
-    fig, ax = plt.subplots(figsize=(11, 7))
-    if sns is not None:
-        sns.scatterplot(
-            data=df_scatter,
-            x="rd_norm",
-            y="ia_norm",
-            size="size_norm",
-            sizes=(80, 700),
-            alpha=0.75,
-            color="#2f5597",
-            legend=False,
+        world.plot(ax=ax, color="#f3f4f6", edgecolor="white", linewidth=0.35)
+        merged.plot(
+            column="ai_patent_applications",
             ax=ax,
+            cmap="YlGnBu",
+            norm=norm,
+            edgecolor="white",
+            linewidth=0.35,
+            missing_kwds={"color": "#f3f4f6"},
         )
-    else:
-        sizes = 80 + (620 * df_scatter["size_norm"].fillna(0))
-        ax.scatter(
-            df_scatter["rd_norm"],
-            df_scatter["ia_norm"],
-            s=sizes,
-            alpha=0.75,
-            color="#2f5597",
-            edgecolors="white",
-            linewidths=0.8,
-        )
+        ax.set_title(str(year), fontsize=16)
+        ax.axis("off")
 
-    if len(df_scatter) >= 2:
-        slope, intercept = np.polyfit(df_scatter["rd_norm"], df_scatter["ia_norm"], 1)
-        x_line = np.linspace(0, 1, 200)
-        ax.plot(x_line, slope * x_line + intercept, color="#d1495b", linewidth=2)
-
-    for _, row in df_scatter.nlargest(8, "ia_norm").iterrows():
-        ax.annotate(
-            row["REF_AREA_label"],
-            (row["rd_norm"], row["ia_norm"]),
-            textcoords="offset points",
-            xytext=(4, 4),
-            fontsize=8,
-        )
-
-    corr = df_scatter["rd_log"].corr(df_scatter["ia_log"])
-    ax.set_title(
-        "Grafico 06: Instrumentos I+D vs tech-focused"
-        f"{f' ({sc_year})' if sc_year else ''}"
+    ax = axes[3]
+    merged = world.merge(cum_country, left_on="iso_a3", right_on="REF_AREA", how="left")
+    world.plot(ax=ax, color="#f3f4f6", edgecolor="white", linewidth=0.35)
+    merged.plot(
+        column="ai_patent_applications",
+        ax=ax,
+        cmap="YlGnBu",
+        norm=norm,
+        edgecolor="white",
+        linewidth=0.35,
+        missing_kwds={"color": "#f3f4f6"},
     )
-    ax.set_xlabel("Instrumentos I+D (normalizado)")
-    ax.set_ylabel("Instrumentos tech-focused (normalizado)")
-    ax.set_xlim(-0.02, 1.02)
-    ax.set_ylim(-0.02, 1.02)
-    ax.grid(alpha=0.25)
-    fig.tight_layout()
+    ax.set_title("Acumulado 2022-2024", fontsize=16)
+    ax.axis("off")
 
-    out_scatter = OUT_OECD / "ocde_grafico_06_rd_vs_ia.png"
-    fig.savefig(out_scatter, dpi=300, bbox_inches="tight")
-    plt.close(fig)
-
-    df_scatter_sorted = df_scatter.sort_values(["ia_norm", "rd_norm"], ascending=False)
-    save_chart_data(
-        df_scatter_sorted,
-        "ocde_grafico_06_rd_vs_ia_datos.csv",
-        chart_code="grafico_06_rd_vs_ia",
-        year=sc_year,
+    sm = ScalarMappable(norm=norm, cmap="YlGnBu")
+    sm.set_array([])
+    cbar = fig.colorbar(sm, ax=axes.tolist(), orientation="horizontal", fraction=0.045, pad=0.04)
+    cbar.set_label("Solicitudes de patentes IA (conteo fraccional OCDE; valores reales, no log)")
+    cbar.set_ticks([0, 500, 2000, 5000, 10000, 14000])
+    cbar.ax.xaxis.set_major_formatter(
+        FuncFormatter(lambda x, pos: f"{x:,.0f}" if x >= 10 else f"{x:.1f}")
     )
-    print(f"[OK] Guardado: {out_scatter}")
-    print(f"Correlacion logaritmica (r): {corr:.3f}")
 
-    resumen = (
-        pd.concat(summaries, ignore_index=True)
-        if summaries
-        else pd.DataFrame(columns=["chart", "rank", "pais", "valor_agregado"])
+    fig.suptitle("Patentes de IA por pais en datos OCDE", fontsize=20, fontweight="bold", y=0.98)
+    fig.text(
+        0.5,
+        0.93,
+        "Corte consistente: WIPO + inventor + priority date + patent applications. 2025 no trae observaciones en la API consultada el 2026-05-01.",
+        ha="center",
+        fontsize=10,
+        color="#555555",
     )
-    resumen_path = OUT_OECD_DATA / "ocde_graficos_resumen.csv"
-    resumen.to_csv(resumen_path, index=False, encoding="utf-8-sig")
+    fig.text(
+        0.5,
+        0.02,
+        "La escala de color usa una suavizacion tipo raiz para hacer visibles los paises pequenos, pero la barra muestra valores reales.",
+        ha="center",
+        fontsize=9,
+        color="#555555",
+    )
+    fig.subplots_adjust(top=0.82, bottom=0.12, wspace=0.08, hspace=0.12)
 
-    print(f"[OK] Guardado: {resumen_path}")
-    print(f"Graficos generados en: {OUT_OECD.resolve()}")
-    return resumen
+    fig.savefig(map_path, dpi=300, bbox_inches="tight")
+    plt.show()
+    print(f"Mapa guardado en: {map_path}")
 
 
-if __name__ == "__main__":
-    generar_graficos_ocde()
+
+# Interpretacion:
+# - este mapa usa solicitudes de patentes IA de WIPO, con pais del inventor y fecha de prioridad, para evitar duplicaciones entre USPTO, EPO y WIPO;
+# - 2025 no trae observaciones en la API de la OCDE consultada el 2026-05-01, por eso el acumulado comparable queda en 2022-2024;
+# - los valores son conteos fraccionales, por eso pueden aparecer decimales;
+# - paises en gris no tienen observaciones positivas en este corte.
+# 
+# 
+
+# ---
+# ## Análisis Adicional de Patentes de IA (OCDE)
+# 
+# A partir de los datos recolectados, generaremos dos gráficos adicionales para visualizar:
+# 1. **Evolución temporal (2022-2024)** de los 8 países con más patentes en IA.
+# 2. **Top 15 países** con mayor cantidad de patentes en el último año disponible (2024).
+# 
+
+# In[2]:
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+
+sns.set_theme(style='whitegrid', palette='muted')
+plt.rcParams['figure.dpi'] = 120
+
+df = pd.read_csv('Data/ocde_ia/oecd_ai_patents_2022_2025_wipo_priority_inventor.csv')
+
+# Grafico 1: Evolucion Temporal Top 8
+top_countries = df.groupby('country')['ai_patent_applications'].sum().nlargest(8).index
+df_top = df[df['country'].isin(top_countries)]
+
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=df_top, x='year', y='ai_patent_applications', hue='country', marker='o', linewidth=2)
+plt.title('Evolución de Patentes de IA (2022-2024) - Top 8 Países (OCDE)', pad=15)
+plt.xlabel('Año')
+plt.ylabel('Número de Aplicaciones de Patentes')
+plt.xticks([2022, 2023, 2024])
+plt.legend(title='País', bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.tight_layout()
+os.makedirs('graficos_api_ocde', exist_ok=True)
+plt.savefig('graficos_api_ocde/evolucion_patentes_ia.png')
+plt.show()
+
+# Grafico 2: Top 15 Paises en 2024
+df_2024 = df[df['year'] == 2024].nlargest(15, 'ai_patent_applications')
+plt.figure(figsize=(10, 6))
+sns.barplot(data=df_2024, x='ai_patent_applications', y='country', hue='country', legend=False, palette='viridis')
+plt.title('Top 15 Países en Patentes de IA (2024)', pad=15)
+plt.xlabel('Número de Aplicaciones de Patentes')
+plt.ylabel('País')
+plt.tight_layout()
+plt.savefig('graficos_api_ocde/top15_patentes_ia_2024.png')
+plt.show()
+

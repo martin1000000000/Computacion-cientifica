@@ -65,23 +65,23 @@ benjamin.neira@alumnos.uach.cl
 \end{center}
 
 \section*{Resumen}
-Este entregable presenta un análisis descriptivo sobre las consecuencias de la Inteligencia Artificial (IA) en las personas. Se integran cuatro conjuntos de datos abiertos de Kaggle (Data\_set\_02 a Data\_set\_05) para construir una base de estudio orientada a cuatro dimensiones: salud mental, educación, privacidad y seguridad, y productividad y empleo. En esta etapa se reportan resultados descriptivos con gráficos de Data\_set\_02 y Data\_set\_03, dejando Data\_set\_04 y Data\_set\_05 para análisis posteriores.
+Este informe presenta un análisis descriptivo sobre las consecuencias de la Inteligencia Artificial (IA) en las personas. A partir de varios conjuntos de datos filtrados, se evalúan dimensiones clave como la salud mental, el impacto en el empleo y las percepciones sociales sobre privacidad y seguridad. El análisis incluye la relación entre la percepción de reemplazo laboral y el nivel de agotamiento (\textit{burnout}) en diversos profesionales, así como las actitudes del público frente a la adopción de la IA y sus riesgos inherentes. Los resultados preliminares muestran tendencias significativas, como un mayor agotamiento asociado al temor de automatización en ciertos roles tecnológicos, y cómo la confianza en la herramienta moldea la percepción social de beneficio o amenaza.
 
 \textbf{Palabras clave:} inteligencia artificial, consecuencias sociales, salud mental, privacidad, seguridad, educación, empleo.
 
 \section{Introducción}
 La expansión de herramientas de IA está modificando la forma en que las personas estudian, trabajan, se informan y toman decisiones [5-6,8-9]. Sin embargo, existe incertidumbre sobre sus efectos concretos en la vida cotidiana y sobre qué grupos enfrentan mayores riesgos o beneficios.
 
-Aunque la IA se ha difundido rápidamente, su adopción no ocurre de manera homogénea entre personas y contextos. Factores como edad, nivel educativo, hábitos de estudio y entorno laboral pueden condicionar tanto la intensidad de uso como la percepción de beneficios y riesgos. Por ello, analizar el fenómeno únicamente desde promedios generales puede ocultar diferencias relevantes para una interpretación social más precisa.
+Aunque la IA se ha difundido rápidamente, su adopción no ocurre de manera homogénea entre personas y contextos. Factores como edad, nivel educativo y entorno laboral pueden condicionar tanto la intensidad de uso como la percepción de beneficios y riesgos. Por ello, analizar el fenómeno únicamente desde promedios generales puede ocultar diferencias relevantes para una interpretación social más precisa.
 
-Para evitar sesgos derivados de datos agregados, este trabajo prioriza registros crudos y comparables. En educación, la evidencia muestra que modelos como ChatGPT ya alcanzan alto rendimiento en pruebas universitarias, generando desafíos para la integridad académica [5]. En privacidad y seguridad, se han identificado riesgos de desinformación, filtraciones y usos maliciosos de los modelos de lenguaje [6]. En empleo y productividad, estudios recientes estiman una exposición significativa de tareas a la automatización y mejoras de productividad con asistencia generativa [7-8], en línea con proyecciones institucionales sobre cambios en ocupaciones y habilidades [9].
+Para evitar sesgos derivados de datos agregados, este trabajo prioriza registros crudos y comparables. En educación, la evidencia muestra que modelos como ChatGPT ya alcanzan alto rendimiento en pruebas universitarias, ubicandose en el percentil 91 para Microeconomía y el percentil 99 para Macroeconomía en comparación con los estudiantes que toman el examen TUCE al final de su curso de principios. Los resultados muestran que ChatGPT es capaz de proporcionar respuestas que superan las respuestas medias de los estudiantes, generando desafíos para la integridad académica [5]. En privacidad y seguridad, se han identificado riesgos de desinformación, filtraciones y usos maliciosos de los modelos de lenguaje [6]. En empleo y productividad, estudios recientes estiman una exposición significativa de tareas a la automatización y mejoras de productividad con asistencia generativa [7-8], en línea con proyecciones institucionales sobre cambios en ocupaciones y habilidades [9].
 
 En este trabajo se procederá a realizar un análisis descriptivo y comparativo con el objetivo de responder a las siguientes preguntas iniciales:
 \begin{enumerate}
-    \item ¿Cómo varía el uso de IA y el desempeño académico según edad, género y nivel educativo?
-    \item ¿Qué relación existe entre dependencia de IA, horas de estudio y resultados académicos?
-    \item ¿Cómo se asocian burnout, satisfacción laboral y reemplazo de tareas con la intensidad de uso de IA en el trabajo?
-    \item ¿Qué percepciones de confianza, riesgo y beneficio sobre la IA se observan y cómo se vinculan con indicadores de empleo y automatización?
+\item ¿Cómo se asocian burnout, satisfacción laboral y reemplazo de tareas con la intensidad de uso de IA en el trabajo?
+\item ¿Qué percepciones de confianza y beneficio sobre la IA predominan en la sociedad?
+\item ¿Cómo interactúa el nivel de confianza en la IA con la percepción de amenaza a las libertades individuales o el apoyo a regulaciones éticas?
+\item ¿De qué manera incide el uso de IA y el nivel de dependencia en el rendimiento académico de los estudiantes?
 \end{enumerate}
 
 Para abordar estas preguntas, utilizaremos distintos gráficos con el fin de visualizar de forma más clara los datos obtenidos y facilitar una mejor comprensión de sus patrones, tendencias y posibles contrastes entre grupos.
@@ -90,9 +90,9 @@ Para abordar estas preguntas, utilizaremos distintos gráficos con el fin de vis
 La solución propuesta consiste en un pipeline de análisis preliminar en Python con tres etapas:
 
 \begin{enumerate}
-    \item Integración y limpieza de los cuatro datasets crudos (Data\_set\_02 a Data\_set\_05).
-    \item Armonización de variables por dimensión del problema (educación, salud mental, privacidad/seguridad, productividad/empleo).
-    \item Generación de gráficos preliminares para observar tendencias y formular hipótesis de investigación.
+\item Integración y limpieza de los tres datasets principales (Data\_set\_01, Data\_set\_02 y Data\_set\_03).
+\item Armonización de variables por dimensión del problema (salud mental, privacidad/seguridad, productividad/empleo y educación).
+\item Generación de gráficos preliminares para observar tendencias y formular hipótesis de investigación.
 \end{enumerate}
 
 Esta solución permite responder de forma inicial las preguntas planteadas en la introducción y deja preparado el terreno para análisis posteriores con técnicas inferenciales.
@@ -101,7 +101,7 @@ Esta solución permite responder de forma inicial las preguntas planteadas en la
 El procesamiento se realizó en Python con \texttt{pandas} y \texttt{numpy} para limpieza y agregación, y \texttt{matplotlib}/\texttt{seaborn} para visualización. El flujo aplicado fue:
 \begin{itemize}
     \item Carga de los CSV y revisión de estructura, tipos de datos y valores nulos.
-    \item Tratamiento de nulos en variables de uso de IA, filtrando solo estudiantes que usan IA para esos gráficos.
+    \item Tratamiento de nulos en variables de uso de IA.
     \item Construcción de variables derivadas (por ejemplo, \texttt{Uso de IA}) y normalización simple por grupos cuando corresponde.
     \item Generación de gráficos directamente en Jupyter para el análisis descriptivo.
 \end{itemize}
@@ -154,39 +154,39 @@ El procesamiento se realizó en Python con \texttt{pandas} y \texttt{numpy} para
 
 \subsection*{Datos por dimensión y origen}
 \begin{itemize}
-    \item \textbf{Salud mental:} \texttt{burnout\_score}, \texttt{job\_satisfaction\_1\_5} y \texttt{hours\_with\_ai\_assistance\_daily}. Fuente: Data\_set\_03 [2].
-    \item \textbf{Educación:} \texttt{study\_hours\_per\_day}, \texttt{ai\_dependency\_score}, \texttt{final\_score} y \texttt{concept\_understanding\_score}. Fuente: Data\_set\_02 [1].
-    \item \textbf{Privacidad y seguridad:} percepción de confianza, amenazas a libertades individuales y regulación ética (preguntas de percepción). Fuente: Data\_set\_05 [4].
-    \item \textbf{Productividad y empleo:} \texttt{productivity\_score}, \texttt{ai\_replaces\_my\_tasks\_pct} (Data\_set\_03) y \texttt{Automation Risk (\%)}, \texttt{Projected Openings (2030)} (Data\_set\_04) [2-3].
+\item \textbf{Salud mental y Empleo:} \texttt{burnout\_score}, \texttt{job\_satisfaction\_1\_5}, \texttt{ai\_replaces\_my\_tasks\_pct} y \texttt{hours\_with\_ai\_assistance\_daily}. Fuente: Data\_set\_01 [2].
+\item \textbf{Privacidad y seguridad:} percepción de confianza, beneficios/daños, amenazas a libertades individuales y regulación ética. Fuente: Data\_set\_02 [4].
+\item \textbf{Educación:} rendimiento académico (\texttt{final\_score}), uso de IA (\texttt{uses\_ai}) y nivel de dependencia (\texttt{ai\_dependency\_score}). Fuente: Data\_set\_03 [1].
 \end{itemize}
 
 \section{Resultados y análisis descriptivo}
-Los siguientes gráficos fueron generados a partir de los notebooks \texttt{graficos\_dataset\_02.ipynb} y \texttt{graficos\_dataset\_03.ipynb}.
+Los siguientes gráficos fueron generados a partir de los cuadernillos \texttt{graficos\_dataset\_01.ipynb}, \texttt{graficos\_dataset\_02.ipynb} y \texttt{graficos\_dataset\_03.ipynb}.
 
-\subsection*{Educación y uso de IA}
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.9\textwidth]{graficos_informe/ds02_perfil_estudiante.png}
-\caption{Perfil general de estudiantes por género, nivel académico y categoría de rendimiento. Fuente: Data\_set\_02 [1].}
-\end{figure}
+\subsection*{Percepciones sociales y privacidad}
 
-Este gráfico permite caracterizar la muestra y contextualizar los análisis posteriores por subgrupos. Se observa una distribución heterogénea en nivel académico y rendimiento, lo que habilita comparaciones de uso de IA por perfil.
+A partir del análisis de actitudes sociales (Data\_set\_02), se exploraron las visiones del público respecto a los riesgos y beneficios de la IA.
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.9\textwidth]{graficos_informe/ds02_impacto_ia_rendimiento.png}
-\caption{Comparación de puntaje final y categoría de rendimiento según uso de IA. Fuente: Data\_set\_02 [1].}
+\includegraphics[width=0.7\textwidth]{graficos_informe/trust_ai.png}
+\caption{Niveles de confianza general. Fuente: Data\_set\_02 [4].}
 \end{figure}
-
-La comparación entre usuarios y no usuarios de IA permite evaluar diferencias en desempeño académico. Estas diferencias se analizan de manera descriptiva y se relacionan con la discusión sobre integridad académica en educación superior [5].
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.9\textwidth]{graficos_informe/ds02_dependencia_etica_puntaje.png}
-\caption{Relación entre dependencia/ética de uso de IA y puntaje final. Fuente: Data\_set\_02 [1].}
+\includegraphics[width=0.7\textwidth]{graficos_informe/threat_freedoms.png}
+\caption{Percepción de amenaza a libertades individuales. Fuente: Data\_set\_02 [4].}
 \end{figure}
 
-Las dispersiones sugieren variabilidad en el rendimiento asociado a niveles de dependencia y percepción ética. Esta evidencia visual sirve como base para hipótesis sobre autonomía de aprendizaje y uso responsable de IA.
+Como se observa, existe un debate importante frente a los riesgos potenciales. Una porción significativa de la muestra considera que la IA podría amenazar libertades individuales o requerir estrictas reglas éticas.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{graficos_informe/trust_benefit_bar.png}
+\caption{Relación entre confianza en IA y percepción de beneficio (gráfico de barras apiladas al 100\%). Fuente: Data\_set\_02 [4].}
+\end{figure}
+
+El gráfico de barras evidencia claramente cómo la confianza condiciona la evaluación social de la herramienta: entre quienes confían en la IA, predomina ampliamente la percepción de que será "Más beneficiosa", mientras que en el grupo de quienes desconfían, la opinión mayoritaria es que será "Más dañina".
 
 \subsection*{Salud mental y reemplazo de tareas}
 \begin{figure}[!htbp]
@@ -202,21 +202,46 @@ Las dispersiones sugieren variabilidad en el rendimiento asociado a niveles de d
 \includegraphics[width=\textwidth]{graficos_informe/ds03_reemplazo_burnout_ai_researcher.png}\\
 \scriptsize (b) AI Researcher.
 \end{minipage}
-\caption{Percepción de reemplazo por IA vs. nivel de agotamiento en roles frecuentes del dataset. Fuente: Data\_set\_03 [2].}
+
+\vspace{0.4cm}
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{graficos_informe/ds03_reemplazo_burnout_data_scientist.png}\\
+\scriptsize (c) Data Scientist.
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{graficos_informe/ds03_reemplazo_burnout_ai_ethics_officer.png}\\
+\scriptsize (d) AI Ethics Officer.
+\end{minipage}
+\caption{Percepción de reemplazo por IA vs. nivel de agotamiento en roles frecuentes. Fuente: Data\_set\_01 [2].}
 \end{figure}
 
-En ambos casos se observa una tendencia positiva entre la percepción de reemplazo y el agotamiento. Este patrón es consistente con la literatura sobre riesgos y efectos sociales de los modelos de lenguaje en el trabajo [6-8].
+En todos los casos se observa una tendencia positiva entre la percepción de reemplazo y el agotamiento. Este patrón es consistente con la literatura sobre riesgos y efectos sociales de los modelos de lenguaje en el trabajo [6-8].
 
+\subsection*{Educación e impacto en el rendimiento}
+Utilizando el conjunto de datos enfocado en estudiantes (Data\_set\_03), se evaluó cómo el uso de la IA y la dependencia de la misma se relacionan con las calificaciones.
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{graficos_informe/ds03_rendimiento_vs_ia.png}
+\caption{Distribución del puntaje final comparando estudiantes que usan y no usan IA. Fuente: Data\_set\_03 [1].}
+\end{figure}
+La figura anterior permite contrastar los resultados académicos entre ambos grupos, ofreciendo una primera aproximación a posibles beneficios o perjuicios del uso de estas herramientas en el aprendizaje.
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{graficos_informe/ds03_dependencia_rendimiento.png}
+\caption{Relación entre el puntaje final y el nivel de dependencia de la IA en estudiantes usuarios. Fuente: Data\_set\_03 [1].}
+\end{figure}
+Al observar a los estudiantes que sí utilizan la IA, la relación entre su nivel de dependencia de la herramienta y sus calificaciones finales sugiere que un uso excesivo o no crítico podría asociarse a menores puntajes.
 \subsection*{Descripción breve de los datos analizados}
-En esta etapa se usan principalmente Data\_set\_02 (estudiantes) y Data\_set\_03 (trabajadores), con registros a nivel individual. Data\_set\_04 y Data\_set\_05 se mantienen para la siguiente fase, donde se incorporarán indicadores de empleo por ocupación y percepciones sociales sobre IA.
-
+En esta etapa se usaron los conjuntos Data\_set\_01 (enfocado en Burnout y reemplazo de tareas), Data\_set\_02 (enfocado en percepciones sociales y riesgos de la IA) y Data\_set\_03 (enfocado en el impacto de la IA en estudiantes). Los registros a nivel individual permitieron identificar contrastes importantes de actitudes frente a estas herramientas y analizar su efecto transversal en distintas áreas.
 \subsection*{Vinculación con las preguntas de investigación}
 Los resultados preliminares se conectan directamente con las preguntas planteadas en la introducción:
 \begin{itemize}
-    \item \textbf{Pregunta 1:} distribución de uso de IA y puntaje final en subgrupos estudiantiles (Data\_set\_02).
-    \item \textbf{Pregunta 2:} relación entre dependencia de IA y rendimiento académico (Data\_set\_02).
-    \item \textbf{Pregunta 3:} relación entre reemplazo de tareas y agotamiento laboral (Data\_set\_03).
-    \item \textbf{Pregunta 4:} quedará abordada en la siguiente fase con Data\_set\_04 y Data\_set\_05.
+\item \textbf{Pregunta 1:} relación entre reemplazo de tareas y agotamiento laboral por rol (Data\_set\_01).
+\item \textbf{Preguntas 2 y 3:} distribución de actitudes sobre los beneficios de la IA y su interacción con las preocupaciones por libertades individuales (Data\_set\_02).
+\item \textbf{Pregunta 4:} contraste de puntajes finales según uso y nivel de dependencia de la IA (Data\_set\_03).
 \end{itemize}
 
 
