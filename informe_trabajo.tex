@@ -93,31 +93,31 @@ El procesamiento se realizó en Python con \texttt{pandas} y \texttt{numpy} para
 \end{itemize}
 
 \section{Diagrama del problema en estudio y dimensiones}
-\begin{figure*}[htbp]
+\begin{figure}[!htbp]
 \centering
-\begin{tikzpicture}[scale=0.75, transform shape,
-    box/.style={draw, align=center, font=\small, minimum width=26mm, minimum height=8mm},
-    smallbox/.style={draw, align=center, font=\small, minimum width=26mm, minimum height=7mm},
+\begin{tikzpicture}[scale=0.6, transform shape,
+    box/.style={draw, align=center, font=\small, minimum width=24mm, minimum height=7mm},
+    smallbox/.style={draw, align=center, font=\small, minimum width=24mm, minimum height=6mm},
     arrow/.style={-Latex, thick}
 ]
 % Nodos principales (posiciones fijas y simetricas)
 \node[box] (center) at (0,0) {Riesgos\\de la IA};
-\node[box] (salud) at (-4.2,2.2) {Salud\\Mental};
-\node[box] (educ)  at (-4.2,-2.2) {Educacion};
-\node[box] (priv)  at (4.2,2.2) {Privacidad\\y\\Seguridad};
-\node[box] (prod)  at (4.2,-2.2) {Productividad\\y Empleo};
+\node[box] (salud) at (-3.4,1.8) {Salud\\Mental};
+\node[box] (educ)  at (-3.4,-1.8) {Educacion};
+\node[box] (priv)  at (3.4,1.8) {Privacidad\\y\\Seguridad};
+\node[box] (prod)  at (3.4,-1.8) {Productividad\\y Empleo};
 
 % Subnodos izquierda
-\node[smallbox] (pens) at (-7.6,3.1) {Pensamiento\\critico};
-\node[smallbox] (ans)  at (-7.6,1.3) {Ansiedad};
-\node[smallbox] (rend) at (-7.6,-1.3) {Rendimiento};
-\node[smallbox] (desh) at (-7.6,-3.1) {Deshonestidad};
+\node[smallbox] (pens) at (-6.2,2.5) {Pensamiento\\critico};
+\node[smallbox] (ans)  at (-6.2,1.0) {Ansiedad};
+\node[smallbox] (rend) at (-6.2,-1.0) {Rendimiento};
+\node[smallbox] (desh) at (-6.2,-2.5) {Deshonestidad};
 
 % Subnodos derecha
-\node[smallbox] (trans) at (7.6,3.1) {Transparencia\\de Datos};
-\node[smallbox] (fake)  at (7.6,1.3) {Fakenews};
-\node[smallbox] (uso)   at (7.6,-3.1) {Uso de IA\\profesionalmente};
-\node[smallbox] (auto)  at (7.6,-4.9) {Automatizacion};
+\node[smallbox] (trans) at (6.2,2.5) {Transparencia\\de Datos};
+\node[smallbox] (fake)  at (6.2,1.0) {Fakenews};
+\node[smallbox] (uso)   at (6.2,-1.0) {Uso de IA\\profesionalmente};
+\node[smallbox] (auto)  at (6.2,-2.5) {Automatizacion};
 
 % Lineas principales (sin flechas)
 \draw (center) -- (salud);
@@ -136,7 +136,7 @@ El procesamiento se realizó en Python con \texttt{pandas} y \texttt{numpy} para
 \draw (prod.east) -- (auto.west);
 \end{tikzpicture}
 \caption{Diagrama del problema en estudio y dimensiones principales.}
-\end{figure*}
+\end{figure}
 
 \section{Resultados y análisis descriptivo}
 Los siguientes gráficos fueron generados a partir de los cuadernillos \texttt{graficos\_dataset\_01.ipynb}, \texttt{graficos\_dataset\_02.ipynb}, \texttt{graficos\_dataset\_03.ipynb} y \texttt{graficos\_crawler.ipynb}.
