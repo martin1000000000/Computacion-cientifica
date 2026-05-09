@@ -1,0 +1,178 @@
+"""Helper script to add map visualization cells to the notebook."""
+import json
+
+NB_PATH = "graficos_crawler.ipynb"
+
+# Read the notebook
+with open(NB_PATH, "r", encoding="utf-8") as f:
+    nb = json.load(f)
+
+# New markdown cell
+md_cell = {
+    "cell_type": "markdown",
+    "id": "a1e7f890",
+    "metadata": {},
+    "source": [
+        "---\n",
+        "## Mapa global de patentes IA (patentes_por_años)\n",
+        "\n",
+        "Se genera un mapa coropletico mundial con la distribucion acumulada de patentes por pais, "
+        "utilizando los CSV del folder `patentes_por_años`."
+    ]
+}
+
+# Build source code for the map cell
+code_lines = [
+    'from pathlib import Path\n',
+    '\n',
+    'import geopandas as gpd\n',
+    'import matplotlib.pyplot as plt\n',
+    'import numpy as np\n',
+    'import pandas as pd\n',
+    'from matplotlib.cm import ScalarMappable\n',
+    'from matplotlib.colors import PowerNorm\n',
+    'from matplotlib.ticker import FuncFormatter\n',
+    '\n',
+    'DATA_DIR = Path("patentes_por_años")\n',
+    'OUTPUT_DIR = Path("graficos_api_ocde")\n',
+    'OUTPUT_DIR.mkdir(exist_ok=True)\n',
+    '\n',
+    '# ---- Cargar y concatenar los CSV ----\n',
+    'files = sorted(DATA_DIR.glob("*.csv"))\n',
+    'if not files:\n',
+    '    raise FileNotFoundError("No se encontraron CSV en patentes_por_años.")\n',
+    '\n',
+    'frames = []\n',
+    'for file in files:\n',
+    '    df = pd.read_csv(file, low_memory=False)\n',
+    '    df.columns = [c.strip() for c in df.columns]\n',
+    '    if "TIME_PERIOD" in df.columns:\n',
+    '        df["year"] = pd.to_numeric(df["TIME_PERIOD"], errors="coerce")\n',
+    '    else:\n',
+    '        df["year"] = pd.to_numeric(file.stem, errors="coerce")\n',
+    '    frames.append(df)\n',
+    '\n',
+    'data = pd.concat(frames, ignore_index=True)\n',
+    '\n',
+    '# ---- Filtrar por IA si es posible ----\n',
+    'ai_terms = ["artificial intelligence", "technologies related to artificial intelligence", "9p50_2"]\n',
+    'text_cols = [c for c in data.columns if data[c].dtype == object]\n',
+    'ai_mask = pd.Series(False, index=data.index)\n',
+    'for col in text_cols:\n',
+    '    vals = data[col].astype(str).str.lower()\n',
+    '    ai_mask |= vals.str.contains("|".join(ai_terms), regex=True)\n',
+    '\n',
+    'if ai_mask.any():\n',
+    '    data = data[ai_mask].copy()\n',
+    'else:\n',
+    '    print("No se detecto tecnologia IA; se usan todos los registros del folder.")\n',
+    '\n',
+    '# ---- Columna de valores ----\n',
+    'value_col = next((c for c in ["OBS_VALUE", "ai_patent_applications"] if c in data.columns), None)\n',
+    'if value_col is None:\n',
+    '    raise KeyError("No se encontro columna de valores de patentes.")\n',
+    'data[value_col] = pd.to_numeric(data[value_col], errors="coerce")\n',
+    '\n',
+    '# ---- Columna de pais (codigo ISO) ----\n',
+    'country_code_col = next(\n',
+    '    (c for c in ["REF_AREA", "country", "iso_a3", "Reference area"] if c in data.columns),\n',
+    '    None,\n',
+    ')\n',
+    'if country_code_col is None:\n',
+    '    raise KeyError("No se encontro columna de pais.")\n',
+    '\n',
+    '# ---- Excluir agregados ----\n',
+    'aggregate_codes = {"W", "OECD", "EU27_2020"}\n',
+    'data = data[~data[country_code_col].isin(aggregate_codes)]\n',
+    'data = data.dropna(subset=["year", value_col, country_code_col])\n',
+    '\n',
+    '# ---- Agregar por pais (acumulado de todos los anos) ----\n',
+    'cum_country = data.groupby(country_code_col, as_index=False)[value_col].sum()\n',
+    'cum_country = cum_country.rename(columns={country_code_col: "iso_a3", value_col: "patents"})\n',
+    '\n',
+    '# ---- Agregar por ano y pais (para subpaneles) ----\n',
+    'year_country = data.groupby(["year", country_code_col], as_index=False)[value_col].sum()\n',
+    'year_country = year_country.rename(columns={country_code_col: "iso_a3", value_col: "patents"})\n',
+    'years = sorted(year_country["year"].dropna().unique())\n',
+    '\n',
+    '# ---- Cargar mapa mundial ----\n',
+    'world = gpd.read_file("https://naturalearth.s3.amazonaws.com/110m_cultural/ne_110m_admin_0_countries.zip")\n',
+    'world.columns = [col.lower() for col in world.columns]\n',
+    '\n',
+    'iso_candidates = ["iso_a3", "adm0_a3", "sov_a3", "adm0_a3_us"]\n',
+    'iso_col = next((col for col in iso_candidates if col in world.columns), None)\n',
+    'if iso_col is None:\n',
+    '    raise KeyError("No se encontro columna ISO en el shapefile")\n',
+    '\n',
+    'world = world[world[iso_col] != "-99"].copy().rename(columns={iso_col: "iso_a3"})\n',
+    '\n',
+    '# ---- Escala de color ----\n',
+    'vmax = max(cum_country["patents"].max(), year_country["patents"].max())\n',
+    'norm = PowerNorm(gamma=0.45, vmin=0, vmax=vmax)\n',
+    '\n',
+    '# ---- Seleccionar anos a graficar (ultimos 2 disponibles + acumulado) ----\n',
+    'years_to_plot = years[-2:] if len(years) >= 2 else years\n',
+    'n_panels = len(years_to_plot) + 1  # +1 para acumulado\n',
+    '\n',
+    'fig, axes = plt.subplots(1, n_panels, figsize=(8 * n_panels, 7))\n',
+    'if n_panels == 1:\n',
+    '    axes = [axes]\n',
+    'else:\n',
+    '    axes = list(axes.ravel())\n',
+    '\n',
+    'for ax, year in zip(axes, years_to_plot):\n',
+    '    merged = world.merge(year_country[year_country["year"] == year], on="iso_a3", how="left")\n',
+    '    world.plot(ax=ax, color="#f3f4f6", edgecolor="white", linewidth=0.35)\n',
+    '    merged.plot(column="patents", ax=ax, cmap="YlGnBu", norm=norm,\n',
+    '               edgecolor="white", linewidth=0.35, missing_kwds={"color": "#f3f4f6"})\n',
+    '    ax.set_title(str(int(year)), fontsize=16)\n',
+    '    ax.axis("off")\n',
+    '\n',
+    '# Panel acumulado\n',
+    'ax = axes[-1]\n',
+    'merged = world.merge(cum_country, on="iso_a3", how="left")\n',
+    'world.plot(ax=ax, color="#f3f4f6", edgecolor="white", linewidth=0.35)\n',
+    'merged.plot(column="patents", ax=ax, cmap="YlGnBu", norm=norm,\n',
+    '           edgecolor="white", linewidth=0.35, missing_kwds={"color": "#f3f4f6"})\n',
+    'period_label = f"{int(years[0])}-{int(years[-1])}" if len(years) > 1 else str(int(years[0]))\n',
+    'ax.set_title(f"Acumulado {period_label}", fontsize=16)\n',
+    'ax.axis("off")\n',
+    '\n',
+    '# ---- Colorbar ----\n',
+    'sm = ScalarMappable(norm=norm, cmap="YlGnBu")\n',
+    'sm.set_array([])\n',
+    'cbar = fig.colorbar(sm, ax=axes, orientation="horizontal", fraction=0.045, pad=0.06, aspect=40)\n',
+    'cbar.set_label("Patentes (conteo)", fontsize=12)\n',
+    'dynamic_ticks = np.linspace(0, vmax, 6)\n',
+    'cbar.set_ticks(dynamic_ticks)\n',
+    'cbar.ax.xaxis.set_major_formatter(FuncFormatter(lambda x, pos: f"{int(x):,}"))\n',
+    '\n',
+    'fig.suptitle("Distribucion global de patentes IA (patentes_por_anos)",\n',
+    '             fontsize=22, fontweight="bold", y=0.95)\n',
+    'fig.subplots_adjust(top=0.75, bottom=0.15, wspace=0.05, hspace=0.12)\n',
+    '\n',
+    'map_path = OUTPUT_DIR / "mapa_patentes_ia_folder.png"\n',
+    'fig.savefig(map_path, dpi=300, bbox_inches="tight")\n',
+    'plt.show()\n',
+    'print(f"Mapa guardado en: {map_path}")',
+]
+
+code_cell = {
+    "cell_type": "code",
+    "execution_count": None,
+    "id": "c4d8e120",
+    "metadata": {},
+    "outputs": [],
+    "source": code_lines,
+}
+
+# Append the cells
+nb["cells"].append(md_cell)
+nb["cells"].append(code_cell)
+
+# Write the notebook back
+with open(NB_PATH, "w", encoding="utf-8") as f:
+    json.dump(nb, f, ensure_ascii=False, indent=1)
+
+print("Cells added successfully!")
+print(f"Total cells: {len(nb['cells'])}")
