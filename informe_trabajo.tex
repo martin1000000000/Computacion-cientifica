@@ -38,21 +38,29 @@
 \end{center}
 
 \begin{abstract}
-Este informe analiza consecuencias sociales, educativas y laborales asociadas al uso de Inteligencia Artificial (IA), a partir de conjuntos de datos abiertos y visualizaciones generadas en Python. El objetivo es identificar patrones preliminares sobre confianza pública, percepción de beneficios, rendimiento académico, agotamiento laboral y concentración geográfica del desarrollo tecnológico. Los resultados muestran que la confianza en la IA se relaciona con una percepción más positiva de sus beneficios, que el uso educativo de IA no implica necesariamente mejor rendimiento y que el desarrollo medido por patentes se concentra en pocas regiones. Se discuten los límites de los datos y la necesidad de interpretar los hallazgos como evidencia descriptiva, no causal.
+Este informe analiza consecuencias sociales, educativas y laborales asociadas al uso de Inteligencia Artificial (IA), a partir de conjuntos de datos abiertos y visualizaciones generadas en Python. El objetivo es identificar patrones preliminares sobre confianza pública, percepción de beneficios, rendimiento académico, agotamiento laboral y concentración geográfica de la producción de IA. Los resultados muestran que la confianza en la IA se relaciona con una percepción más positiva de sus beneficios, que el uso educativo de IA no implica necesariamente mejor rendimiento y que las publicaciones de IA se concentran en pocas regiones. Se discuten los límites de los datos y la necesidad de interpretar los hallazgos como evidencia descriptiva, no causal.
 \end{abstract}
 
-\keywords{inteligencia artificial, sociedad, educación, empleo, privacidad, patentes, análisis descriptivo}
+\keywords{inteligencia artificial, sociedad, educación, empleo, privacidad, publicaciones científicas, análisis descriptivo}
 
 \section{Introducción}
-La adopción acelerada de herramientas de IA generativa ha modificado prácticas de estudio, trabajo, búsqueda de información y toma de decisiones. La literatura reciente muestra oportunidades relevantes, como aumentos de productividad con asistencia generativa \cite{brynjolfsson2023} y alto desempeño de modelos conversacionales en pruebas universitarias \cite{geerling2023}. Al mismo tiempo, se han documentado riesgos éticos y sociales vinculados con desinformación, dependencia tecnológica, privacidad, seguridad y efectos laborales \cite{weidinger2021,eloundou2023,wef2023}.
+La expansión de herramientas de IA está modificando la forma en que las personas estudian, trabajan, se informan y toman decisiones. Sin embargo, todavía existe incertidumbre sobre sus efectos concretos en la vida cotidiana y sobre qué grupos enfrentan mayores riesgos o beneficios. La literatura reciente muestra oportunidades relevantes, como aumentos de productividad con asistencia generativa \cite{brynjolfsson2023} y buen desempeño de modelos conversacionales en evaluaciones universitarias \cite{geerling2023}, pero también advierte riesgos éticos, sociales y laborales asociados a su adopción \cite{weidinger2021,eloundou2023,wef2023}.
 
-El problema central de este trabajo es que las consecuencias de la IA no se distribuyen de manera homogénea. Las personas pueden valorar la IA como beneficiosa y, al mismo tiempo, desconfiar de sus efectos sobre libertades individuales, empleo o formación académica. Por ello, un análisis basado solo en promedios generales puede ocultar diferencias importantes entre dimensiones sociales, educativas y productivas.
+En este contexto, este informe se mantiene en una etapa exploratoria: no busca cerrar conclusiones definitivas, sino organizar evidencia inicial y observar patrones descriptivos a partir de datos abiertos. El problema central es que las consecuencias de la IA no se distribuyen de manera homogénea. Las personas pueden valorar la tecnología como beneficiosa y, al mismo tiempo, desconfiar de sus efectos sobre libertades individuales, empleo, formación académica o condiciones de trabajo. Por ello, un análisis basado solo en promedios generales puede ocultar diferencias importantes entre dimensiones sociales, educativas, laborales y productivas.
 
-El objetivo de esta segunda entrega es actualizar el informe bajo una estructura IMRAD y presentar un análisis preliminar reproducible con Python. Las preguntas que guían el estudio son: ¿cómo se relaciona la confianza en la IA con la percepción de beneficio?, ¿qué diferencias aparecen entre estudiantes que usan y no usan IA?, ¿cómo se vinculan el uso laboral de IA, el reemplazo de tareas y el agotamiento?, y ¿dónde se concentra geográficamente el desarrollo de IA medido por patentes?
+En este trabajo se realiza un análisis complementario de datasets abiertos sobre percepción social, educación, empleo, agotamiento laboral y publicaciones de IA \cite{keskin2026,mazari2026,uom2026,justin2026,oecd2026}. El objetivo es responder a las siguientes preguntas iniciales:
+\begin{enumerate}
+    \item ¿Cómo se relaciona la confianza en la IA con la percepción de beneficio?
+    \item ¿Qué diferencias aparecen entre estudiantes que usan y no usan IA?
+    \item ¿Cómo se vinculan el uso laboral de IA, el reemplazo de tareas y el agotamiento?
+    \item ¿Dónde se concentra geográficamente la producción de IA medida por publicaciones?
+\end{enumerate}
+
+Para abordar estas preguntas se utilizan gráficos y resúmenes descriptivos que permiten visualizar los datos de forma más clara, comparar grupos y construir una interpretación coherente de los patrones observados.
 
 \section{Métodos}
 \subsection{Fuentes de datos}
-Se utilizaron cinco fuentes abiertas: un dataset sobre agotamiento laboral y uso de IA en trabajadores \cite{justin2026}, un dataset de percepciones sociales sobre IA \cite{keskin2026}, un dataset sobre aprendizaje y uso de IA en estudiantes \cite{mazari2026}, un dataset de mercado laboral asociado a IA \cite{uom2026} y datos de patentes de la OCDE \cite{oecd2026}. Estas fuentes se eligieron porque cubren dimensiones complementarias del problema: sociedad, educación, empleo y desarrollo tecnológico.
+Se utilizaron cinco fuentes abiertas: un dataset sobre agotamiento laboral y uso de IA en trabajadores \cite{justin2026}, un dataset de percepciones sociales sobre IA \cite{keskin2026}, un dataset sobre aprendizaje y uso de IA en estudiantes \cite{mazari2026}, un dataset de mercado laboral asociado a IA \cite{uom2026} y datos de publicaciones de IA de la OCDE \cite{oecd2026}. Estas fuentes se eligieron porque cubren dimensiones complementarias del problema: sociedad, educación, empleo y producción tecnológica.
 
 \subsection{Procesamiento}
 El análisis se implementó en Python usando \texttt{pandas} y \texttt{numpy} para carga, limpieza y agregación de datos, junto con \texttt{matplotlib} y \texttt{seaborn} para visualización. El flujo general fue:
@@ -132,24 +140,24 @@ En el dataset educativo se comparó el puntaje final de estudiantes que usan y n
 \end{figure}
 
 \subsection{Desarrollo geográfico}
-Los datos de patentes muestran una concentración del desarrollo de IA en un conjunto reducido de países y regiones (Fig.~\ref{fig:patentes-ia}). Este patrón sugiere una brecha tecnológica internacional: quienes concentran producción, propiedad intelectual e infraestructura de IA pueden influir más en estándares, mercados y disponibilidad futura de herramientas.
+Los datos de publicaciones muestran una concentración de la producción de IA en un conjunto reducido de países y regiones (Fig.~\ref{fig:publicaciones-ia}). Este patrón sugiere una brecha tecnológica internacional: quienes concentran producción científica, infraestructura y capacidades de investigación en IA pueden influir más en estándares, mercados y disponibilidad futura de herramientas.
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.88\columnwidth]{Data/ocde_ia/mapa_patentes_ia_ocde_2022_2024.png}
-\caption{Distribución global de patentes de IA entre 2022 y 2024.}
-\label{fig:patentes-ia}
+\includegraphics[width=0.96\columnwidth]{graficos_informe/mapa_publicaciones_ia_ocde_2025.png}
+\caption{Distribución global de publicaciones de IA por país en 2025.}
+\label{fig:publicaciones-ia}
 \end{figure}
 
 \section{Discusión}
 Los resultados apuntan a una consecuencia transversal: la IA no genera un impacto único, sino efectos distintos según el contexto. En percepción social, la confianza aparece asociada con una lectura más positiva de la tecnología. En educación, el uso de IA debe analizarse con cautela, porque puede apoyar el aprendizaje, pero también abrir problemas de dependencia, integridad académica y desigualdad en el acceso. En empleo, los datasets revisados permiten conectar el reemplazo de tareas y el uso profesional de IA con discusiones sobre productividad y agotamiento, aunque se requieren análisis adicionales para separar exposición tecnológica, condiciones laborales y perfiles ocupacionales.
 
-La concentración de patentes agrega una dimensión estructural al problema. Si el desarrollo de IA se concentra geográficamente, entonces los beneficios económicos y la capacidad de decisión sobre estas tecnologías también pueden concentrarse. Esto conecta los hallazgos sociales y educativos con un problema más amplio de gobernanza: no basta con medir si las personas usan IA, también importa quién diseña los sistemas, quién controla los datos y quién captura los beneficios.
+La concentración de publicaciones agrega una dimensión estructural al problema. Si la producción de conocimiento sobre IA se concentra geográficamente, entonces los beneficios económicos y la capacidad de decisión sobre estas tecnologías también pueden concentrarse. Esto conecta los hallazgos sociales y educativos con un problema más amplio de gobernanza: no basta con medir si las personas usan IA, también importa quién diseña los sistemas, quién controla los datos y quién captura los beneficios.
 
 Las principales limitaciones del estudio son la heterogeneidad de los datasets, la posible presencia de sesgos de muestreo y la ausencia de variables comunes que permitan integrar todas las fuentes en un único modelo. Además, varios resultados se basan en percepciones declaradas y no en mediciones longitudinales. Por estas razones, las conclusiones deben entenderse como evidencia preliminar. Para una etapa posterior se recomienda profundizar con modelos estadísticos, análisis por subgrupos y validación cruzada entre fuentes.
 
 \section{Conclusiones}
-El análisis preliminar muestra tres hallazgos principales. Primero, la confianza en la IA se asocia con una percepción más positiva de sus beneficios. Segundo, el uso de IA en educación no debe interpretarse automáticamente como mejora de rendimiento, pues depende del tipo de uso y del nivel de dependencia. Tercero, el desarrollo tecnológico medido por patentes está concentrado geográficamente, lo que puede ampliar brechas entre países y organizaciones. En conjunto, estos resultados respaldan la necesidad de estudiar la IA como un fenómeno social, educativo, laboral y político, no solo técnico.
+El análisis preliminar muestra tres hallazgos principales. Primero, la confianza en la IA se asocia con una percepción más positiva de sus beneficios. Segundo, el uso de IA en educación no debe interpretarse automáticamente como mejora de rendimiento, pues depende del tipo de uso y del nivel de dependencia. Tercero, la producción de IA medida por publicaciones está concentrada geográficamente, lo que puede ampliar brechas entre países y organizaciones. En conjunto, estos resultados respaldan la necesidad de estudiar la IA como un fenómeno social, educativo, laboral y político, no solo técnico.
 
 \begin{thebibliography}{9}
 
