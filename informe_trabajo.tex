@@ -46,6 +46,10 @@ Este informe analiza consecuencias sociales, educativas y laborales asociadas al
 \section{Introducción}
 La expansión de herramientas de IA está modificando la forma en que las personas estudian, trabajan, se informan y toman decisiones. Sin embargo, todavía existe incertidumbre sobre sus efectos concretos en la vida cotidiana y sobre qué grupos enfrentan mayores riesgos o beneficios. La literatura reciente muestra oportunidades relevantes, como aumentos de productividad con asistencia generativa \cite{brynjolfsson2023} y buen desempeño de modelos conversacionales en evaluaciones universitarias \cite{geerling2023}, pero también advierte riesgos éticos, sociales y laborales asociados a su adopción \cite{weidinger2021,eloundou2023,wef2023}.
 
+El interés por estudiar estas consecuencias surge porque la IA generativa ya no se limita a laboratorios o aplicaciones especializadas: se incorpora en buscadores, editores de texto, plataformas educativas, herramientas de programación y sistemas de apoyo al trabajo. En el ámbito laboral, la evidencia experimental muestra que la asistencia de IA puede mejorar el desempeño en ciertas tareas, especialmente cuando ayuda a reducir tiempos de respuesta y a estandarizar soluciones \cite{brynjolfsson2023}. Al mismo tiempo, estudios sobre exposición ocupacional sugieren que una parte importante de las tareas asociadas a empleos actuales podría verse afectada por modelos de lenguaje, lo que no implica necesariamente reemplazo total, pero sí cambios en habilidades, organización del trabajo y distribución de oportunidades \cite{eloundou2023,wef2023}.
+
+En educación, el debate también es ambiguo. El buen desempeño de los modelos conversacionales en evaluaciones universitarias indica que estas herramientas pueden resolver problemas complejos y apoyar procesos de aprendizaje \cite{geerling2023}; sin embargo, ese mismo potencial abre preguntas sobre dependencia, integridad académica y desarrollo de pensamiento crítico. A esto se suman riesgos sociales más amplios, como sesgos, desinformación, opacidad en el uso de datos y posibles daños derivados de sistemas desplegados sin suficiente supervisión \cite{weidinger2021}. Por lo tanto, analizar la IA solo como una herramienta eficiente resulta insuficiente: también es necesario observar cómo se percibe, quién la usa, en qué condiciones y con qué consecuencias.
+
 En este contexto, este informe se mantiene en una etapa exploratoria: no busca cerrar conclusiones definitivas, sino organizar evidencia inicial y observar patrones descriptivos a partir de datos abiertos. El problema central es que las consecuencias de la IA no se distribuyen de manera homogénea. Las personas pueden valorar la tecnología como beneficiosa y, al mismo tiempo, desconfiar de sus efectos sobre libertades individuales, empleo, formación académica o condiciones de trabajo. Por ello, un análisis basado solo en promedios generales puede ocultar diferencias importantes entre dimensiones sociales, educativas, laborales y productivas.
 
 En este trabajo se realiza un análisis complementario de datasets abiertos sobre percepción social, educación, empleo, agotamiento laboral y publicaciones de IA \cite{keskin2026,mazari2026,uom2026,justin2026,oecd2026}. El objetivo es responder a las siguientes preguntas iniciales:
@@ -105,7 +109,7 @@ El estudio es exploratorio y descriptivo. No se aplican modelos causales, por lo
 \draw (prod.east) -- (uso.west);
 \draw (prod.east) -- (auto.west);
 \end{tikzpicture}
-\caption{Dimensiones consideradas para estudiar las consecuencias de la IA.}
+\caption{Dimensiones consideradas para estudiar las consecuencias de la IA. El esquema organiza el problema en áreas sociales, educativas, laborales y de seguridad.}
 \label{fig:dimensiones}
 \end{figure}
 
@@ -116,17 +120,17 @@ La distribución de confianza muestra posiciones divididas frente a la IA (Fig.~
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.82\columnwidth]{graficos_informe/trust_ai.png}
-\caption{Niveles de confianza general hacia la IA.}
+\caption{Niveles de confianza general hacia la IA. El gráfico muestra una opinión dividida, con presencia importante de respuestas indecisas y de baja confianza.}
 \label{fig:trust-ai}
 \end{figure}
 
-Al comparar confianza y beneficio percibido, se observa que los grupos con mayor confianza tienden a evaluar la IA de forma más favorable (Fig.~\ref{fig:trust-benefit}). Esto no prueba causalidad, pero sí indica que la confianza puede funcionar como una variable clave para explicar aceptación social y disposición de uso.
+El mismo dataset permite observar una dimensión laboral directa: la percepción sobre si la IA podría afectar el propio trabajo (Fig.~\ref{fig:ia-afecta-trabajo}). Este resultado conecta la discusión de confianza social con el debate sobre automatización, exposición ocupacional y cambios en las tareas.
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.82\columnwidth]{graficos_informe/trust_benefit_bar.png}
-\caption{Relación entre confianza en IA y percepción de beneficio.}
-\label{fig:trust-benefit}
+\includegraphics[width=0.82\columnwidth]{graficos_informe/ds02_ia_afecta_trabajo.png}
+\caption{Percepción sobre si la IA podría afectar el propio trabajo. Predominan las respuestas de incertidumbre o desacuerdo, aunque una parte relevante sí percibe posible impacto laboral.}
+\label{fig:ia-afecta-trabajo}
 \end{figure}
 
 \subsection{Educación y rendimiento académico}
@@ -135,7 +139,7 @@ En el dataset educativo se comparó el puntaje final de estudiantes que usan y n
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.82\columnwidth]{graficos_informe/ds03_rendimiento_vs_ia.png}
-\caption{Distribución del puntaje final según uso de IA en estudiantes.}
+\caption{Distribución del puntaje final según uso de IA en estudiantes. La comparación sugiere diferencias entre grupos, pero no permite atribuir causalidad al uso de IA.}
 \label{fig:rendimiento-ia}
 \end{figure}
 
@@ -145,7 +149,7 @@ Los datos de publicaciones muestran una concentración de la producción de IA e
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.96\columnwidth]{graficos_informe/mapa_publicaciones_ia_ocde_2025.png}
-\caption{Distribución global de publicaciones de IA por país en 2025.}
+\caption{Distribución global de publicaciones de IA por país en 2025. La producción científica aparece concentrada en pocas regiones, lo que evidencia brechas de capacidad tecnológica.}
 \label{fig:publicaciones-ia}
 \end{figure}
 
