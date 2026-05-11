@@ -1,202 +1,217 @@
- \documentclass[12pt,a4paper]{article}
+\documentclass{llncs}
 
-\usepackage{babel}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage[hidelinks]{hyperref}
 \usepackage{xurl}
+\usepackage[final,protrusion=true,expansion=false]{microtype}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
 
-\setlength{\parskip}{0.15em}
-\setlength{\textfloatsep}{5pt plus 1pt minus 1pt}
-\setlength{\floatsep}{5pt plus 1pt minus 1pt}
-\setlength{\intextsep}{5pt plus 1pt minus 1pt}
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\floatsep}{6pt plus 2pt minus 2pt}
+\setlength{\intextsep}{6pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{4pt}
+\setlength{\belowcaptionskip}{0pt}
+\setlist{nosep,leftmargin=*}
+\raggedbottom
 
 \begin{document}
 
-\begin{center}
-{\LARGE\bfseries Informe de Computación Científica con Python\par}
-\vspace{0.15cm}
-{\Large Consecuencias de la Inteligencia Artificial en las personas\par}
-\vspace{0.35cm}
+\title{Consecuencias de la Inteligencia Artificial en las personas}
+\author{Martín Arrigo\inst{1} \and Nicolás Toro\inst{1} \and Diego Mora\inst{1} , Benjamín Neira\inst{1}}
+\institute{ Universidad Austral de Chile, Valdivia, Chile\\
+\email{martin.arrigo@alumnos.uach.cl}\\
+\email{nicolas.toro@alumnos.uach.cl}\\
+\email{diego.mora01@alumnos.uach.cl}\\
+\email{benjamin.neira@alumnos.uach.cl}}
 
-\begin{minipage}{0.47\textwidth}
-\centering
-\textbf{Martín Arrigo}\\
-martin.arrigo@alumnos.uach.cl
-\end{minipage}
-\hfill
-\begin{minipage}{0.47\textwidth}
-\centering
-\textbf{Nicolás Toro}\\
-nicolas.toro@alumnos.uach.cl
-\end{minipage}
+\maketitle
+\pagestyle{empty}
 
-\vspace{0.2cm}
 \begin{center}
-\textit{Instituto de Informática}\\
-\textit{Universidad Austral de Chile}\\
-Valdivia, Chile
+\textbf{Asignatura:} Computación Científica con Python\\
+\textbf{Profesor:} Luis Veas\\
+\textbf{Año:} 2026
 \end{center}
 
-\vspace{0.35cm}
+\begin{abstract}
+Este informe analiza consecuencias sociales, educativas y laborales asociadas al uso de Inteligencia Artificial (IA), a partir de conjuntos de datos abiertos y visualizaciones generadas en Python. El objetivo es identificar patrones preliminares sobre confianza pública, percepción de beneficios, rendimiento académico, agotamiento laboral, concentración geográfica de la producción de IA e incidentes de desinformación. Los resultados muestran que la confianza en la IA se relaciona con una percepción más positiva de sus beneficios, que el uso educativo de IA no implica necesariamente mejor rendimiento, que las publicaciones de IA se concentran en pocas regiones y que los incidentes registrados por AIID aumentan con fuerza desde 2023. Se discuten los límites de los datos y la necesidad de interpretar los hallazgos como evidencia descriptiva, no causal.
+\end{abstract}
 
-\begin{minipage}{0.47\textwidth}
-\centering
-\textbf{Diego Mora}\\
-diego.mora01@alumnos.uach.cl
-\end{minipage}
-\hfill
-\begin{minipage}{0.47\textwidth}
-\centering
-\textbf{Benjamín Neira}\\
-benjamin.neira@alumnos.uach.cl
-\end{minipage}
-\vspace{0.35cm}
- \vspace{0.4cm}
- {\large Profesor: Luis Veas\par}
- {\large Año: 2026\par}
-\end{center}
-
-\section*{Resumen}
-Este primer entregable presenta una propuesta de análisis sobre las consecuencias de la Inteligencia Artificial (IA) en las personas. Se integran fuentes abiertas y reproducibles para construir una base inicial de estudio orientada a cuatro dimensiones: salud mental, educación, privacidad y seguridad, y productividad y empleo. La contribución de esta etapa es definir el problema, proponer una solución metodológica, establecer preguntas de investigación y justificar el uso de gráficos preliminares para el análisis posterior.
-
-\textbf{Palabras clave:} inteligencia artificial, consecuencias sociales, salud mental, privacidad, seguridad, educación, empleo.
+\keywords{inteligencia artificial, sociedad, educación, empleo, privacidad, desinformación, publicaciones científicas, análisis descriptivo}
 
 \section{Introducción}
-La expansión de herramientas de IA está modificando la forma en que las personas estudian, trabajan, se informan y toman decisiones. Sin embargo, existe incertidumbre sobre sus efectos concretos en la vida cotidiana y sobre qué grupos enfrentan mayores riesgos o beneficios.
+La expansión de herramientas de IA está modificando la forma en que las personas estudian, trabajan, se informan y toman decisiones. Sin embargo, todavía existe incertidumbre sobre sus efectos concretos en la vida cotidiana y sobre qué grupos enfrentan mayores riesgos o beneficios. La literatura reciente muestra oportunidades relevantes, como aumentos de productividad con asistencia generativa \cite{brynjolfsson2023} y buen desempeño de modelos conversacionales en evaluaciones universitarias \cite{geerling2023}, pero también advierte riesgos éticos, sociales y laborales asociados a su adopción \cite{weidinger2021,eloundou2023,wef2023}.
 
-Aunque la IA se ha difundido rápidamente, su adopción no ocurre de manera homogénea entre personas y contextos. Factores como edad, nivel educativo, hábitos de estudio y entorno laboral pueden condicionar tanto la intensidad de uso como la percepción de beneficios y riesgos. Por ello, analizar el fenómeno únicamente desde promedios generales puede ocultar diferencias relevantes para una interpretación social más precisa.
+El interés por estudiar estas consecuencias surge porque la IA generativa ya no se limita a laboratorios o aplicaciones especializadas: se incorpora en buscadores, editores de texto, plataformas educativas, herramientas de programación y sistemas de apoyo al trabajo. En el ámbito laboral, la evidencia experimental muestra que la asistencia de IA puede mejorar el desempeño en ciertas tareas, especialmente cuando ayuda a reducir tiempos de respuesta y a estandarizar soluciones \cite{brynjolfsson2023}. Al mismo tiempo, estudios sobre exposición ocupacional sugieren que una parte importante de las tareas asociadas a empleos actuales podría verse afectada por modelos de lenguaje, lo que no implica necesariamente reemplazo total, pero sí cambios en habilidades, organización del trabajo y distribución de oportunidades \cite{eloundou2023,wef2023}.
 
-En línea con esta preocupación, evidencia reciente en educación superior en Estados Unidos muestra que herramientas como ChatGPT ya pueden superar pruebas estandarizadas universitarias, lo que plantea desafíos directos para la integridad académica y el rediseño de evaluaciones [4].
+En educación, el debate también es ambiguo. El buen desempeño de los modelos conversacionales en evaluaciones universitarias indica que estas herramientas pueden resolver problemas complejos y apoyar procesos de aprendizaje \cite{geerling2023}; sin embargo, ese mismo potencial abre preguntas sobre dependencia, integridad académica y desarrollo de pensamiento crítico. A esto se suman riesgos sociales más amplios, como sesgos, desinformación, opacidad en el uso de datos y posibles daños derivados de sistemas desplegados sin suficiente supervisión \cite{weidinger2021}. Por lo tanto, analizar la IA solo como una herramienta eficiente resulta insuficiente: también es necesario observar cómo se percibe, quién la usa, en qué condiciones y con qué consecuencias.
 
-De manera complementaria, estudios sobre gobernanza de IA en Estados Unidos muestran que la confianza institucional y las preocupaciones sobre privacidad y seguridad influyen de forma significativa en el apoyo a distintas aplicaciones de IA [5].
+En este contexto, este informe se mantiene en una etapa exploratoria: no busca cerrar conclusiones definitivas, sino organizar evidencia inicial y observar patrones descriptivos a partir de datos abiertos. El problema central es que las consecuencias de la IA no se distribuyen de manera homogénea. Las personas pueden valorar la tecnología como beneficiosa y, al mismo tiempo, desconfiar de sus efectos sobre libertades individuales, empleo, formación académica o condiciones de trabajo. Por ello, un análisis basado solo en promedios generales puede ocultar diferencias importantes entre dimensiones sociales, educativas, laborales y productivas.
 
-Además, reportes de adopción a gran escala muestran que el uso de IA presenta variaciones entre grupos demográficos y rubros de actividad, lo que refuerza la necesidad de comparar resultados por perfiles de usuarios [1]. A su vez, datasets abiertos sobre impacto social de la IA entregan variables de comportamiento y percepción que permiten complementar la evidencia de encuestas con un enfoque más amplio [2].
-
-En este trabajo se procederá a realizar un análisis complementario de los datos obtenidos a través de la encuesta realizada por Brookings [1], el dataset de Kaggle [2] y evidencia reciente sobre impacto potencial de modelos de lenguaje en el mercado laboral de Estados Unidos [3], con el objetivo de responder a las siguientes preguntas iniciales:
+En este trabajo se realiza un análisis complementario de datasets abiertos sobre percepción social, educación, empleo, agotamiento laboral, publicaciones de IA e incidentes asociados a desinformación \cite{keskin2026,mazari2026,uom2026,justin2026,oecd2026,aiid2026}. El objetivo es responder a las siguientes preguntas iniciales:
 \begin{enumerate}
-    \item ¿Existen diferencias significativas en exposición y uso de IA por edad, sexo y nivel educativo?
-    \item ¿Cómo se relaciona la dependencia de IA con desempeño académico y autonomía de aprendizaje?
-    \item ¿Qué riesgos de privacidad y seguridad percibe más la población frente al uso de IA?
-    \item ¿Qué sectores o perfiles de personas podrían beneficiarse más de la IA en productividad y empleo, y cuáles podrían verse más afectados por automatización?
+    \item ¿Cómo se relaciona la confianza en la IA con la percepción de beneficio?
+    \item ¿Qué diferencias aparecen entre estudiantes que usan y no usan IA?
+    \item ¿Cómo se vinculan el uso laboral de IA, el reemplazo de tareas y el agotamiento?
+    \item ¿Dónde se concentra geográficamente la producción de IA medida por publicaciones?
+    \item ¿Cómo han evolucionado los incidentes de IA asociados a noticias falsas y desinformación?
 \end{enumerate}
 
-Para abordar estas preguntas, utilizaremos distintos gráficos con el fin de visualizar de forma más clara los datos obtenidos y facilitar una mejor comprensión de sus patrones, tendencias y posibles contrastes entre grupos.
+Para abordar estas preguntas se utilizan gráficos y resúmenes descriptivos que permiten visualizar los datos de forma más clara, comparar grupos y construir una interpretación coherente de los patrones observados.
 
-\section{Solución propuesta}
-La solución propuesta consiste en un pipeline de análisis preliminar en Python con tres etapas:
+\newpage
+\section{Métodos}
+\subsection{Fuentes de datos}
+Se utilizaron seis fuentes abiertas: un dataset sobre agotamiento laboral y uso de IA en trabajadores \cite{justin2026}, un dataset de percepciones sociales sobre IA \cite{keskin2026}, un dataset sobre aprendizaje y uso de IA en estudiantes \cite{mazari2026}, un dataset de mercado laboral asociado a IA \cite{uom2026}, datos de publicaciones de IA de la OCDE \cite{oecd2026} y registros de incidentes de AI Incident Database \cite{aiid2026}. Estas fuentes se eligieron porque cubren dimensiones complementarias del problema: sociedad, educación, empleo, seguridad informacional y producción tecnológica.
 
-
-
+\subsection{Procesamiento}
+El análisis se implementó en Python usando \texttt{pandas} y \texttt{numpy} para carga, limpieza y agregación de datos, junto con \texttt{matplotlib} y \texttt{seaborn} para visualización. El flujo general fue:
 \begin{enumerate}
-    \item Integración y limpieza de datos de encuesta (Brookings) y datos abiertos (Kaggle).
-    \item Definición de dimensiones del problema. 
-    \item Generación de gráficos preliminares para observar tendencias y formular hipótesis de investigación.
+    \item revisar estructura, tipos de datos, valores nulos y variables disponibles;
+    \item estandarizar variables categóricas y seleccionar columnas comparables;
+    \item construir resúmenes por grupo, especialmente para confianza, beneficio percibido, uso de IA, rendimiento, agotamiento e incidentes de desinformación;
+    \item generar gráficos descriptivos para comparar patrones entre datasets.
 \end{enumerate}
 
-Esta solución permite responder de forma inicial las preguntas planteadas en la introducción y deja preparado el terreno para análisis posteriores con técnicas inferenciales.
-
-\section{Diagrama del problema en estudio y dimensiones}
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
-\scalebox{0.74}{%
-\setlength{\unitlength}{1mm}
-\begin{picture}(170,95)
-\thicklines
+\begin{tikzpicture}[scale=0.58, transform shape,
+    box/.style={draw, align=center, font=\small, minimum width=24mm, minimum height=7mm},
+    smallbox/.style={draw, align=center, font=\small, minimum width=24mm, minimum height=6mm}
+]
+\node[box] (center) at (0,0) {Consecuencias\\de la IA};
+\node[box] (salud) at (-3.4,1.8) {Salud\\mental};
+\node[box] (educ)  at (-3.4,-1.8) {Educación};
+\node[box] (priv)  at (3.4,1.8) {Privacidad\\y seguridad};
+\node[box] (prod)  at (3.4,-1.8) {Productividad\\y empleo};
+\node[smallbox] (pens) at (-6.2,2.5) {Pensamiento\\crítico};
+\node[smallbox] (ans)  at (-6.2,1.0) {Ansiedad};
+\node[smallbox] (rend) at (-6.2,-1.0) {Rendimiento};
+\node[smallbox] (desh) at (-6.2,-2.5) {Integridad\\académica};
+\node[smallbox] (trans) at (6.2,2.5) {Transparencia\\de datos};
+\node[smallbox] (fake)  at (6.2,1.0) {Desinformación};
+\node[smallbox] (uso)   at (6.2,-1.0) {Uso laboral\\de IA};
+\node[smallbox] (auto)  at (6.2,-2.5) {Automatización};
+\draw (center) -- (salud);
+\draw (center) -- (educ);
+\draw (center) -- (priv);
+\draw (center) -- (prod);
+\draw (salud.west) -- (pens.east);
+\draw (salud.west) -- (ans.east);
+\draw (educ.west) -- (rend.east);
+\draw (educ.west) -- (desh.east);
+\draw (priv.east) -- (trans.west);
+\draw (priv.east) -- (fake.west);
+\draw (prod.east) -- (uso.west);
+\draw (prod.east) -- (auto.west);
+\end{tikzpicture}
+\caption{Dimensiones consideradas para estudiar las consecuencias de la IA. El esquema organiza el problema en áreas sociales, educativas, laborales y de seguridad.}
+\label{fig:dimensiones}
+\end{figure}
 
-% Nodo central
-\put(62,40){\framebox(30,16){\shortstack{\textbf{Riesgos}\\\textbf{de la IA}}}}
+\section{Resultados}
+\subsection{Percepción social de la IA}
 
-% Salud mental (arriba izquierda)
-\put(4,76){\framebox(30,12){\shortstack{Pensamiento\\critico}}}
-\put(4,58){\framebox(30,12){Ansiedad}}
-\put(40,64){\framebox(26,16){\shortstack{Salud\\Mental}}}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\columnwidth]{graficos_informe/trust_ai.png}
+\caption{Niveles de confianza general hacia la IA. El gráfico muestra una opinión dividida, con presencia importante de respuestas indecisas y de baja confianza.}
+\label{fig:trust-ai}
+\end{figure}
 
-% Educacion (abajo izquierda)
-\put(4,28){\framebox(28,10){Rendimiento}}
-\put(4,8){\framebox(28,10){Deshonestidad}}
-\put(40,16){\framebox(26,16){Educacion}}
+La distribución de confianza muestra posiciones divididas frente a la IA (Fig.~\ref{fig:trust-ai}). Esta polarización es relevante porque sugiere que la aceptación social de la tecnología no depende solo de su disponibilidad, sino también de percepciones sobre beneficio, seguridad y control.
 
-% Privacidad y seguridad (arriba derecha)
-\put(84,66){\framebox(28,18){\shortstack{Privacidad\\y\\Seguridad}}}
-\put(118,80){\framebox(30,12){\shortstack{Transparencia de\\Datos}}}
-\put(118,60){\framebox(30,12){Fakenews}}
-\put(118,40){\framebox(28,12){Deepfake}}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\columnwidth]{graficos_informe/ds02_ia_afecta_trabajo.png}
+\caption{Percepción sobre si la IA podría afectar el propio trabajo. Predominan las respuestas de incertidumbre o desacuerdo, aunque una parte relevante sí percibe posible impacto laboral.}
+\label{fig:ia-afecta-trabajo}
+\end{figure}
 
-% Productividad y empleo (abajo derecha)
-\put(82,14){\framebox(30,18){\shortstack{Productividad\\y Empleo}}}
-\put(118,22){\framebox(30,12){\shortstack{Uso de IA\\profesionalmente}}}
-\put(118,2){\framebox(30,12){Automatizacion}}
-\end{picture}
+El mismo dataset permite observar una dimensión laboral directa: la percepción sobre si la IA podría afectar el propio trabajo (Fig.~\ref{fig:ia-afecta-trabajo}). Este resultado conecta la discusión de confianza social con el debate sobre automatización, exposición ocupacional y cambios en las tareas.
+
+\subsection{Educación y rendimiento académico}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\columnwidth]{graficos_informe/ds03_rendimiento_vs_ia.png}
+\caption{Distribución del puntaje final según uso de IA en estudiantes. La comparación sugiere diferencias entre grupos, pero no permite atribuir causalidad al uso de IA.}
+\label{fig:rendimiento-ia}
+\end{figure}
+
+En el dataset educativo se comparó el puntaje final de estudiantes que usan y no usan IA (Fig.~\ref{fig:rendimiento-ia}). La visualización muestra diferencias entre grupos, pero no permite afirmar que usar IA produzca automáticamente un mejor resultado académico. El efecto puede depender de factores no observados, como hábitos de estudio, tipo de uso, nivel de dependencia y dificultad de las tareas.
+
+\subsection{Desarrollo geográfico}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\columnwidth]{graficos_informe/mapa_publicaciones_ia_ocde_2025.png}
+\caption{Distribución global de publicaciones de IA por país en 2025. La producción científica aparece concentrada en pocas regiones, lo que evidencia brechas de capacidad tecnológica.}
+\label{fig:publicaciones-ia}
+\end{figure}
+
+Los datos de publicaciones muestran una concentración de la producción de IA en un conjunto reducido de países y regiones (Fig.~\ref{fig:publicaciones-ia}). Este patrón sugiere una brecha tecnológica internacional: quienes concentran producción científica, infraestructura y capacidades de investigación en IA pueden influir más en estándares, mercados y disponibilidad futura de herramientas.
+
+\subsection{Seguridad informacional y desinformación}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\columnwidth]{graficos_informe/aiid_incidentes_desinformacion_anio.png}
+\caption{Incidentes AIID asociados a noticias falsas y desinformación entre 2018 y 2025. La serie aumenta con fuerza desde 2023.}
+\label{fig:aiid-desinformacion-anio}
+\end{figure}
+
+Los incidentes vinculados a noticias falsas, desinformación y contenidos sintéticos pasan de niveles bajos entre 2018 y 2022 a una expansión acelerada desde 2023 (Fig.~\ref{fig:aiid-desinformacion-anio}). Este patrón muestra que la manipulación audiovisual y la circulación de contenidos engañosos son dimensiones centrales de los riesgos informacionales asociados a IA generativa.
+
+\section{Discusión}
+Los resultados apuntan a una consecuencia transversal: la IA no genera un impacto único, sino efectos distintos según el contexto. En percepción social, la confianza aparece asociada con una lectura más positiva de la tecnología. En educación, el uso de IA debe analizarse con cautela, porque puede apoyar el aprendizaje, pero también abrir problemas de dependencia, integridad académica y desigualdad en el acceso. En empleo, los datasets revisados permiten conectar el reemplazo de tareas y el uso profesional de IA con discusiones sobre productividad y agotamiento, aunque se requieren análisis adicionales para separar exposición tecnológica, condiciones laborales y perfiles ocupacionales. En seguridad informacional, el aumento de incidentes vinculados a desinformación y \emph{deepfakes} muestra que la IA también puede amplificar daños sociales fuera de espacios académicos o laborales.
+
+La concentración de publicaciones agrega una dimensión estructural al problema. Si la producción de conocimiento sobre IA se concentra geográficamente, entonces los beneficios económicos y la capacidad de decisión sobre estas tecnologías también pueden concentrarse. Esto conecta los hallazgos sociales y educativos con un problema más amplio de gobernanza: no basta con medir si las personas usan IA, también importa quién diseña los sistemas, quién controla los datos y quién captura los beneficios.
+
+Las principales limitaciones del estudio son la heterogeneidad de los datasets, la posible presencia de sesgos de muestreo y la ausencia de variables comunes que permitan integrar todas las fuentes en un único modelo. Además, varios resultados se basan en percepciones declaradas y no en mediciones longitudinales. Por estas razones, las conclusiones deben entenderse como evidencia preliminar.
+
+{\scriptsize
+\begin{thebibliography}{9}
+\setlength{\itemsep}{-1pt}
+\setlength{\parskip}{0pt}
+
+\bibitem{mazari2026}
+Mazari, A. \emph{Learning in the Age of AI: Myths and Facts} [Conjunto de datos]. Kaggle. Disponible en: \url{https://www.kaggle.com/code/abdullahmazari/learning-in-the-age-of-ai-myths-and-facts/input}. Consulta: 01-05-2026.
+
+\bibitem{justin2026}
+Justin, T. \emph{AI Worker Burnout 2026 - EDA} [Conjunto de datos]. Kaggle. Disponible en: \url{https://www.kaggle.com/code/tolstoyjustin/ai-worker-burnout-2026-eda/input}. Consulta: 01-05-2026.
+
+\bibitem{uom2026}
+uom190346a. \emph{AI-powered Job Market Insights} [Conjunto de datos]. Kaggle. Disponible en: \url{https://www.kaggle.com/datasets/uom190346a/ai-powered-job-market-insights}. Consulta: 01-05-2026.
+
+\bibitem{keskin2026}
+Keskin, A. Y. \emph{The Impact of Artificial Intelligence on Society} [Conjunto de datos]. Kaggle. Disponible en: \url{https://www.kaggle.com/datasets/ardayavuzkeskin/the-impact-of-artificial-intelligence-on-society}. Consulta: 01-05-2026.
+
+\bibitem{oecd2026}
+OECD. \emph{Artificial intelligence patents and technology indicators}. OECD Data Explorer / OECD Statistics. Disponible en: \url{https://stats.oecd.org/}. Consulta: 01-05-2026.
+
+\bibitem{aiid2026}
+AI Incident Database. \emph{AI Incident Database} [Conjunto de datos]. Disponible en: \url{https://incidentdatabase.ai/}. Consulta: 01-05-2026.
+
+\bibitem{geerling2023}
+Geerling, W., Mateer, G. D., Wooten, J., Damodaran, N. ChatGPT has Aced the Test of Understanding in College Economics: Now What? \emph{The American Economist}, 68(2), 233--245 (2023). \url{https://doi.org/10.1177/05694345231169654}
+
+\bibitem{weidinger2021}
+Weidinger, L., Mellor, J., Rauh, M., Griffin, C., Uesato, J., Huang, P.-S., et al. Ethical and social risks of harm from Language Models. \emph{arXiv} (2021). \url{https://doi.org/10.48550/arXiv.2112.04359}
+
+\bibitem{eloundou2023}
+Eloundou, T., Manning, S., Mishkin, P., Rock, D. GPTs are GPTs: An Early Look at the Labor Market Impact Potential of Large Language Models. \emph{arXiv} (2023). \url{https://doi.org/10.48550/arXiv.2303.10130}
+
+\bibitem{brynjolfsson2023}
+Brynjolfsson, E., Li, D., Raymond, L. R. Generative AI at Work. \emph{NBER Working Paper} 31161 (2023). \url{https://www.nber.org/papers/w31161}
+
+\bibitem{wef2023}
+World Economic Forum. \emph{The Future of Jobs Report 2023}. Disponible en: \url{https://www.weforum.org/reports/the-future-of-jobs-report-2023/}. Consulta: 01-05-2026.
+
+\end{thebibliography}
 }
-\caption{Diagrama del problema en estudio y dimensiones principales.}
-\end{figure}
-
-\subsection*{Datos por dimensión y origen}
-\begin{itemize}
-    \item \textbf{Salud mental:} variables de hábitos y bienestar como \texttt{sleep\_hours}, \texttt{social\_media\_hours} e intensidad de uso de IA. Fuente: Kaggle [2], archivo \texttt{Data/Data\_set\_02.csv}.
-    \item \textbf{Educación:} frecuencia y cambio de uso de IA (Tablas 2 y 3), \texttt{final\_score} y \texttt{study\_hours\_per\_day}. Fuentes: Brookings [1] y Kaggle [2].
-    \item \textbf{Privacidad y seguridad:} categorías de incertidumbre y revisión de riesgos de desinformación/deepfake. Fuente: Brookings [1].
-    \item \textbf{Productividad y empleo:} tiempo de uso, dependencia y volumen de prompts como proxy de automatización y uso profesional. Fuente: Kaggle [2].
-\end{itemize}
-
-\section{Análisis preliminares}
-A continuación se resumen los gráficos preliminares presentados en clases y su utilidad analítica.
-
-\begin{figure}[!htbp]
-\centering
-\begin{minipage}{0.43\textwidth}
-\centering
-\includegraphics[width=\textwidth,height=0.15\textheight,keepaspectratio]{Data/grafico_barras_tabla2_total.png}\\
-\scriptsize (a) Uso de IA por categoría (Tabla 2, columna Total).
-\end{minipage}
-\hfill
-\begin{minipage}{0.43\textwidth}
-\centering
-\includegraphics[width=\textwidth,height=0.15\textheight,keepaspectratio]{Data/graficos_tabla2_edad_sexo.png}\\
-\scriptsize (b) Distribución de encuestados por edad y sexo (Tabla 2).
-\end{minipage}
-
-\vspace{0.12cm}
-
-\begin{minipage}{0.43\textwidth}
-\centering
-\includegraphics[width=\textwidth,height=0.15\textheight,keepaspectratio]{Data/grafico_barras_tabla3_total.png}\\
-\scriptsize (c) En comparación con hace un año, ¿cómo ha cambiado tu uso personal de IA? (Tabla 3, columna Total).
-\end{minipage}
-\hfill
-\begin{minipage}{0.43\textwidth}
-\centering
-\includegraphics[width=\textwidth,height=0.15\textheight,keepaspectratio]{Data/grafico_tabla3_aumento_nivel_educativo.png}\\
-\scriptsize (d) Aumento de uso de IA por nivel educativo.
-\end{minipage}
-
-\vspace{-0.1cm}
-\caption{Gráficos preliminares utilizados en esta etapa del proyecto.}
-\end{figure}
-
-\subsection*{Descripción breve de los datos analizados}
-En esta etapa se utilizaron dos fuentes principales. La primera corresponde a resultados de encuesta procesados en Tabla 2 y Tabla 3 (Brookings), donde se observa la distribución de encuestados por sexo y edad, además de la variación reciente en el uso de IA por rubro y por nivel educativo. La segunda fuente es el dataset de Kaggle, empleado para complementar variables de comportamiento y uso de IA en personas. En conjunto, los gráficos permiten una lectura inicial de magnitudes, diferencias entre grupos y tendencias generales de adopción.
-
-En particular, los gráficos muestran que en Tabla 2 la muestra se distribuye de forma relativamente equilibrada por sexo (Hombre/Mujer) y con mayor presencia del grupo 60+ años. En Tabla 3, la categoría \emph{No usaba IA previamente} concentra el mayor porcentaje en la columna total, y el aumento del uso de IA por nivel educativo es más alto en \emph{Licenciatura o más}.
-
-\subsection*{Vinculación con las preguntas de investigación}
-Los resultados preliminares se conectan directamente con las preguntas planteadas en la introducción:
-\begin{itemize}
-    \item \textbf{Pregunta 1 (diferencias por edad, sexo y nivel educativo):} se aborda con los gráficos de distribución por sexo y edad (Tabla 2) y con el gráfico de aumento por nivel educativo (Tabla 3).
-    \item \textbf{Pregunta 2 (dependencia de IA y desempeño):} queda planteada para el siguiente análisis usando el dataset de Kaggle, integrando variables como uso de IA, dependencia y resultados académicos.
-    \item \textbf{Pregunta 3 (riesgos de privacidad y seguridad):} se relaciona con los rubros de cambio de uso y con la dimensión de privacidad/seguridad del diagrama, que orienta la lectura de posibles riesgos percibidos.
-    \item \textbf{Pregunta 4 (impacto en productividad y empleo):} se vincula con la dimensión de productividad/empleo y con la comparación de intensidad de uso de IA entre grupos, que sirve como base para contrastes posteriores.
-\end{itemize}
-
-
-\section{Referencias bibliográficas}
-\begin{enumerate}
-    \item West, D., Allen, J., Wang, C., et al. \emph{How are Americans using AI? Evidence from a nationwide survey}. Brookings Institution. Disponible en: https://www.brookings.edu/articles/how-are-americans-using-ai-evidence-from-a-nationwide-survey/ (consulta: 28-03-2026).
-    \item Arda Yavuz Keskin. \emph{The Impact of Artificial Intelligence on Society}. Kaggle. Disponible en: https://www.kaggle.com/datasets/ardayavuzkeskin/the-impact-of-artificial-intelligence-on-society (consulta: 28-03-2026).
-    \item Eloundou, T., Manning, S., Mishkin, P. y Rock, D. \emph{GPTs are GPTs: An Early Look at the Labor Market Impact Potential of Large Language Models}. \emph{arXiv} (2023). Disponible en: https://doi.org/10.48550/arXiv.2303.10130 (consulta: 30-03-2026).
-    \item Geerling, W., Mateer, G. D., Wooten, J. y Damodaran, N. \emph{ChatGPT has Aced the Test of Understanding in College Economics: Now What?}. \emph{The American Economist}, 68(2) (2023). Disponible en: \url{https://journals.sagepub.com/doi/10.1177/05694345231169654}
-    \item Horowitz, M. C. y Kahn, L. \emph{What influences attitudes about artificial intelligence adoption: Evidence from U.S. local officials}. \emph{PLOS ONE}, 16(10), e0257732 (2021). Disponible en: \url{https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0257732}
-\end{enumerate}
 
 \end{document}

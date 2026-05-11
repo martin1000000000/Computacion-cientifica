@@ -1,147 +1,108 @@
-# Computacion Cientifica - Analisis de impacto de la IA
+# Computacion Cientifica - Consecuencias de la IA en las personas
 
-Repositorio del curso de Computacion Cientifica (UACh) enfocado en un analisis exploratorio sobre las consecuencias de la inteligencia artificial en las personas, usando Python, Jupyter y visualizacion de datos.
+Repositorio del trabajo de Computacion Cientifica de la Universidad Austral de Chile. El proyecto analiza, de forma exploratoria y descriptiva, distintas consecuencias sociales, educativas, laborales e informacionales asociadas al uso de inteligencia artificial.
 
-## Descripcion
+El trabajo usa datasets abiertos, notebooks en Python, graficos generados para el informe, articulos de respaldo y un informe final escrito en LaTeX.
 
-El proyecto integra y analiza datos de distintas fuentes para estudiar cuatro dimensiones principales:
+## Contenido principal
 
-- Salud mental
-- Educacion
-- Privacidad y seguridad
-- Productividad y empleo
+- `informe_trabajo.tex`: fuente LaTeX del informe final.
+- `informe_trabajo.pdf`: version compilada del informe.
+- `ppt trabajo.pptx`: presentacion del trabajo.
+- `Dataset/`: datasets utilizados en el analisis.
+- `cuadernillos/`: notebooks de exploracion y generacion de graficos.
+- `Papper/`: papers y documentos consultados como respaldo teorico.
 
-El trabajo incluye notebooks de analisis, datasets en formato CSV/Excel, graficos generados y un informe en LaTeX.
+## Ejes del analisis
+
+El informe organiza los resultados en cuatro lineas principales:
+
+- Percepcion social y trabajo.
+- Educacion y rendimiento academico.
+- Produccion cientifica y desarrollo geografico.
+- Seguridad informacional y desinformacion.
 
 ## Estructura del repositorio
 
 ```text
 .
 |- README.md
-|- prueba.ipynb
-|- prueba_02.ipynb
 |- informe_trabajo.tex
-|- Data/
-|  |- Data_set_01.xlsx
+|- informe_trabajo.pdf
+|- ppt trabajo.pptx
+|- Dataset/
+|  |- Data_set_01.csv
 |  |- Data_set_02.csv
 |  |- Data_set_03.csv
 |  |- Data_set_04.csv
 |  |- Data_set_05.csv
-|  |- tabla2_ordenada_es.csv
-|  |- tabla3_ordenada_es.csv
-|  |- histograma_sexo_tabla2.png
-|  |- histograma_edad_tabla2.png
-|  |- grafico_barras_tabla3_rubros.png
-|  |- output.png
+|  |- Data_set_07.csv
+|- cuadernillos/
+|  |- Cuadernillo_dataset_01.ipynb
+|  |- Cuadernillo_dataset_02.ipynb
+|  |- Cuadernillo_dataset_03.ipynb
+|  |- Cuadernillo_dataset_04.ipynb
+|  |- Cuadernillo_dataset_05.ipynb
+|  |- Cuadernillo_dataset_06.ipynb
+|  |- Cuadernillo_dataset_07.ipynb
+|- Papper/
 ```
 
 ## Requisitos
 
-- Python 3.10 o superior
-- Jupyter Notebook / JupyterLab
-- Paquetes de Python:
-	- pandas
-	- numpy
-	- matplotlib
-	- seaborn
-	- scikit-learn
-	- jupyter
-	- ipykernel
-	- openpyxl
-	- requests
+- Python 3.10 o superior.
+- Jupyter Notebook o JupyterLab.
+- Una distribucion de LaTeX para compilar el informe, por ejemplo MiKTeX o TeX Live.
+
+Paquetes de Python usados principalmente:
+
+- `pandas`
+- `numpy`
+- `matplotlib`
+- `seaborn`
+- `geopandas`
+- `jupyter`
+- `ipykernel`
+- `openpyxl`
 
 ## Instalacion rapida
 
-### 1) Crear y activar entorno virtual
-
-En Windows (PowerShell):
+En Windows PowerShell:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
+pip install pandas numpy matplotlib seaborn geopandas jupyter ipykernel openpyxl
 ```
 
-En Git Bash:
+Opcionalmente, registrar el entorno como kernel de Jupyter:
 
-```bash
-python -m venv .venv
-source .venv/Scripts/activate
-```
-
-### 2) Instalar dependencias
-
-```bash
-pip install pandas numpy matplotlib seaborn scikit-learn jupyter ipykernel openpyxl requests
-```
-
-### 3) (Opcional) Registrar kernel
-
-```bash
+```powershell
 python -m ipykernel install --user --name computacion-cientifica --display-name "Python (Computacion Cientifica)"
 ```
 
 ## Uso
 
-### Ejecutar notebooks
+Para abrir los notebooks:
 
-```bash
+```powershell
 jupyter notebook
 ```
 
-Luego abrir:
+Luego revisar los archivos dentro de `cuadernillos/`. Cada cuadernillo corresponde al procesamiento de uno de los datasets o a la generacion de figuras usadas en el informe.
 
-- `prueba.ipynb`
-- `prueba_02.ipynb`
+Para compilar el informe:
 
-### Ejecutar crawler de papers de IA
-
-```bash
-python crawler_arxiv_ia.py
-```
-
-Esto descarga papers recientes relacionados con IA desde la API oficial de arXiv y guarda los resultados en `Data/arxiv_ia/`.
-
-### Ejecutar crawler de indicadores crudos para IA
-
-```bash
-python crawler_worldbank_ia.py
-```
-
-Esto descarga indicadores crudos del Banco Mundial utiles para hacer graficos sobre adopcion digital, I+D, exportaciones tecnologicas y patentes en `Data/worldbank_ia/`.
-
-### Ejecutar crawler de modelos de IA desde Hugging Face
-
-```bash
-python crawler_huggingface_ia.py
-```
-
-Esto descarga metadata cruda de modelos de IA reales desde la API oficial de Hugging Face y guarda CSV/JSON en `Data/huggingface_ia/`.
-
-El crawler extrae columnas mas utiles para analisis y graficos, por ejemplo:
-- `downloads` y `downloadsAllTime`
-- `likes` y `trendingScore`
-- `pipeline_tag`, `model_type`, `architecture`
-- `parameter_count_billions`
-- `used_storage_gb`, `repo_file_count`
-- `space_count`, `inference_status`
-- `license`, `base_models`, `card_languages`, `arxiv_refs`
-
-### Compilar el informe
-
-Si tienes LaTeX instalado:
-
-```bash
+```powershell
+pdflatex informe_trabajo.tex
 pdflatex informe_trabajo.tex
 ```
 
-Esto genera el PDF del informe a partir de `informe_trabajo.tex`.
+Se ejecuta dos veces para actualizar correctamente referencias, numeracion de figuras y bibliografia interna.
 
-## Fuentes de datos
+## Fuentes y respaldo
 
-- Brookings Institution: encuesta sobre uso de IA en EE.UU.
-- Kaggle: The Impact of Artificial Intelligence on Society
-
-Los archivos procesados y ordenados utilizados en el analisis se encuentran en la carpeta `Data/`.
+El analisis se apoya en datasets abiertos y documentos academicos o institucionales, incluyendo trabajos sobre impacto laboral de IA generativa, educacion, riesgos sociales y registros de incidentes asociados a IA. Los documentos de respaldo se encuentran en `Papper/` y las fuentes especificas estan citadas dentro del informe.
 
 ## Integrantes
 
