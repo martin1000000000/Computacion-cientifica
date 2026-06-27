@@ -11,6 +11,7 @@ El trabajo usa datasets abiertos, notebooks en Python, graficos generados para e
 - `ppt trabajo.pptx`: presentacion del trabajo.
 - `Dataset/`: datasets utilizados en el analisis.
 - `cuadernillos/`: notebooks de exploracion y generacion de graficos.
+  - Destaca el **Dashboard Interactivo** (`Cuadernillo_dashboard_interactivo_v21_mapas.ipynb`), el cual integra visualizaciones interactivas, normalización de datos geoespaciales y un modelo predictivo (Machine Learning) en tiempo real.
 - `Papper/`: papers y documentos consultados como respaldo teorico.
 
 ## Ejes del analisis
@@ -45,6 +46,8 @@ El informe organiza los resultados en cuatro lineas principales:
 |  |- Cuadernillo_dataset_05.ipynb
 |  |- Cuadernillo_dataset_06.ipynb
 |  |- Cuadernillo_dataset_07.ipynb
+|  |- Cuadernillo_dashboard_interactivo_v21_mapas.ipynb
+|- patentes_ia_2018_2024.csv
 |- Papper/
 ```
 
@@ -61,6 +64,8 @@ Paquetes de Python usados principalmente:
 - `matplotlib`
 - `seaborn`
 - `geopandas`
+- `scikit-learn`
+- `ipywidgets`
 - `jupyter`
 - `ipykernel`
 - `openpyxl`
@@ -72,7 +77,7 @@ En Windows PowerShell:
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-pip install pandas numpy matplotlib seaborn geopandas jupyter ipykernel openpyxl
+pip install pandas numpy matplotlib seaborn geopandas scikit-learn ipywidgets jupyter ipykernel openpyxl
 ```
 
 Opcionalmente, registrar el entorno como kernel de Jupyter:
@@ -90,6 +95,8 @@ jupyter notebook
 ```
 
 Luego revisar los archivos dentro de `cuadernillos/`. Cada cuadernillo corresponde al procesamiento de uno de los datasets o a la generacion de figuras usadas en el informe.
+
+Especial atencion al `Cuadernillo_dashboard_interactivo_v21_mapas.ipynb`, que agrupa los hallazgos mas importantes en una interfaz grafica. En el se emplean selectores, vistas proporcionales en mapas mundiales y un modelo de Random Forest entrenado para inferencia interactiva.
 
 Para compilar el informe:
 
