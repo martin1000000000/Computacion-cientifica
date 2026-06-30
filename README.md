@@ -2,114 +2,64 @@
 
 Repositorio del trabajo de Computacion Cientifica de la Universidad Austral de Chile. El proyecto analiza, de forma exploratoria y descriptiva, distintas consecuencias sociales, educativas, laborales e informacionales asociadas al uso de inteligencia artificial.
 
-El trabajo usa datasets abiertos, notebooks en Python, graficos generados para el informe, articulos de respaldo y un informe final escrito en LaTeX.
+El trabajo usa datasets abiertos, notebooks en Python, graficos generados y una presentacion (PPT).
+
+## 🚀 Cómo ejecutar el Dashboard
+
+El **Dashboard Interactivo (`Cuadernillo_dashboard_interactivo_v23_mapas.ipynb`)** es el archivo central de esta entrega. Para visualizarlo y usar sus herramientas de Machine Learning e interactividad, siga estos pasos:
+
+### Paso 1: Verificar la estructura de archivos
+Asegúrese de haber descomprimido todo el `.zip` y de que la estructura se vea exactamente así:
+```text
+Entrega_Final/
+├── cuadernillos/
+│   └── Cuadernillo_dashboard_interactivo_v23_mapas.ipynb
+├── Dataset/
+│   ├── Data_set_01.csv
+│   ├── Data_set_02.csv
+│   ├── Data_set_03.csv
+│   ├── Data_set_05.csv
+│   └── Data_set_07.csv
+└── patentes_ia_2018_2024.csv
+```
+*(Nota: El archivo de patentes debe ir suelto en la carpeta principal, NO dentro de Dataset).*
+
+### Paso 2: Instalar los requisitos
+Abra una terminal (o PowerShell) en la carpeta principal del proyecto y asegúrese de tener instaladas las siguientes librerías de Python:
+```powershell
+pip install pandas numpy matplotlib seaborn geopandas scikit-learn ipywidgets jupyter
+```
+
+### Paso 3: Abrir Jupyter Notebook
+En la misma terminal, inicie Jupyter:
+```powershell
+jupyter notebook
+```
+Esto abrirá una pestaña en su navegador web.
+
+### Paso 4: Ejecutar el Dashboard
+1. Navegue hasta la carpeta `cuadernillos/` y haga clic en **`Cuadernillo_dashboard_interactivo_v23_mapas.ipynb`**.
+2. **Importante:** Asegúrese de estar conectado a Internet (el cuaderno necesita descargar las fronteras geométricas del mapa mundi desde *Natural Earth*).
+3. En el menú superior de Jupyter, haga clic en la pestaña **"Kernel"** y luego en **"Restart & Run All"** (Reiniciar y Ejecutar Todo).
+4. Desplácese hasta el final del cuaderno. Verá aparecer la interfaz gráfica completa con múltiples pestañas (Gráficos, General, Mapas, ML V1 y ML V2).
+
+---
 
 ## Contenido principal
 
-- `informe_trabajo.tex`: fuente LaTeX del informe final.
-- `informe_trabajo.pdf`: version compilada del informe.
 - `ppt trabajo.pptx`: presentacion del trabajo.
 - `Dataset/`: datasets utilizados en el analisis.
 - `cuadernillos/`: notebooks de exploracion y generacion de graficos.
-  - Destaca el **Dashboard Interactivo** (`Cuadernillo_dashboard_interactivo_v21_mapas.ipynb`), el cual integra visualizaciones interactivas, normalización de datos geoespaciales y un modelo predictivo (Machine Learning) en tiempo real.
-- `Papper/`: papers y documentos consultados como respaldo teorico.
 
-## Ejes del analisis
+## Instalacion rapida (Entorno Virtual)
 
-El informe organiza los resultados en cuatro lineas principales:
-
-- Percepcion social y trabajo.
-- Educacion y rendimiento academico.
-- Produccion cientifica y desarrollo geografico.
-- Seguridad informacional y desinformacion.
-
-## Estructura del repositorio
-
-```text
-.
-|- README.md
-|- informe_trabajo.tex
-|- informe_trabajo.pdf
-|- ppt trabajo.pptx
-|- Dataset/
-|  |- Data_set_01.csv
-|  |- Data_set_02.csv
-|  |- Data_set_03.csv
-|  |- Data_set_04.csv
-|  |- Data_set_05.csv
-|  |- Data_set_07.csv
-|- cuadernillos/
-|  |- Cuadernillo_dataset_01.ipynb
-|  |- Cuadernillo_dataset_02.ipynb
-|  |- Cuadernillo_dataset_03.ipynb
-|  |- Cuadernillo_dataset_04.ipynb
-|  |- Cuadernillo_dataset_05.ipynb
-|  |- Cuadernillo_dataset_06.ipynb
-|  |- Cuadernillo_dataset_07.ipynb
-|  |- Cuadernillo_dashboard_interactivo_v21_mapas.ipynb
-|- patentes_ia_2018_2024.csv
-|- Papper/
-```
-
-## Requisitos
-
-- Python 3.10 o superior.
-- Jupyter Notebook o JupyterLab.
-- Una distribucion de LaTeX para compilar el informe, por ejemplo MiKTeX o TeX Live.
-
-Paquetes de Python usados principalmente:
-
-- `pandas`
-- `numpy`
-- `matplotlib`
-- `seaborn`
-- `geopandas`
-- `scikit-learn`
-- `ipywidgets`
-- `jupyter`
-- `ipykernel`
-- `openpyxl`
-
-## Instalacion rapida
-
-En Windows PowerShell:
+En Windows PowerShell, si prefiere crear un entorno aislado:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install pandas numpy matplotlib seaborn geopandas scikit-learn ipywidgets jupyter ipykernel openpyxl
 ```
-
-Opcionalmente, registrar el entorno como kernel de Jupyter:
-
-```powershell
-python -m ipykernel install --user --name computacion-cientifica --display-name "Python (Computacion Cientifica)"
-```
-
-## Uso
-
-Para abrir los notebooks:
-
-```powershell
-jupyter notebook
-```
-
-Luego revisar los archivos dentro de `cuadernillos/`. Cada cuadernillo corresponde al procesamiento de uno de los datasets o a la generacion de figuras usadas en el informe.
-
-Especial atencion al `Cuadernillo_dashboard_interactivo_v21_mapas.ipynb`, que agrupa los hallazgos mas importantes en una interfaz grafica. En el se emplean selectores, vistas proporcionales en mapas mundiales y un modelo de Random Forest entrenado para inferencia interactiva.
-
-Para compilar el informe:
-
-```powershell
-pdflatex informe_trabajo.tex
-pdflatex informe_trabajo.tex
-```
-
-Se ejecuta dos veces para actualizar correctamente referencias, numeracion de figuras y bibliografia interna.
-
-## Fuentes y respaldo
-
-El analisis se apoya en datasets abiertos y documentos academicos o institucionales, incluyendo trabajos sobre impacto laboral de IA generativa, educacion, riesgos sociales y registros de incidentes asociados a IA. Los documentos de respaldo se encuentran en `Papper/` y las fuentes especificas estan citadas dentro del informe.
 
 ## Integrantes
 
